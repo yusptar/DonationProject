@@ -75,8 +75,31 @@
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav><!-- .navbar -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="get-started-btn scrollto" href="{{ route('login') }}">{{ __('Sign In') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
 
-          <a href="/home" class="get-started-btn scrollto">Sign in</a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest          
         </div>
       </div>
 
@@ -90,7 +113,7 @@
         <div class="col-xl-8">
           <h1>Yayasan At-Taufiq Malang Donation Website</h1>
           <h2>We are team of designers making websites with Bootstrap</h2>
-          <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
+          <a href="https://www.youtube.com/watch?v=byWzFXQdnEw" class="glightbox play-btn mb-4"></a>
         </div>
       </div>
     </div>
