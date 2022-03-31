@@ -18,7 +18,7 @@ class AdministratorSeeder extends Seeder
         $admin->name = "administrator";
         $admin->email = "admin@gmail.com";
         $admin->password = \Hash::make("admin123");
-        $admin->roles = "A";
+        $admin->roles = "Admin";
         $admin->save();
         $this->command->info("Admin berhasil ditambah");
     }
