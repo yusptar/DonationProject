@@ -6,8 +6,8 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="{{ asset('auth/images/signin-image.jpg') }}" alt="sing up image"></figure>
-                        <a href="{{ route('register') }}" class="signup-image-link">Create an account</a>
+                        <figure><a href="/"><img src="{{ asset('auth/images/signin-image.jpg') }}" alt="sing up image"></a></figure>
+                        <a href="{{ route('register') }}" class="signup-image-link">Belum mempunyai akun? Daftar segera</a>
                     </div>
 
                     <div class="signin-form">
@@ -44,7 +44,6 @@
                             </div>
                             <div class="form-group form-button">
                                     <input type="submit" name="signin" id="signin" class="form-submit" value="Log In"></input>
-                                    <a href="/" class="btn btn-default">Cancel</a>
                             </div>
                         </form>
                             <div class="social-login">
