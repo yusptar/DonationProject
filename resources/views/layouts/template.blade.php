@@ -64,7 +64,7 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="get-started-btn scrollto" href="{{ route('login') }}">{{ __('Sign In') }}</a>
+                                    <a class="get-started-btn scrollto" href="{{ route('login') }}">{{ __('Masuk/Daftar') }}</a>
                                 </li>
                             @endif
                         @else
