@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('user/assets/img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('user/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="//attaufiqmlg.com/wp-content/uploads/2016/06/ico.ico" rel="icon">
+  <link href="//attaufiqmlg.com/wp-content/uploads/2016/06/logo-150.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -43,35 +43,21 @@
 
       <div class="row justify-content-center">
         <div class="col-xl-9 d-flex align-items-center justify-content-lg-between">
-          <h1 class="logo me-auto me-lg-0"><a href="index.html"></a></h1>
+          <h1 class="logo me-auto me-lg-0"><a href="/"></a></h1>
           <!-- Uncomment below if you prefer to use an image logo -->
-          <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="{{ asset('user/assets/img/logo.png') }}" alt="" class="img-fluid"></a>-->
+          <a href="/" class="logo me-auto me-lg-0"><img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" alt="" class="img-fluid"></a>
 
           <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
               <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-              <li><a class="nav-link scrollto" href="#about">About</a></li>
-              <li><a class="nav-link scrollto" href="#services">Services</a></li>
-              <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-              <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-              <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+              <li><a class="nav-link scrollto" href="#about">Profil</a></li>
+              <li><a class="nav-link scrollto" href="#services">Donasi</a></li>
+              <li class="dropdown"><a href=""><span>Informasi</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
-                  <li><a href="#">Drop Down 1</a></li>
-                  <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                    <ul>
-                      <li><a href="#">Deep Drop Down 1</a></li>
-                      <li><a href="#">Deep Drop Down 2</a></li>
-                      <li><a href="#">Deep Drop Down 3</a></li>
-                      <li><a href="#">Deep Drop Down 4</a></li>
-                      <li><a href="#">Deep Drop Down 5</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Drop Down 2</a></li>
-                  <li><a href="#">Drop Down 3</a></li>
-                  <li><a href="#">Drop Down 4</a></li>
+                  <li><a href="#portfolio">Foto Kegiatan</a></li>
                 </ul>
               </li>
-              <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+              <li><a class="nav-link scrollto" href="#contact">Hubungi Kami</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav><!-- .navbar -->
@@ -112,7 +98,7 @@
       <div class="row justify-content-center">
         <div class="col-xl-8">
           <h1>Yayasan At-Taufiq Malang Donation Website</h1>
-          <h2>We are team of designers making websites with Bootstrap</h2>
+          <h2>Bersama kita merajut masa depan Anak Yatim</h2>
           <a href="https://www.youtube.com/watch?v=byWzFXQdnEw" class="glightbox play-btn mb-4"></a>
         </div>
       </div>
@@ -126,24 +112,15 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
-      <h3>KnightOne</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+    <a class="logo me-auto me-lg-0"><img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" alt="" class="img-fluid"></a>
+      <p>Jl. Sanan 70 RT 08 RW.15 Purwantoro Blimbing Malang 65122, (0341) 411105</p>
       <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://www.facebook.com/yayasan.attaufiqmalang" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/yayasan_attaufiqmlg/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UCNOPBq0R1KsBbSVMIKw6HHg" class="youtube" target="_blank"><i class="bx bxl-youtube"></i></a>
       </div>
       <div class="copyright">
-        &copy; Copyright <strong><span>KnightOne</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/knight-simple-one-page-bootstrap-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        &copy; Copyright <strong><span>Yayasan At-Taufiq Kota Malang</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->
