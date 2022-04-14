@@ -49,9 +49,16 @@
 
           <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
+              @can('admin')
+              <li><a class="nav-link scrollto" href="#">Data User</a></li>
+              <li><a class="nav-link scrollto" href="#">Riwayat Donasi</a></li>
+              <li><a class="nav-link scrollto" href="#">Cetak Laporan</a></li>
+              @endcan
+              @can('user')
               <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">Profil</a></li>
               <li><a class="nav-link scrollto" href="#services">Donasi</a></li>
+              @endcan
               <li class="dropdown"><a href=""><span>Informasi</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a href="#portfolio">Foto Kegiatan</a></li>
