@@ -57,7 +57,7 @@
               
               <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">Profil</a></li>
-              @can('user')
+              @can('donatur')
               <li><a class="nav-link scrollto" href="#services">Donasi</a></li>
               @endcan
               <li class="dropdown"><a href=""><span>Informasi</span> <i class="bi bi-chevron-down"></i></a>
