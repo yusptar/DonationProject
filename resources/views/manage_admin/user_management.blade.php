@@ -1,239 +1,101 @@
 @extends('layouts.template1')
 @section('content')
 <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Tables</h4>
+                        <h4 class="page-title">Data Pengguna</h4>
                         <div class="ms-auto text-end">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <button type="button" class="btn btn-outline-success btn-rounded">
+                                        <span class="svg-icon svg-icon-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="green" />
+                                            <rect x="10.8891" y="17.8033" width="12" height="2" rx="1" transform="rotate(-90 10.8891 17.8033)" fill="black" />
+                                            <rect x="6.01041" y="10.9247" width="12" height="2" rx="1" fill="black" />
+                                            </svg>
+                                        </span>
+                                    Tambah Data</button>
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title mb-0">Static Table</h5>
+                                <div class="table-responsive">                          
+                                    <table id="zero_config" class="table align-middle table-row-dashed fs-6 gy-5 mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama</th>
+                                                <th>Email</th>
+                                                <th>Role</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        @php
+                                            $no = 1;
+                                        @endphp
+
+                                        @foreach($users as $user)
+                                            <tr>
+                                                <th>{{$no++}}</th>
+                                                <td>{{$user->name}}</td>
+                                                <td>{{$user->email}}</td>
+                                                <td>{{$user->roles}}</td>
+                                                <td>
+                                                    <div class="d-flex flex-row comment-row mt-0">
+                                                            <div class="comment-footer">
+                                                                <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-cyan btn-sm text-white btn-rounded">Edit</button>
+                                                                <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger btn-sm text-white btn-rounded">Delete</button>
+                                                            </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title mb-0">Static Table With Checkboxes</h5>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th>
-                                                <label class="customcheckbox mb-3">
-                                                    <input type="checkbox" id="mainCheckbox" />
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </th>
-                                            <th scope="col">Rendering engine</th>
-                                            <th scope="col">Browser</th>
-                                            <th scope="col">Platform(s)</th>
-                                            <th scope="col">Engine version</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="customtable">
-                                        <tr>
-                                            <th>
-                                                <label class="customcheckbox">
-                                                    <input type="checkbox" class="listCheckbox" />
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </th>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                <label class="customcheckbox">
-                                                    <input type="checkbox" class="listCheckbox" />
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </th>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td>5</td>
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                <label class="customcheckbox">
-                                                    <input type="checkbox" class="listCheckbox" />
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </th>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                <label class="customcheckbox">
-                                                    <input type="checkbox" class="listCheckbox" />
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </th>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td>5</td>
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                <label class="customcheckbox">
-                                                    <input type="checkbox" class="listCheckbox" />
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </th>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.5</td>
-                                            <td>Win 95+</td>
-                                            <td>5.5</td>
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                <label class="customcheckbox">
-                                                    <input type="checkbox" class="listCheckbox" />
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </th>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 6</td>
-                                            <td>Win 98+</td>
-                                            <td>6</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Collspan Table Example</h5>
-                            </div>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
                     </div>
+                </div>            
+            </div>
+            <!-- Tambah Data -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered mw-650px"  role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Recipient:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Send message</button>
+                    </div>
+                    </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
-        </div>
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
-            </div>
+                   
 @endsection

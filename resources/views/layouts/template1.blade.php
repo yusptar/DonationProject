@@ -18,6 +18,7 @@
     <link href="{{ asset('admins/assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{ asset('admins/dist/css/style.min.css') }}" rel="stylesheet">
+    
     <!-- HTML5 Shim and Respond.js') }} IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js') }} doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -374,16 +375,26 @@
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
+        
         <!-- ============================================================== -->
-        @yield('content')
+            @yield('content')
         
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
+         <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center">
+                All Rights Reserved by Matrix-admin. Designed and Developed by <a
+                    href="https://www.wrappixel.com">WrapPixel</a>.
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
     </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
+    
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
@@ -409,7 +420,15 @@
     <script src="{{ asset('admins/assets/libs/flot/jquery.flot.crosshair.js') }}"></script>
     <script src="{{ asset('admins/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
     <script src="{{ asset('admins/dist/js/pages/chart/chart-page-init.js') }}"></script>
-
+    <script src="{{ asset('admins/assets/extra-libs/multicheck/datatable-checkbox-init.js') }}"></script>
+    <script src="{{ asset('admins/assets/extra-libs/multicheck/jquery.multicheck.js') }}"></script>
+    <script src="{{ asset('admins/assets/extra-libs/DataTables/datatables.min.js') }}"></script>
+    <script>
+            /****************************************
+             *       Basic Table                   *
+             ****************************************/
+            $('#zero_config').DataTable();
+    </script>
 </body>
 
 </html>
