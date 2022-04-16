@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +22,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
-Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'dashboard_view'])->name('dashboard');
+Route::get('admin', [AdminController::class, 'index'])->name('admin');
+Route::get('dashboard', [AdminController::class, 'dashboard_view'])->name('dashboard');
 
 // USER
-Route::get('/manageuser', [App\Http\Controllers\AdminController::class, 'user_view'])->name('manageuser'); //READ
+Route::get('manageuser', [AdminController::class, 'user_view'])->name('manageuser');
+Route::post('tambah-user', [AdminController::class, 'store']);
+Route::post('edit-user', [AdminController::class, 'edit']);
+Route::post('delete-user', [AdminController::class, 'destroy']);

@@ -1,5 +1,9 @@
 @extends('layouts.template1')
 @section('content')
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <div class="page-wrapper">
             <div class="page-breadcrumb">
                 <div class="row">
@@ -8,7 +12,7 @@
                         <div class="ms-auto text-end">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <button type="button" class="btn btn-outline-success btn-rounded">
+                                    <button type="button" class="btn btn-outline-success btn-rounded" id="tambah-user">
                                         <span class="svg-icon svg-icon-3">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                             <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="green" />
@@ -49,14 +53,16 @@
                                                 <th>{{$no++}}</th>
                                                 <td>{{$user->name}}</td>
                                                 <td>{{$user->email}}</td>
-                                                <td>{{$user->roles}}</td>
+                                                @if ($user->roles == "Admin")
+                                                    <td><div class="badge rounded-pill bg-danger">Admin</div></td>
+                                                @elseif($user->roles == "Donatur")
+                                                    <td><div class="badge rounded-pill bg-success">Donatur</div></td>
+                                                @else
+                                                    <td><div class="badge rounded-pill bg-dark">Pengasuh</div></td>
+                                                @endif
                                                 <td>
-                                                    <div class="d-flex flex-row comment-row mt-0">
-                                                            <div class="comment-footer">
-                                                                <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-cyan btn-sm text-white btn-rounded">Edit</button>
-                                                                <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger btn-sm text-white btn-rounded">Delete</button>
-                                                            </div>
-                                                    </div>
+                                                    <a href="javascript:void(0)" class="btn btn-primary edit btn-sm btn-rounded" data-id="{{ $user->id }}">Edit</a>
+                                                    <a href="javascript:void(0)" class="btn btn-primary delete btn-sm btn-rounded" data-id="{{ $user->id }}">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -69,33 +75,132 @@
                 </div>            
             </div>
             <!-- Tambah Data -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered mw-650px"  role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
+            <div class="modal fade" id="user-model" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered mw-650px">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="userModel"></h4>
+                </div>
+                <div class="modal-body">
+                    <form action="javascript:void(0)" id="addEditBookForm" name="addEditBookForm" class="form-horizontal" method="POST">
+                    <input type="hidden" name="id" id="id">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Nama</label>
+                        <div class="col-sm-12">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama" value="" maxlength="50" required="">
                         </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
+                    </div>  
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-12">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email" value="" maxlength="50" required="">
                         </div>
-                        </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Send message</button>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-12">
+                        <input type="text" class="form-control" id="password" name="password" placeholder="Masukkan Password" value="" required="">
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Roles</label>
+                        <div class="col-sm-12">
+                        <input type="text" class="form-control" id="roles" name="roles" placeholder="Pilih Roles" value="" required="">
+                        </div>
                     </div>
+                    <div class="text-center pt-15">
+                            <button type="reset" id="btn-cancel" class="btn btn-light me-3">Batal</button>
+                            <button type="submit" id="btn-save" class="btn btn-primary" value="tambah-user">
+                              <span class="indicator-label">Simpan</span>                       
+                            </button>
+                    </div>
+                    </form>
+                </div>
+                <div class="modal-footer">    
+                </div>
                 </div>
             </div>
-                   
+            </div>
+        <!-- end bootstrap model -->
+<script type="text/javascript">
+ $(document).ready(function($){
+    $.ajaxSetup({
+        headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $('#tambah-user').click(function () {
+       $('#addEditBookForm').trigger("reset");
+       $('#userModel').html("Tambah Data");
+       $('#user-model').modal('show');
+    });
+
+    $('#btn-cancel').click(function () {
+       $('#user-model').modal('hide');
+    });
+ 
+    $('body').on('click', '.edit', function () {
+        var id = $(this).data('id');
+         
+        // ajax
+        $.ajax({
+            type:"POST",
+            url: "{{ url('edit-user') }}",
+            data: { id: id },
+            dataType: 'json',
+            success: function(res){
+              $('#ajaxBookModel').html("Edit Book");
+              $('#ajax-book-model').modal('show');
+              $('#id').val(res.id);
+              $('#name').val(res.name);
+              $('#email').val(res.email);
+              $('#password').val(res.password);
+           }
+        });
+    });
+    $('body').on('click', '.delete', function () {
+       if (confirm("Delete Record?") == true) {
+        var id = $(this).data('id');
+         
+        // ajax
+        $.ajax({
+            type:"POST",
+            url: "{{ url('delete-user') }}",
+            data: { id: id },
+            dataType: 'json',
+            success: function(res){
+              window.location.reload();
+           }
+        });
+       }
+    });
+    $('body').on('click', '#btn-save', function (event) {
+          var id = $("#id").val();
+          var name = $("#name").val();
+          var email = $("#email").val();
+          var password = $("#password").val();
+          var roles = $("#roles").val();
+          $("#btn-save").html('Please Wait...');
+          $("#btn-save").attr("disabled", true);
+         
+        // ajax
+        $.ajax({
+            type:"POST",
+            url: "{{ url('tambah-user') }}",
+            data: {
+              id:id,
+              title:title,
+              code:code,
+              author:author,
+            },
+            dataType: 'json',
+            success: function(res){
+             window.location.reload();
+            $("#btn-save").html('Submit');
+            $("#btn-save"). attr("disabled", false);
+           }
+        });
+    });
+});
+</script>
 @endsection

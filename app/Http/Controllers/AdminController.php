@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
+use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
 
@@ -33,30 +34,38 @@ class AdminController extends Controller
         return view('manage_admin.user_management',['users' => $users]);
     }
 
-    public function tambah(Request $request){
-        try {
-            DB::table('users')->insert([
-                'name'                      => $request->name,
-                'email'                     => $request->email,
-                'password'                  => Hash::make($request->password),
-                'created_at'                => Carbon::now(), 
-                'roles'                     => $request->roles,
-            ]);
-            return response()->json(['status' => 'success', 'message' => 'Tambah User Berhasil'], 200);
-        } catch (\Exception $e) {
-            return response()->json(['status' => 'errors', 'message' => $e->getMessage()], 406);
-        }
+    public function store(Request $request)
+    {
+        
+            $users   =   User::updateOrCreate(
+                        [
+                            'id' => $request->id
+                        ],
+                        [
+                            'name' => $request->name, 
+                            'email' => $request->email,
+                            'password' => $request->password,
+                            'roles' => $request->roles,
 
+                        ]);
+    
+                        return response()->json(['success' => true]);
+      
     }
+    
+    public function edit(Request $request)
+    {
+       
+        $where = array('id' => $request->id);
+        $users  = User::where($where)->first();
 
-    public function hapus(Request $request){
-        try {
-            DB::table('users')
-                    ->where('id', $request->id)
-                    ->delete();
-            return response()->json(['status' => 'success', 'result' => 'Hapus Data Berhasil'], 200);
-        } catch (\Exception $e) {
-            return response()->json(['status' => 'errors', 'message' => $e->getMessage()], 406);
-        }
+        return response()->json([$users]);
+    }
+ 
+   
+    public function destroy(Request $request)
+    {
+        $users = User::where('id',$request->id)->delete();
+        return response()->json(['success' => true]);
     }
 }

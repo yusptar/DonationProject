@@ -11,6 +11,7 @@
     <meta name="description"
         content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Yayasan At-Taufiq Malang Donation Website</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="//attaufiqmlg.com/wp-content/uploads/2016/06/logo-150.png">
