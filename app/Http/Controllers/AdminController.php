@@ -25,4 +25,9 @@ class AdminController extends Controller
     {
         return view('home1');
     }
+
+    public function dashboard_view()
+    {
+        return view('manage_admin.dashboard');
+    }
 }
