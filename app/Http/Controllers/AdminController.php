@@ -30,4 +30,9 @@ class AdminController extends Controller
     {
         return view('manage_admin.dashboard');
     }
+
+    public function user_view()
+    {
+        return view('manage_admin.user_management');
+    }
 }
