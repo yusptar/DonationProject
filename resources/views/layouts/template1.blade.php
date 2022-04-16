@@ -11,9 +11,9 @@
     <meta name="description"
         content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
+    <title>Yayasan At-Taufiq Malang Donation Website</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admins/assets/images/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="//attaufiqmlg.com/wp-content/uploads/2016/06/logo-150.png">
     <!-- Custom CSS -->
     <link href="{{ asset('admins/assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
@@ -53,17 +53,12 @@
                     <!-- ============================================================== -->
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon -->
-                        <b class="logo-icon ps-2">
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Dark Logo icon -->
-                            <img src="{{ asset('admins/assets/images/logo-icon.png') }}" alt="homepage" class="light-logo" />
-
-                        </b>
+                        
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="{{ asset('admins/assets/images/logo-text.png') }}" alt="homepage" class="light-logo" />
+                            <img src="{{ asset('admins/assets/images/logo-yayasan.png') }}" alt="" class="img-fluid" />
 
                         </span>
                         <!-- Logo icon -->
