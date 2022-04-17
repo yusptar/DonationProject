@@ -44,7 +44,7 @@ class AdminController extends Controller
                         [
                             'name' => $request->name, 
                             'email' => $request->email,
-                            'password' => $request->password,
+                            'password' => Hash::make($request->password),
                             'roles' => $request->roles,
 
                         ]);
@@ -73,7 +73,7 @@ class AdminController extends Controller
         
         $users->name = $request->name;
         $users->email = $request->email;
-        $users->password = $request->password; 
+        $users->password = Hash::make($request->password);
         $users->roles = $request->roles;
 
         $users->save();

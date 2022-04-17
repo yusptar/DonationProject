@@ -29,9 +29,9 @@
                                     <label for="name">User name *</label>
                                     <input id="name" name="name" type="text" class="required form-control" value="{{$users->name}}">
                                     <label for="password">Password *</label>
-                                    <input id="password" name="password" type="password" class="required form-control"value="{{$users->password}}">
+                                    <input id="password" name="password" type="password" class="required form-control"value="">
                                     <label for="confirm">Confirm Password *</label>
-                                    <input id="confirm" name="confirm" type="password" class="required form-control" value="{{$users->password}}">
+                                    <input id="confirm" name="confirm" type="password" class="required form-control" value="">
                                     <p>(*) Mandatory</p>
                                     
                                     <button type="submit" class="btn btn-success text-white">Save</button>
