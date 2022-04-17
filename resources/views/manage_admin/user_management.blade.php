@@ -33,7 +33,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive">                          
-                                    <table id="zero_config" class="table align-middle table-row-dashed fs-6 gy-5 mb-0">
+                                    <table id="zero_config" class="table align-middle table-row-dashed">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -61,8 +61,10 @@
                                                     <td><div class="badge rounded-pill bg-dark">Pengasuh</div></td>
                                                 @endif
                                                 <td>
+                                                    @if ($user->roles == "Donatur")
                                                     <a href="javascript:void(0)" class="btn btn-primary edit btn-sm btn-rounded" data-id="{{ $user->id }}">Edit</a>
                                                     <a href="javascript:void(0)" class="btn btn-primary delete btn-sm btn-rounded" data-id="{{ $user->id }}">Delete</a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach
