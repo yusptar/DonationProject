@@ -4,7 +4,7 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Form Wizard</h4>
+                <h4 class="page-title">Edit User</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -19,7 +19,7 @@
     <div class="container-fluid">
     <div class="card">
                     <div class="card-body wizard-content">
-                        <h4 class="card-title">Basic Form Example</h4>
+                        
                         <h6 class="card-subtitle"></h6>
                         <form id="example-form" action="update-user/{{$users->id}}" class="mt-5">
                         {{csrf_field()}}
@@ -27,12 +27,14 @@
                                 <h3>Account</h3>
                                 <section>
                                     <label for="name">User name *</label>
-                                    <input id="name" name="name" type="text" class="required form-control">
+                                    <input id="name" name="name" type="text" class="required form-control" value="{{$users->name}}">
                                     <label for="password">Password *</label>
-                                    <input id="password" name="password" type="text" class="required form-control">
+                                    <input id="password" name="password" type="password" class="required form-control"value="{{$users->password}}">
                                     <label for="confirm">Confirm Password *</label>
-                                    <input id="confirm" name="confirm" type="text" class="required form-control">
+                                    <input id="confirm" name="confirm" type="password" class="required form-control" value="{{$users->password}}">
                                     <p>(*) Mandatory</p>
+                                    
+                                    <button type="submit" class="btn btn-success text-white">Save</button>
                                 </section>
                             </div>
                         </form>
