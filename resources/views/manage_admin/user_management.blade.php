@@ -62,7 +62,7 @@
                                                 @endif
                                                 <td>
                                                     @if ($user->roles == "Donatur")
-                                                    <a href="javascript:void(0)" class="btn btn-primary edit btn-sm btn-rounded" data-id="{{ $user->id }}">Edit</a>
+                                                    <a href="edit-user/{{$user->id}}" class="btn btn-primary edit btn-sm btn-rounded">Edit</a>
                                                     <a href="javascript:void(0)" class="btn btn-primary delete btn-sm btn-rounded" data-id="{{ $user->id }}">Delete</a>
                                                     @endif
                                                 </td>

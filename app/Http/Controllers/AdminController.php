@@ -61,6 +61,26 @@ class AdminController extends Controller
 
         return response()->json([$users]);
     }
+    public function edit_user($id)
+    {       
+        $users = User::find($id);   
+        return view('manage_admin.user_management_edit',['users'=>$users]);   
+    }
+
+    public function update_user($id, Request $request)
+    {
+        $users = User::find($id);
+        
+        $users->name = $request->name;
+        $users->email = $request->email;
+        $users->password = $request->password; 
+        $users->roles = $request->roles;
+
+        $users->save();
+        
+        return redirect('manageuser');
+
+    }
  
    
     public function destroy(Request $request)
