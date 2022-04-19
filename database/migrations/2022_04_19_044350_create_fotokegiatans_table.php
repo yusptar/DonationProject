@@ -13,7 +13,7 @@ class CreateFotokegiatansTable extends Migration
      */
     public function up()
     {
-        Schema::create('fotokegiatans', function (Blueprint $table) {
+        Schema::create('foto_kegiatans', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
             $table->string('author')->nullable();
@@ -28,6 +28,6 @@ class CreateFotokegiatansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fotokegiatans');
+        Schema::dropIfExists('foto_kegiatans');
     }
 }
