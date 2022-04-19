@@ -25,8 +25,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('home', [HomeController::class, 'index'])->name('home');
-
-Route::get('admin', [AdminController::class, 'index'])->name('admin');
+Route::get('admin', [AdminController::class, 'user_view'])->name('admin');
 Route::get('dashboard', [AdminController::class, 'dashboard_view'])->name('dashboard');
 
 // Manage User
@@ -34,6 +33,13 @@ Route::resource('manageuser', AdminController::class);
 
 // Manage Foto Kegiatan
 Route::resource('fotokegiatan', FotoKegiatanController::class);
+
+
+
+
+
+
+
 
 /*Route::get('manageuser', [AdminController::class, 'user_view'])->name('manageuser');
 Route::post('tambah-user', [AdminController::class, 'store']);

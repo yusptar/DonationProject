@@ -92,7 +92,7 @@
                             </div>
                         </div>
         
-                        <div class="col-sm-offset-2 col-sm-10">
+                        <div class="text-center pt-15">
                             <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Simpan</button>
                             <button type="reset" class="btn btn-primary" id="cancelBtn" value="create">Batal</button>
                         </div>
