@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFotoKegiatansTable extends Migration
+class CreateFotokegiatansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,6 +15,8 @@ class CreateFotoKegiatansTable extends Migration
     {
         Schema::create('fotokegiatans', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->string('author')->nullable();
             $table->timestamps();
         });
     }

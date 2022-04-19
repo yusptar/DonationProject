@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FotoKegiatanController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +29,13 @@ Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('admin', [AdminController::class, 'index'])->name('admin');
 Route::get('dashboard', [AdminController::class, 'dashboard_view'])->name('dashboard');
 
-// USER
+// Manage User
 Route::get('manageuser', [AdminController::class, 'user_view'])->name('manageuser');
 Route::post('tambah-user', [AdminController::class, 'store']);
 // Route::post('edit-user', [AdminController::class, 'edit']);
 Route::get('edit-user/{id}', [AdminController::class, 'edit_user']);
 Route::post('update-user/{id}', [AdminController::class, 'update_user']);
 Route::post('delete-user', [AdminController::class, 'destroy']);
+
+// Manage Foto Kegiatan
+Route::resource('fotokegiatan', FotoKegiatanController::class);
