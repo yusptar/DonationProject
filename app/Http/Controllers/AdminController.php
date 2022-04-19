@@ -36,20 +36,21 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
-        
-            $users   =   User::updateOrCreate(
-                        [
-                            'id' => $request->id
-                        ],
-                        [
-                            'name' => $request->name, 
-                            'email' => $request->email,
-                            'password' => Hash::make($request->password),
-                            'roles' => $request->roles,
-
-                        ]);
+        $request->validate([
+            'name' => $request->name, 
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'roles' => $request->roles,
+        ]);
     
-                        return response()->json(['success' => true]);
+        $users = User::updateOrCreate(['id' => $request->id], [
+            'name' => $request->name, 
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'roles' => $request->roles,
+        ]);
+    
+          return response()->json(['code'=>200, 'message'=>'Post Created successfully','data' => $post], 200);
       
     }
     

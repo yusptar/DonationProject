@@ -84,31 +84,46 @@
                     <h4 class="modal-title" id="userModel"></h4>
                 </div>
                 <div class="modal-body">
-                    <form action="javascript:void(0)" id="addEditBookForm" name="addEditBookForm" class="form-horizontal" method="POST">
+                    <form action="javascript:void(0)" id="add-user" name="add-user" class="form-horizontal" method="POST">
                     <input type="hidden" name="id" id="id">
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">Nama</label>
+                            <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                              <span class="required">Nama</span>
+                              <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a card holder's name"></i>
+                            </label>
                         <div class="col-sm-12">
                         <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama" value="" maxlength="50" required="">
                         </div>
                     </div>  
                     <div class="form-group">
-                        <label for="email" class="col-sm-2 control-label">Email</label>
+                            <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                              <span class="required">E-Mail</span>
+                              <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a card holder's name"></i>
+                            </label>
                         <div class="col-sm-12">
                         <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email" value="" maxlength="50" required="">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Password</label>
+                            <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                              <span class="required">Password</span>
+                              <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a card holder's name"></i>
+                            </label>
                         <div class="col-sm-12">
-                        <input type="text" class="form-control" id="password" name="password" placeholder="Masukkan Password" value="" required="">
+                            <input type="text" class="form-control" id="password" name="password" placeholder="Masukkan Password" value="" required="">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Roles</label>
-                        <div class="col-sm-12">
-                        <input type="text" class="form-control" id="roles" name="roles" placeholder="Pilih Roles" value="" required="">
-                        </div>
+                            <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                              <span class="required">Pilih Roles</span>
+                              <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a card holder's name"></i>
+                            </label>
+                                <select name="roles" id="roles" class="form-control">
+                                            <option value="Pilih Roles"></option>
+                                                    <option value="admin">Admin</option>
+                                                    <option value="donatur">Donatur</option>
+                                                    <option value="pengasuh">Pengasuh</option>
+                                </select>
                     </div>
                     <div class="text-center pt-15">
                             <button type="reset" id="btn-cancel" class="btn btn-light me-3">Batal</button>
@@ -132,7 +147,7 @@
         }
     });
     $('#tambah-user').click(function () {
-       $('#addEditBookForm').trigger("reset");
+       $('#add-user').trigger("reset");
        $('#userModel').html("Tambah Data");
        $('#user-model').modal('show');
     });
@@ -191,9 +206,10 @@
             url: "{{ url('tambah-user') }}",
             data: {
               id:id,
-              title:title,
-              code:code,
-              author:author,
+              name:name,
+              email:email,
+              password:password,
+              roles:roles,
             },
             dataType: 'json',
             success: function(res){
