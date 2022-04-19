@@ -12,7 +12,7 @@ class FotoKegiatanController extends Controller
     public function index(Request $request)
     {
    
-        $fotokegiatans = FotoKegiatan::latest()->get();
+        $fotokegiatan = FotoKegiatan::latest()->get();
         
         if ($request->ajax()) {
             $data = FotoKegiatan::latest()->get();
@@ -20,9 +20,8 @@ class FotoKegiatanController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
    
-                           $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editBook">Edit</a>';
-   
-                           $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteBook">Delete</a>';
+                           $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editFoto">Edit</a>';
+                           $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteFoto">Delete</a>';
     
                             return $btn;
                     })
@@ -30,38 +29,27 @@ class FotoKegiatanController extends Controller
                     ->make(true);
         }
       
-        return view('manage_admin.fotokegiatan_management',compact('fotokegiatans'));
+        return view('manage_admin.fotokegiatan_management',compact('fotokegiatan'));
     }
      
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function store(Request $request)
     {
-        Book::updateOrCreate(['id' => $request->fotokegiatans_id],
+        FotoKegiatan::updateOrCreate(['id' => $request->fotokegiatan_id],
                 ['title' => $request->title, 'author' => $request->author]);        
    
-        return response()->json(['success'=>'Book saved successfully.']);
+        return response()->json(['success'=>'Foto kegiatan saved successfully.']);
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit($id)
     {
-        $fotokegiatans = FotoKegiatan::find($id);
-        return response()->json($fotokegiatans);
+        $fotokegiatan = FotoKegiatan::find($id);
+        return response()->json($fotokegiatan);
     }
   
     public function destroy($id)
     {
-        FotoKegiatan::find($id)->delete();
-     
+        FotoKegiatan::find($id)->delete();   
         return response()->json(['success'=>'FotoKegiatan deleted successfully.']);
     }
 }
