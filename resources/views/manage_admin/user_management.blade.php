@@ -3,8 +3,10 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-<div class="page-wrapper">
+        <div class="page-wrapper">
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
@@ -12,7 +14,7 @@
                         <div class="ms-auto text-end">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <button type="button" class="btn btn-outline-success btn-rounded" id="tambah-user">
+                                    <a class="btn btn-success" href="javascript:void(0)" id="createUser">
                                         <span class="svg-icon svg-icon-3">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                             <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="green" />
@@ -20,7 +22,7 @@
                                             <rect x="6.01041" y="10.9247" width="12" height="2" rx="1" fill="black" />
                                             </svg>
                                         </span>
-                                    Tambah Data</button>
+                                    Tambah Data</a>
                                 </ol>
                             </nav>
                         </div>
@@ -33,41 +35,17 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive">                          
-                                    <table id="zero_config" class="table align-middle table-row-dashed">
+                                    <table class="table table-bordered data-table">
                                         <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Nama</th>
+                                            <tr>     
+                                                <th width="5px">No</th>
+                                                <th>Name</th>
                                                 <th>Email</th>
-                                                <th>Role</th>
-                                                <th>Aksi</th>
+                                                <th>Roles</th>
+                                                <th width="300px">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        @php
-                                            $no = 1;
-                                        @endphp
-
-                                        @foreach($users as $user)
-                                            <tr>
-                                                <th>{{$no++}}</th>
-                                                <td>{{$user->name}}</td>
-                                                <td>{{$user->email}}</td>
-                                                @if ($user->roles == "Admin")
-                                                    <td><div class="badge rounded-pill bg-danger">Admin</div></td>
-                                                @elseif($user->roles == "Donatur")
-                                                    <td><div class="badge rounded-pill bg-success">Donatur</div></td>
-                                                @else
-                                                    <td><div class="badge rounded-pill bg-dark">Pengasuh</div></td>
-                                                @endif
-                                                <td>
-                                                    @if ($user->roles == "Donatur")
-                                                    <a href="edit-user/{{$user->id}}" class="btn btn-primary edit btn-sm btn-rounded">Edit</a>
-                                                    <a href="javascript:void(0)" class="btn btn-primary delete btn-sm btn-rounded" data-id="{{ $user->id }}">Delete</a>
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -76,149 +54,144 @@
                     </div>
                 </div>            
             </div>
-            <!-- Tambah Data -->
-            <div class="modal fade" id="user-model" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered mw-650px">
-                <div class="modal-content">
+    <!-- Modal Tambah -->
+    <div class="modal fade" id="ajaxModel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="userModel"></h4>
+                    <h4 class="modal-title" id="modelHeading"></h4>
                 </div>
                 <div class="modal-body">
-                    <form action="javascript:void(0)" id="add-user" name="add-user" class="form-horizontal" method="POST">
-                    <input type="hidden" name="id" id="id">
-                    <div class="form-group">
-                            <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                              <span class="required">Nama</span>
-                              <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a card holder's name"></i>
-                            </label>
-                        <div class="col-sm-12">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama" value="" maxlength="50" required="">
+                    <form id="userForm" name="userForm" class="form-horizontal">
+                    <input type="hidden" name="user_id" id="user_id">
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Nama</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" value="" maxlength="50" required="">
+                            </div>
                         </div>
-                    </div>  
-                    <div class="form-group">
-                            <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                              <span class="required">E-Mail</span>
-                              <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a card holder's name"></i>
-                            </label>
-                        <div class="col-sm-12">
-                        <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email" value="" maxlength="50" required="">
+        
+                        <div class="form-group">
+                            <label for="email" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email" value="" maxlength="50" required="">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                            <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                              <span class="required">Password</span>
-                              <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a card holder's name"></i>
-                            </label>
-                        <div class="col-sm-12">
-                            <input type="text" class="form-control" id="password" name="password" placeholder="Masukkan Password" value="" required="">
+
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label">Password</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="password" name="password" placeholder="Enter Password" value="" maxlength="50" required="">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                            <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                              <span class="required">Pilih Roles</span>
-                              <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a card holder's name"></i>
-                            </label>
-                                <select name="roles" id="roles" class="form-control">
-                                            <option value="Pilih Roles"></option>
-                                                    <option value="admin">Admin</option>
-                                                    <option value="donatur">Donatur</option>
-                                                    <option value="pengasuh">Pengasuh</option>
-                                </select>
-                    </div>
-                    <div class="text-center pt-15">
-                            <button type="reset" id="btn-cancel" class="btn btn-light me-3">Batal</button>
-                            <button type="submit" id="btn-save" class="btn btn-primary" value="tambah-user">
-                              <span class="indicator-label">Simpan</span>                       
-                            </button>
-                    </div>
+
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label">Roles</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="roles" name="roles" placeholder="Choose Roles" value="" maxlength="50" required="">
+                            </div>
+                        </div>
+        
+                        <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Simpan
+                        </button>
+                        </div>
                     </form>
                 </div>
-                <div class="modal-footer">    
-                </div>
-                </div>
             </div>
-            </div>
-        <!-- end bootstrap model -->
+        </div>
+    </div>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>  
+
 <script type="text/javascript">
- $(document).ready(function($){
-    $.ajaxSetup({
-        headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+  $(function () {
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
     });
-    $('#tambah-user').click(function () {
-       $('#add-user').trigger("reset");
-       $('#userModel').html("Tambah Data");
-       $('#user-model').modal('show');
+    var table = $('.data-table').DataTable({
+       
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('manageuser.index') }}",
+        columns: [
+            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'name', name: 'name'},
+            {data: 'email', name: 'email'},
+            {data: 'roles', name: 'roles'},
+            {data: 'action', name: 'action', orderable: false, searchable: false,},
+        ]
+       
+    });
+    
+    $('#createUser').click(function () {
+        $('#saveBtn').val("create-user");
+        $('#user_id').val('');
+        $('#userForm').trigger("reset");
+        $('#modelHeading').html("Tambah User");
+        $('#ajaxModel').modal('show');
     });
 
-    $('#btn-cancel').click(function () {
-       $('#user-model').modal('hide');
-    });
- 
-    $('body').on('click', '.edit', function () {
-        var id = $(this).data('id');
-         
-        // ajax
+    $('body').on('click', '.editUser', function () {
+      var id = $(this).data('id');
+      $.get("{{ route('manageuser.index') }}" +'/' + id +'/edit', function (data) {
+          $('#modelHeading').html("Edit User");
+          $('#saveBtn').val("edit-user");
+          $('#ajaxModel').modal('show');
+          $('#user_id').val(data.id);
+          $('#name').val(data.name);
+          $('#email').val(data.email);
+          $('#password').val(data.password);
+          $('#roles').val(data.roles);
+      })
+   });
+   
+    $('#saveBtn').click(function (e) {
+        e.preventDefault();
+        $(this).html('Save');
+    
         $.ajax({
-            type:"POST",
-            url: "{{ url('edit-user') }}",
-            data: { id: id },
-            dataType: 'json',
-            success: function(res){
-              $('#ajaxBookModel').html("Edit Book");
-              $('#ajax-book-model').modal('show');
-              $('#id').val(res.id);
-              $('#name').val(res.name);
-              $('#email').val(res.email);
-              $('#password').val(res.password);
-           }
-        });
-    });
-    $('body').on('click', '.delete', function () {
-       if (confirm("Delete Record?") == true) {
-        var id = $(this).data('id');
+          data: $('#userForm').serialize(),
+          url: "{{ route('manageuser.store') }}",
+          type: "POST",
+          dataType: 'json',
+          success: function (data) {
+     
+              $('#userForm').trigger("reset");
+              $('#ajaxModel').modal('hide');
+              table.draw();
          
-        // ajax
-        $.ajax({
-            type:"POST",
-            url: "{{ url('delete-user') }}",
-            data: { id: id },
-            dataType: 'json',
-            success: function(res){
-              window.location.reload();
-           }
-        });
-       }
+          },
+          error: function (data) {
+              console.log('Error:', data);
+              $('#saveBtn').html('Save Changes');
+          }
+      });
     });
-    $('body').on('click', '#btn-save', function (event) {
-          var id = $("#id").val();
-          var name = $("#name").val();
-          var email = $("#email").val();
-          var password = $("#password").val();
-          var roles = $("#roles").val();
-          $("#btn-save").html('Please Wait...');
-          $("#btn-save").attr("disabled", true);
-         
-        // ajax
+    
+    $('body').on('click', '.deleteUser', function () {
+     
+        var id = $(this).data("id");
+        confirm("Are You sure want to delete !");
+      
         $.ajax({
-            type:"POST",
-            url: "{{ url('tambah-user') }}",
-            data: {
-              id:id,
-              name:name,
-              email:email,
-              password:password,
-              roles:roles,
+            type: "DELETE",
+            url: "{{ route('manageuser.store') }}"+'/'+id,
+            success: function (data) {
+                table.draw();
             },
-            dataType: 'json',
-            success: function(res){
-             window.location.reload();
-            $("#btn-save").html('Submit');
-            $("#btn-save"). attr("disabled", false);
-           }
+            error: function (data) {
+                console.log('Error:', data);
+            }
         });
     });
-});
+     
+  });
 </script>
 @endsection

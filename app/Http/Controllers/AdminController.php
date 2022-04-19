@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
-use Auth;
+use DataTables;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +16,7 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function user_view()
     {
         return view('home1');
     }
@@ -27,42 +26,48 @@ class AdminController extends Controller
         return view('manage_admin.dashboard');
     }
 
-    public function user_view()
+    public function index(Request $request)
     {
-        $users = DB::table('users')
-                    ->get();
-        return view('manage_admin.user_management',['users' => $users]);
+        $users = User::latest()->get();
+        
+        if ($request->ajax()) {
+            $data = User::latest()->get();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
+   
+                           $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editUser">Edit</a>';
+                           $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteUser">Delete</a>';
+    
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+      
+        return view('manage_admin.user_management',compact('users'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => $request->name, 
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'roles' => $request->roles,
-        ]);
-    
-        $users = User::updateOrCreate(['id' => $request->id], [
-            'name' => $request->name, 
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'roles' => $request->roles,
-        ]);
-    
-          return response()->json(['code'=>200, 'message'=>'Post Created successfully','data' => $post], 200);
+        User::updateOrCreate(['id' => $request->user_id],
+                [
+                    'name' => $request->name, 
+                    'email' => $request->email,
+                    'password' => Hash::make($request->password),
+                    'roles' => $request->roles
+                ]);        
+   
+        return response()->json(['success'=>'User saved successfully.']);
       
     }
     
-    public function edit(Request $request)
+    public function edit($id)
     {
-       
-        $where = array('id' => $request->id);
-        $users  = User::where($where)->first();
-
-        return response()->json([$users]);
+        $users = User::find($id);
+        return response()->json($users);
     }
-    public function edit_user($id)
+    /*public function edit_user($id)
     {       
         $users = User::find($id);   
         return view('manage_admin.user_management_edit',['users'=>$users]);   
@@ -81,12 +86,12 @@ class AdminController extends Controller
         
         return redirect('manageuser');
 
-    }
+    }*/
  
    
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $users = User::where('id',$request->id)->delete();
-        return response()->json(['success' => true]);
+        User::find($id)->delete();   
+        return response()->json(['success'=>'User deleted successfully.']);
     }
 }

@@ -258,7 +258,7 @@
                                 href="{{ route('dashboard') }}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{ route('manageuser') }}" aria-expanded="false"><i class="mdi mdi-account-key"></i><span
+                                href="{{ route('manageuser.index') }}" aria-expanded="false"><i class="mdi mdi-account-key"></i><span
                                     class="hide-menu">Manage User</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
                                 href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span

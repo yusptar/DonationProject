@@ -30,12 +30,14 @@ Route::get('admin', [AdminController::class, 'index'])->name('admin');
 Route::get('dashboard', [AdminController::class, 'dashboard_view'])->name('dashboard');
 
 // Manage User
-Route::get('manageuser', [AdminController::class, 'user_view'])->name('manageuser');
+Route::resource('manageuser', AdminController::class);
+
+// Manage Foto Kegiatan
+Route::resource('fotokegiatan', FotoKegiatanController::class);
+
+/*Route::get('manageuser', [AdminController::class, 'user_view'])->name('manageuser');
 Route::post('tambah-user', [AdminController::class, 'store']);
 // Route::post('edit-user', [AdminController::class, 'edit']);
 Route::get('edit-user/{id}', [AdminController::class, 'edit_user']);
 Route::post('update-user/{id}', [AdminController::class, 'update_user']);
-Route::post('delete-user', [AdminController::class, 'destroy']);
-
-// Manage Foto Kegiatan
-Route::resource('fotokegiatan', FotoKegiatanController::class);
+Route::post('delete-user', [AdminController::class, 'destroy']);*/
