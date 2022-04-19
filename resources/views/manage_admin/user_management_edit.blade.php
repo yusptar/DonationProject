@@ -32,6 +32,8 @@
                                     <input id="password" name="password" type="password" class="required form-control"value="">
                                     <label for="confirm">Confirm Password *</label>
                                     <input id="confirm" name="confirm" type="password" class="required form-control" value="">
+                                    <label for="roles">Roles *</label>
+                                    <input id="roles" name="roles" type="roles" class="required form-control" value="{{$users->roles}}" readonly>
                                     <p>(*) Mandatory</p>
                                     
                                     <button type="submit" class="btn btn-success text-white">Save</button>
