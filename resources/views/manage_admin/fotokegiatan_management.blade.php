@@ -55,7 +55,7 @@
             </div>
     <!-- Modal Tambah -->
     <div class="modal fade" id="ajaxModel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered mw-650px">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="modelHeading"></h4>
@@ -77,9 +77,9 @@
                             </div>
                         </div>
         
-                        <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Simpan
-                        </button>
+                        <div class="text-center pt-15">
+                            <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Simpan</button>
+                            <button type="reset" class="btn btn-primary" id="cancelBtn" value="create">Batal</button>
                         </div>
                     </form>
                 </div>
@@ -112,6 +112,10 @@
             {data: 'action', name: 'action', orderable: false, searchable: false,},
         ]
        
+    });
+
+    $('#cancelBtn').click(function () {
+        $('#ajaxModel').modal('hide');
     });
     
     $('#createFotoKegiatan').click(function () {
