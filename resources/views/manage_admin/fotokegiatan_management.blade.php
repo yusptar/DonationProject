@@ -41,10 +41,12 @@
                                                 <th width="5px">No</th>
                                                 <th>Judul</th>
                                                 <th>Isi/Konten</th>
+                                                <th>Gambar</th>
                                                 <th width="300px">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -74,6 +76,19 @@
                             <label class="col-sm-2 control-label">Konten/Isi</label>
                             <div class="col-sm-12">
                                 <textarea id="text" name="author" required="" placeholder="Enter Author" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-3">File Upload</label>
+                            <div class="col-md-9">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="fotokegiatan_id" name="gambar"
+                                        required>
+                                    <label class="custom-file-label" for="validatedCustomFile">Choose
+                                                file...</label>
+                                            <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
+                                </div>
                             </div>
                         </div>
         
@@ -109,6 +124,7 @@
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'title', name: 'title'},
             {data: 'author', name: 'author'},
+            {data: 'gambar', name: 'gambar'},
             {data: 'action', name: 'action', orderable: false, searchable: false,},
         ]
        
@@ -135,6 +151,7 @@
           $('#fotokegiatan_id').val(data.id);
           $('#title').val(data.title);
           $('#author').val(data.author);
+          $('#gambar').val(data.gambar);
       })
    });
    

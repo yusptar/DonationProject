@@ -16,6 +16,9 @@ class FotoKegiatanController extends Controller
         
         if ($request->ajax()) {
             $data = FotoKegiatan::latest()->get();
+            if($request->file('gambar')){
+                $nama_gambar = $request->file('gambar')->store('gambars','public');
+            }
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
