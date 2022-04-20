@@ -81,7 +81,7 @@
                         <div class="form-group">
                             <label for="password" class="col-sm-2 control-label">Password</label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="password" name="password" placeholder="Enter Password" autocomplete="off" value="" maxlength="50" required="">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" autocomplete="off" value="" maxlength="50" required="">
                             </div>
                         </div>
 
@@ -90,7 +90,7 @@
                             <div class="col-sm-12">
                                 <select name="roles" id="roles" class="form-control">
                                         <option value="" disabled selected>Choose Roles</option>
-                                        <option value="Admin">Admin</option>
+                                        <!-- <option value="Admin">Admin</option> -->
                                         <option value="Donatur">Donatur</option>
                                         <option value="Pengasuh">Pengasuh</option> 
                                 </select>

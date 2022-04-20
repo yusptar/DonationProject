@@ -39,8 +39,8 @@
                                         <thead>
                                             <tr>     
                                                 <th width="5px">No</th>
-                                                <th>Title</th>
-                                                <th>Author</th>
+                                                <th>Judul</th>
+                                                <th>Isi/Konten</th>
                                                 <th width="300px">Action</th>
                                             </tr>
                                         </thead>
@@ -64,16 +64,16 @@
                     <form id="fotokegiatanForm" name="fotokegiatanForm" class="form-horizontal">
                     <input type="hidden" name="fotokegiatan_id" id="fotokegiatan_id">
                         <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">Title</label>
+                            <label for="name" class="col-sm-2 control-label">Judul</label>
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" value="" maxlength="50" required="">
                             </div>
                         </div>
         
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Author</label>
+                            <label class="col-sm-2 control-label">Konten/Isi</label>
                             <div class="col-sm-12">
-                                <textarea id="author" name="author" required="" placeholder="Enter Author" class="form-control"></textarea>
+                                <textarea id="text" name="author" required="" placeholder="Enter Author" class="form-control"></textarea>
                             </div>
                         </div>
         
