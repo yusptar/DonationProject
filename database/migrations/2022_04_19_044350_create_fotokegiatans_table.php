@@ -17,6 +17,7 @@ class CreateFotokegiatansTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('author')->nullable();
+            $table->text('gambar')->nullable();
             $table->timestamps();
         });
     }
