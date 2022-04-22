@@ -33,6 +33,7 @@ Route::resource('manageuser', AdminController::class);
 
 // Manage Foto Kegiatan
 Route::resource('fotokegiatan', FotoKegiatanController::class);
+Route::post('upload', [FotoKegiatanController::class, 'store']);
 
 
 

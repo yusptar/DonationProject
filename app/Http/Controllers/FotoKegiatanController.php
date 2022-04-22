@@ -15,10 +15,28 @@ class FotoKegiatanController extends Controller
         $fotokegiatan = FotoKegiatan::latest()->get();
         
         if ($request->ajax()) {
-            $data = FotoKegiatan::latest()->get();
-            if($request->file('gambar')){
-                $nama_gambar = $request->file('gambar')->store('gambars','public');
-            }
+            // $data = FotoKegiatan::latest()->get();
+            // if($request->file('gambar')){
+            //     $nama_gambar = $request->file('gambar')->store('gambars','public');
+            // }
+            $data = $request->validate([
+                'gambar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        
+            ]);
+            $name = $request->file('image')->getClientOriginalName();
+ 
+            $path = $request->file('image')->store('public/images');
+    
+    
+            $save = new FotoKegiatan;
+    
+            $save->name = $name;
+            $save->path = $path;
+    
+            $save->save();
+    
+            return response()->json($path);
+            
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
