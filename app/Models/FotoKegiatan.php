@@ -11,7 +11,7 @@ class FotoKegiatan extends Model
 
     protected $fillable =  [
 
-        'title', 'author'
+        'title', 'author', 'gambar'
 
     ];
 }
