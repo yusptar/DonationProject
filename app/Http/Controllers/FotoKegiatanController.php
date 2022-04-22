@@ -15,28 +15,10 @@ class FotoKegiatanController extends Controller
         $fotokegiatan = FotoKegiatan::latest()->get();
         
         if ($request->ajax()) {
-            // $data = FotoKegiatan::latest()->get();
+            $data = FotoKegiatan::latest()->get();
             // if($request->file('gambar')){
             //     $nama_gambar = $request->file('gambar')->store('gambars','public');
             // }
-            $data = $request->validate([
-                'gambar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-        
-            ]);
-            $name = $request->file('image')->getClientOriginalName();
- 
-            $path = $request->file('image')->store('public/images');
-    
-    
-            $save = new FotoKegiatan;
-    
-            $save->name = $name;
-            $save->path = $path;
-    
-            $save->save();
-    
-            return response()->json($path);
-            
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -56,21 +38,50 @@ class FotoKegiatanController extends Controller
  
     public function store(Request $request)
     {
-        FotoKegiatan::updateOrCreate(['id' => $request->fotokegiatan_id],
-                ['title' => $request->title, 'author' => $request->author]);        
+        request()->validate([
+            'gambar' => 'gambar|mimes:jpeg,png,jpg,gif,svg|max:2048',
+       ]);
+     
+        $fotokegiatanId = $request->fotokegiatan_id;
+     
+        $details = ['title' => $request->title, 'author' => $request->author];
+     
+        if ($files = $request->file('gambar')) {
+            
+           //delete old file
+           \File::delete('public/images/'.$request->hidden_image);
+         
+           //insert new file
+           $destinationPath = 'public/images/'; // upload path
+           $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+           $files->move($destinationPath, $profileImage);
+           $details['gambar'] = "$profileImage";
+        }
+        FotoKegiatan::updateOrCreate(['id' => $request->fotokegiatan_id], ['title' => $request->title, 'author' => $request->author, $details],
+        );        
    
         return response()->json(['success'=>'Foto kegiatan saved successfully.']);
     }
    
     public function edit($id)
     {
-        $fotokegiatan = FotoKegiatan::find($id);
-        return response()->json($fotokegiatan);
+        // $fotokegiatan = FotoKegiatan::find($id);
+        // return response()->json($fotokegiatan);
+
+        $where = array('id' => $id);
+        $fotokegiatan  = FotoKegiatan::where($where)->first();
+  
+        return Response::json($fotokegiatan);
     }
   
     public function destroy($id)
     {
-        FotoKegiatan::find($id)->delete();   
-        return response()->json(['success'=>'FotoKegiatan deleted successfully.']);
+        // FotoKegiatan::find($id)->delete();   
+        // return response()->json(['success'=>'FotoKegiatan deleted successfully.']);
+        $data = FotoKegiatan::where('id',$id)->first(['gambar']);
+        \File::delete('public/images/'.$data->gambar);
+        $fotokegiatan = FotoKegiatan::where('id',$id)->delete();
+    
+        return Response::json($fotokegiatan);
     }
 }
