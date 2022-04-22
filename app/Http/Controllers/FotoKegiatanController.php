@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\FotoKegiatan;
 use DataTables;
+use File;
+use Storage;
 
 class FotoKegiatanController extends Controller
 {

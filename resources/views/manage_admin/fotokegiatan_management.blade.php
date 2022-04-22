@@ -80,17 +80,20 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-md-3">File Upload</label>
+                            <label class="col-md-3">Image Upload</label>
                             <div class="col-md-9">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="fotokegiatan_id" name="gambar"
                                         required>
-                                    <label class="custom-file-label" for="validatedCustomFile">Choose
-                                                file...</label>
+                                        <img id="modal-preview" src="https://via.placeholder.com/150" alt="Preview" class="form-group hidden" width="100" height="100">    
+                                    <!-- <label class="custom-file-label" for="validatedCustomFile">Choose
+                                                file...</label> -->
                                             <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                                 </div>
                             </div>
+                            
                         </div>
+                        
         
                         <div class="text-center pt-15">
                             <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Simpan</button>
@@ -124,7 +127,7 @@
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'title', name: 'title'},
             {data: 'author', name: 'author'},
-            {data: 'gambar', name: 'gambar'},
+            {data: 'gambar', name: 'gambar', orderable: false},
             {data: 'action', name: 'action', orderable: false, searchable: false,},
         ]
        
@@ -140,6 +143,7 @@
         $('#fotokegiatanForm').trigger("reset");
         $('#modelHeading').html("Tambah Foto Kegiatan");
         $('#ajaxModel').modal('show');
+        $('#modal-preview').attr('src', 'https://via.placeholder.com/150');
     });
 
     $('body').on('click', '.editFoto', function () {
@@ -151,7 +155,10 @@
           $('#fotokegiatan_id').val(data.id);
           $('#title').val(data.title);
           $('#author').val(data.author);
-          $('#gambar').val(data.gambar);
+          if(data.gambar){
+            $('#modal-preview').attr('src', SITEURL +'public/images/'+data.gambar);
+            $('#hidden_image').attr('src', SITEURL +'public/images/'+data.gambar);
+          }
       })
    });
    
