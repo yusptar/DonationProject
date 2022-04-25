@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\FotoKegiatan;
 use DataTables;
+use Redirect,Response;
 use File;
 use Storage;
 
@@ -14,55 +15,89 @@ class FotoKegiatanController extends Controller
     public function index(Request $request)
     {
    
-        $fotokegiatan = FotoKegiatan::latest()->get();
+        // $fotokegiatan = FotoKegiatan::latest()->get();
         
-        if ($request->ajax()) {
-            $data = FotoKegiatan::latest()->get();
-            // if($request->file('gambar')){
-            //     $nama_gambar = $request->file('gambar')->store('gambars','public');
-            // }
-            return Datatables::of($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', function($row){
+        // if ($request->ajax()) {
+        //     $data = FotoKegiatan::latest()->get();
+        //     // if($request->file('gambar')){
+        //     //     $nama_gambar = $request->file('gambar')->store('gambars','public');
+        //     // }
+        //     return Datatables::of($data)
+        //             ->addIndexColumn()
+        //             ->addColumn('action', function($row){
    
-                           $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editFoto">Edit</a>';
-                           $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteFoto">Delete</a>';
+        //                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editFoto">Edit</a>';
+        //                    $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteFoto">Delete</a>';
     
-                            return $btn;
-                    })
-                    ->rawColumns(['action'])
-                    ->make(true);
-        }
+        //                     return $btn;
+        //             })
+        //             ->rawColumns(['action'])
+        //             ->make(true);
+        // }
       
+        // return view('manage_admin.fotokegiatan_management',compact('fotokegiatan'));
+
+        if(request()->ajax()) {
+            return datatables()->of(FotoKegiatan::select('*'))
+            ->addColumn('action', 'fotokegiatan-button')
+            ->addColumn('gambar', 'gambar')
+            ->rawColumns(['action','gambar'])
+            ->addIndexColumn()
+            ->make(true);
+        }
         return view('manage_admin.fotokegiatan_management',compact('fotokegiatan'));
     }
      
  
     public function store(Request $request)
     {
-        request()->validate([
-            'gambar' => 'gambar|mimes:jpeg,png,jpg,gif,svg|max:2048',
-       ]);
+    //     request()->validate([
+    //         'gambar' => 'gambar|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    //    ]);
      
-        $fotokegiatanId = $request->fotokegiatan_id;
+    //     $fotokegiatanId = $request->fotokegiatan_id;
      
-        $details = ['title' => $request->title, 'author' => $request->author];
+    //     $details = ['title' => $request->title, 'author' => $request->author];
      
-        if ($files = $request->file('gambar')) {
+    //     if ($files = $request->file('gambar')) {
             
-           //delete old file
-           \File::delete('public/images/'.$request->hidden_image);
+    //        //delete old file
+    //        \File::delete('public/images/'.$request->hidden_image);
          
-           //insert new file
-           $destinationPath = 'public/images/'; // upload path
-           $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
-           $files->move($destinationPath, $profileImage);
-           $details['gambar'] = "$profileImage";
-        }
-        FotoKegiatan::updateOrCreate(['id' => $request->fotokegiatan_id], ['title' => $request->title, 'author' => $request->author, $details],
-        );        
+    //        //insert new file
+    //        $destinationPath = 'public/images/'; // upload path
+    //        $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+    //        $files->move($destinationPath, $profileImage);
+    //        $details['gambar'] = "$profileImage";
+    //     }
+    //     FotoKegiatan::updateOrCreate(['id' => $request->fotokegiatan_id], ['title' => $request->title, 'author' => $request->author, $details],
+    //     );        
    
-        return response()->json(['success'=>'Foto kegiatan saved successfully.']);
+    //     return response()->json(['success'=>'Foto kegiatan saved successfully.']);
+
+            request()->validate([
+                'gambar' => 'gambar|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        
+            $fotokegiatanId = $request->fotokegiatan_id;
+        
+            $details = ['title' => $request->title, 'author' => $request->author];
+        
+            if ($files = $request->file('gambar')) {
+                
+            //delete old file
+            \File::delete('public/images/'.$request->hidden_image);
+            
+            //insert new file
+            $destinationPath = 'public/images/'; // upload path
+            $fotokegiatanImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+            $files->move($destinationPath, $fotokegiatanImage);
+            $details['gambar'] = "$fotokegiatanImage";
+            }
+            
+            $fotokegiatan   =   FotoKegiatan::updateOrCreate(['id' => $fotokegiatanId], $details);  
+                
+            return Response::json($fotokegiatan);
     }
    
     public function edit($id)
