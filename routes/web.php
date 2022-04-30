@@ -33,8 +33,8 @@ Route::resource('manageuser', AdminController::class);
 
 // Manage Foto Kegiatan
 // Route::resource('fotokegiatan', FotoKegiatanController::class);
-// Route::post('upload', [FotoKegiatanController::class, 'store']);
-Route::get('fotokegiatan', [FotoKegiatanController::class, 'index']);
+Route::post('upload', [FotoKegiatanController::class, 'store']);
+Route::get('fotokegiatan', [FotoKegiatanController::class, 'index'])->name('fotokegiatan');
 Route::get('fotokegiatan/{id}/edit', [FotoKegiatanController::class, 'edit']);
 Route::post('fotokegiatan/store', [FotoKegiatanController::class, 'store']);
 Route::get('fotokegiatan/delete/{id}', [FotoKegiatanController::class, 'destroy']);

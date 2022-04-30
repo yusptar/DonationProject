@@ -35,7 +35,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive">                          
-                                    <table class="table table-bordered data-table">
+                                    <table class="table table-bordered data-table" id="laravel_datatable">
                                         <thead>
                                             <tr>     
                                                 <th width="5px">No</th>
@@ -75,7 +75,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Konten/Isi</label>
                             <div class="col-sm-12">
-                                <textarea id="text" name="author" required="" placeholder="Enter Author" class="form-control"></textarea>
+                                <textarea type="text" name="author" required="" id="author" placeholder="Enter Author" class="form-control"></textarea>
                             </div>
                         </div>
 
@@ -83,6 +83,7 @@
                             <label class="col-md-3">Image Upload</label>
                             <div class="col-md-9">
                                 <div class="custom-file">
+                                <input id="image" type="file" name="image" accept="image/*" onchange="readURL(this);">
                                     <input type="file" class="custom-file-input" id="fotokegiatan_id" name="gambar"
                                         required>
                                         <img id="modal-preview" src="https://via.placeholder.com/150" alt="Preview" class="form-group hidden" width="100" height="100">    
@@ -122,7 +123,7 @@
        
         processing: true,
         serverSide: true,
-        ajax: "{{ route('fotokegiatan.index') }}",
+        ajax: "{{ route('fotokegiatan') }}",
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'title', name: 'title'},
@@ -148,7 +149,7 @@
 
     $('body').on('click', '.editFoto', function () {
       var id = $(this).data('id');
-      $.get("{{ route('fotokegiatan.index') }}" +'/' + id +'/edit', function (data) {
+      $.get('fotokegiatan/' + fotokegiatan_id +'/edit', function (data) {
           $('#modelHeading').html("Edit Foto Kegiatan");
           $('#saveBtn').val("edit-foto-kegiatan");
           $('#ajaxModel').modal('show');
@@ -168,7 +169,7 @@
     
         $.ajax({
           data: $('#fotokegiatanForm').serialize(),
-          url: "{{ route('fotokegiatan.store') }}",
+          url: "fotokegiatan/store",
           type: "POST",
           dataType: 'json',
           success: function (data) {
@@ -192,7 +193,7 @@
       
         $.ajax({
             type: "DELETE",
-            url: "{{ route('fotokegiatan.store') }}"+'/'+fotokegiatan_id,
+            url: "fotokegiatan/store"+'/'+fotokegiatan_id,
             success: function (data) {
                 table.draw();
             },

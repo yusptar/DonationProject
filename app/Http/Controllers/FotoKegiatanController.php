@@ -45,7 +45,7 @@ class FotoKegiatanController extends Controller
             ->addIndexColumn()
             ->make(true);
         }
-        return view('manage_admin.fotokegiatan_management',compact('fotokegiatan'));
+        return view('manage_admin.fotokegiatan_management');
     }
      
  

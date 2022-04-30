@@ -261,7 +261,7 @@
                                 <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i
                                             class="mdi mdi-note-outline"></i><span class="hide-menu"> Manage Berita
                                         </span></a></li>
-                                <li class="sidebar-item"><a href="{{ route('fotokegiatan.index') }}" class="sidebar-link"><i
+                                <li class="sidebar-item"><a href="{{ route('fotokegiatan') }}" class="sidebar-link"><i
                                             class="mdi mdi-note-plus"></i><span class="hide-menu"> Manage Foto Kegiatan
                                         </span></a></li>
                             </ul>
