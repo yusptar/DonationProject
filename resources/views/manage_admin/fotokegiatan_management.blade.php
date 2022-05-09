@@ -21,7 +21,7 @@
                                             <rect x="10.8891" y="17.8033" width="12" height="2" rx="1" transform="rotate(-90 10.8891 17.8033)" fill="black" />
                                             <rect x="6.01041" y="10.9247" width="12" height="2" rx="1" fill="black" />
                                             </svg>
-                                        </span>
+                                        </span> 
                                     Tambah Data</a>
                                 </ol>
                             </nav>
@@ -79,21 +79,26 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label class="col-md-3">Image Upload</label>
                             <div class="col-md-9">
                                 <div class="custom-file">
                                 <input id="image" type="file" name="image" accept="image/*" onchange="readURL(this);">
                                     <input type="file" class="custom-file-input" id="fotokegiatan_id" name="gambar"
                                         required>
-                                        <img id="modal-preview" src="https://via.placeholder.com/150" alt="Preview" class="form-group hidden" width="100" height="100">    
-                                    <!-- <label class="custom-file-label" for="validatedCustomFile">Choose
-                                                file...</label> -->
-                                            <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
+                                        <img id="modal-preview" src="https://via.placeholder.com/150" alt="Preview" class="form-group hidden" width="100" height="100">      
                                 </div>
                             </div>
-                            
+                        </div> -->
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Image</label>
+                            <div class="col-sm-12">
+                                <input id="gambar" type="file" name="gambar" accept="gambar/*" onchange="readURL(this);">
+                                <input type="hidden" name="hidden_image" id="hidden_image">
+                            </div>
                         </div>
+                        <img id="modal-preview" src="https://via.placeholder.com/150" alt="Preview" class="form-group hidden" width="100" height="100">
                         
         
                         <div class="text-center pt-15">
@@ -123,7 +128,7 @@
        
         processing: true,
         serverSide: true,
-        ajax: "{{ route('fotokegiatan') }}",
+        ajax: "fotokegiatan",
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'title', name: 'title'},
@@ -151,11 +156,12 @@
       var id = $(this).data('id');
       $.get('fotokegiatan/' + fotokegiatan_id +'/edit', function (data) {
           $('#modelHeading').html("Edit Foto Kegiatan");
-          $('#saveBtn').val("edit-foto-kegiatan");
+          $('#saveBtn').val("editFoto");
           $('#ajaxModel').modal('show');
           $('#fotokegiatan_id').val(data.id);
           $('#title').val(data.title);
           $('#author').val(data.author);
+          $('#modal-preview').attr('alt', 'No image available');
           if(data.gambar){
             $('#modal-preview').attr('src', SITEURL +'public/images/'+data.gambar);
             $('#hidden_image').attr('src', SITEURL +'public/images/'+data.gambar);
@@ -163,27 +169,67 @@
       })
    });
    
-    $('#saveBtn').click(function (e) {
-        e.preventDefault();
-        $(this).html('Save');
+    // $('#saveBtn').click(function (e) {
+    //     e.preventDefault();
+    //     $(this).html('Save');
     
-        $.ajax({
-          data: $('#fotokegiatanForm').serialize(),
-          url: "fotokegiatan/store",
-          type: "POST",
-          dataType: 'json',
-          success: function (data) {
+    //     $.ajax({
+    //       data: $('#fotokegiatanForm').serialize(),
+    //       url: "fotokegiatan/store",
+    //       type: "POST",
+    //       dataType: 'json',
+    //       success: function (data) {
      
-              $('#fotokegiatanForm').trigger("reset");
-              $('#ajaxModel').modal('hide');
-              table.draw();
+    //           $('#fotokegiatanForm').trigger("reset");
+    //           $('#ajaxModel').modal('hide');
+    //           table.draw();
          
-          },
-          error: function (data) {
-              console.log('Error:', data);
-              $('#saveBtn').html('Save Changes');
-          }
-      });
+    //       },
+    //       error: function (data) {
+    //           console.log('Error:', data);
+    //           $('#saveBtn').html('Save Changes');
+    //       }
+    //   });
+    // });
+    $('body').on('submit', '#fotokegiatanForm', function (e) {
+    e.preventDefault();
+    var actionType = $('#saveBtn').val();
+    $('#saveBtn').html('Sending..');
+    var formData = new FormData(this);
+    $.ajax({
+        type: 'POST',
+        url: SITEURL + "fotokegiatan/store",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: (data) => {
+            $('#fotokegiatanForm').trigger("reset");
+            $('#ajaxModel').modal('hide');
+            $('#saveBtn').html('Save Changes');
+            var oTable = $('#laravel_datatable').dataTable();
+            oTable.fnDraw(false);
+        },
+        error: function (data) {
+            console.log('Error:', data);
+            $('#saveBtn').html('Save Changes');
+        }
+    });
+    });             
+
+    $(document).ready(function(){
+    readURL = function(input, id) {
+        id = id || '#modal-preview';
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $(id).attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+        $('#modal-preview').removeClass('hidden');
+        $('#start').hide();
+    }
+    }
     });
     
     $('body').on('click', '.deleteFoto', function () {

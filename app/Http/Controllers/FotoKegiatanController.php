@@ -85,14 +85,14 @@ class FotoKegiatanController extends Controller
         
             if ($files = $request->file('gambar')) {
                 
-            //delete old file
-            \File::delete('public/images/'.$request->hidden_image);
-            
-            //insert new file
-            $destinationPath = 'public/images/'; // upload path
-            $fotokegiatanImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
-            $files->move($destinationPath, $fotokegiatanImage);
-            $details['gambar'] = "$fotokegiatanImage";
+                //delete old file
+                \File::delete('public/images/'.$request->hidden_image);
+                
+                //insert new file
+                $destinationPath = 'public/images/'; // upload path
+                $fotokegiatanImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+                $files->move($destinationPath, $fotokegiatanImage);
+                $details['gambar'] = "$fotokegiatanImage";
             }
             
             $fotokegiatan   =   FotoKegiatan::updateOrCreate(['id' => $fotokegiatanId], $details);  
@@ -119,6 +119,6 @@ class FotoKegiatanController extends Controller
         \File::delete('public/images/'.$data->gambar);
         $fotokegiatan = FotoKegiatan::where('id',$id)->delete();
     
-        return Response::json($fotokegiatan);
+        return Response::json($fotokegiatan); 
     }
 }
