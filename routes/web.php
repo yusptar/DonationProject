@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FotoKegiatanController;
+use App\Http\Controllers\KegiatanController;
 
 
 /*
@@ -38,6 +39,12 @@ Route::get('fotokegiatan', [FotoKegiatanController::class, 'index']);
 Route::get('fotokegiatan/{id}/edit', [FotoKegiatanController::class, 'edit']);
 Route::post('fotokegiatan/store', [FotoKegiatanController::class, 'store']);
 Route::get('fotokegiatan/delete/{id}', [FotoKegiatanController::class, 'destroy']);
+
+//Manage Kegiatan
+Route::get('kegiatan-list', [KegiatanController::class, 'index']);
+Route::get('kegiatan-list/{id}/edit', [KegiatanController::class, 'edit']);
+Route::post('kegiatan-list/store', [KegiatanController::class, 'store']);
+Route::get('kegiatan-list/delete/{id}', [KegiatanController::class, 'destroy']);
 
 
 

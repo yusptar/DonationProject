@@ -264,6 +264,9 @@
                                 <li class="sidebar-item"><a href="fotokegiatan" class="sidebar-link"><i
                                             class="mdi mdi-note-plus"></i><span class="hide-menu"> Manage Foto Kegiatan
                                         </span></a></li>
+                                <li class="sidebar-item"><a href="kegiatan-list" class="sidebar-link"><i
+                                            class="mdi mdi-note-plus"></i><span class="hide-menu"> Kegiatan
+                                        </span></a></li>        
                             </ul>
                         </li>                        
                         <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
