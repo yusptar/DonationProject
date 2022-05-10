@@ -14,7 +14,7 @@
                   <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <a class="btn btn-success" data-bs-toggle="modal" href="javascript:void(0)" data-bs-target="#addEmployeeModal">
+                            <a class="btn btn-success" data-bs-toggle="modal" href="javascript:void(0)" data-bs-target="#addKegiatanModal">
                                 <span class="svg-icon svg-icon-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="green" />
@@ -47,7 +47,7 @@
   </div>
 
   <!--  add new employee modal start  -->
-  <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+  <div class="modal fade" id="addKegiatanModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     data-bs-backdrop="static" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -55,7 +55,7 @@
           <h5 class="modal-title" id="exampleModalLabel">Tambah Foto Kegiatan</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="#" method="POST" id="add_employee_form" enctype="multipart/form-data">
+        <form action="#" method="POST" id="add_kegiatan_form" enctype="multipart/form-data">
           @csrf
           <div class="modal-body p-4 bg-light">
             <div class="my-2">
@@ -73,7 +73,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" id="add_employee_btn" class="btn btn-primary">Tambah Kegiatan</button>
+            <button type="submit" id="add_kegiatan_btn" class="btn btn-primary">Tambah Kegiatan</button>
           </div>
         </form>
       </div>
@@ -90,7 +90,7 @@
           <h5 class="modal-title" id="exampleModalLabel">Edit Foto Kegiatan</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="#" method="POST" id="edit_employee_form" enctype="multipart/form-data">
+        <form action="#" method="POST" id="edit_kegiatan_form" enctype="multipart/form-data">
           @csrf
           <input type="hidden" name="emp_id" id="emp_id">
           <input type="hidden" name="emp_avatar" id="emp_avatar">
@@ -113,7 +113,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" id="edit_employee_btn" class="btn btn-success">Update Foto Kegiatan</button>
+            <button type="submit" id="edit_kegiatan_btn" class="btn btn-success">Update Foto Kegiatan</button>
           </div>
         </form>
       </div>
@@ -130,11 +130,11 @@
   <script type="text/javascript">
     $(function() {
 
-      // add new employee ajax request
-      $("#add_employee_form").submit(function(e) {
+      // add new kegiatan ajax request
+      $("#add_kegiatan_form").submit(function(e) {
         e.preventDefault();
         const fd = new FormData(this);
-        $("#add_employee_btn").text('Adding...');
+        $("#add_kegiatan_btn").text('Adding...');
         $.ajax({
           url: '{{ route('kegiatan-store') }}',
           method: 'post',
@@ -152,14 +152,14 @@
               )
               fetchAllEmployees();
             }
-            $("#add_employee_btn").text('Tambah');
-            $("#add_employee_form")[0].reset();
-            $("#addEmployeeModal").modal('hide');
+            $("#add_kegiatan_btn").text('Tambah');
+            $("#add_kegiatan_form")[0].reset();
+            $("#addKegiatanModal").modal('hide');
           }
         });
       });
 
-      // edit employee ajax request
+      // edit kegiatan ajax request
       $(document).on('click', '.editIcon', function(e) {
         e.preventDefault();
         let id = $(this).attr('id');
@@ -181,11 +181,11 @@
         });
       });
 
-      // update employee ajax request
-      $("#edit_employee_form").submit(function(e) {
+      // update kegiatan ajax request
+      $("#edit_kegiatan_form").submit(function(e) {
         e.preventDefault();
         const fd = new FormData(this);
-        $("#edit_employee_btn").text('Updating...');
+        $("#edit_kegiatan_btn").text('Updating...');
         $.ajax({
           url: '{{ route('kegiatan-update') }}',
           method: 'post',
@@ -203,8 +203,8 @@
               )
               fetchAllEmployees();
             }
-            $("#edit_employee_btn").text('Update Employee');
-            $("#edit_employee_form")[0].reset();
+            $("#edit_kegiatan_btn").text('Update Employee');
+            $("#edit_kegiatan_form")[0].reset();
             $("#editEmployeeModal").modal('hide');
           }
         });
