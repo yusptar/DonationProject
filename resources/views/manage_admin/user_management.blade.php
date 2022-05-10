@@ -42,7 +42,7 @@
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Roles</th>
-                                                <th width="300px">Action</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>

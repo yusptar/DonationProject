@@ -6,6 +6,7 @@ use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+
 class KegiatanController extends Controller
 {
     // set index page view
@@ -17,11 +18,12 @@ class KegiatanController extends Controller
 	public function fetchAll() {
 		$emps = Kegiatan::all();
 		$output = '';
+		$numbering = 1;
 		if ($emps->count() > 0) {
 			$output .= '<table class="table table-bordered data-table">
             <thead>
               <tr>
-                <th>ID</th>
+                <th>No</th>
                 <th>Image</th>
                 <th>Title</th>
                 <th>Description</th>
@@ -31,7 +33,7 @@ class KegiatanController extends Controller
             <tbody>';
 			foreach ($emps as $emp) {
 				$output .= '<tr>
-                <td>' . $emp->id . '</td>
+                <td width="5px">' . $numbering++ . '</td>
                 <td><img src="storage/images/' . $emp->image . '" width="100" height="100" src="https://via.placeholder.com/150"></td>
                 <td>' . $emp->title . '</td>
                 <td>' . $emp->description . '</td>
@@ -43,7 +45,7 @@ class KegiatanController extends Controller
                 </td>
               </tr>';
 			}
-			$output .= '</tbody>';
+			$output .= '</tbody></table>';
 			echo $output;
 		} else {
 			echo '<h1 class="text-center text-secondary my-5">No record present in the database!</h1>';
