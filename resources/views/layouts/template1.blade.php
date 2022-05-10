@@ -265,7 +265,10 @@
                                             class="mdi mdi-note-plus"></i><span class="hide-menu"> Manage Foto Kegiatan
                                         </span></a></li>        
                             </ul>
-                        </li>                        
+                        </li>   
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="#" aria-expanded="false"><i class="mdi mdi-face"></i><span
+                                    class="hide-menu">Data Santri</span></a></li>                     
                         <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span
                                     class="hide-menu">Charts</span></a></li>
