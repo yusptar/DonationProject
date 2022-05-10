@@ -64,7 +64,7 @@
             </div>
             <div class="my-2">
               <label for="description">Description</label>
-              <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description" required></textarea>
+              <input type="text" name="description" class="form-control" placeholder="Description" required>
             </div>
             <div class="my-2">
               <label for="image">Upload Image</label>
@@ -101,7 +101,7 @@
             </div>
             <div class="my-2">
               <label for="description">Description</label>
-              <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description" required></textarea>
+              <input type="text" name="description" id="description" class="form-control" placeholder="Description" required>
             </div>
             <div class="my-2">
               <label for="image">Upload Image</label>
