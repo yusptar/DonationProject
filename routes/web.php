@@ -33,25 +33,20 @@ Route::get('dashboard', [AdminController::class, 'dashboard_view'])->name('dashb
 Route::resource('manageuser', AdminController::class);
 
 // Manage Foto Kegiatan
-// Route::resource('fotokegiatan', FotoKegiatanController::class);
-Route::post('upload', [FotoKegiatanController::class, 'store']);
-Route::get('fotokegiatan', [FotoKegiatanController::class, 'index']);
-Route::get('fotokegiatan/{id}/edit', [FotoKegiatanController::class, 'edit']);
-Route::post('fotokegiatan/store', [FotoKegiatanController::class, 'store']);
-Route::get('fotokegiatan/delete/{id}', [FotoKegiatanController::class, 'destroy']);
-
-//Manage Kegiatan
-// Route::get('kegiatan-list', [KegiatanController::class, 'index']);
-// Route::get('kegiatan-list/{id}/edit', [KegiatanController::class, 'edit']);
-// Route::post('kegiatan-list/store', [KegiatanController::class, 'store']);
-// Route::get('kegiatan-list/delete/{id}', [KegiatanController::class, 'destroy']);
-
 Route::get('/kegiatan', [KegiatanController::class, 'index']);
 Route::post('/kegiatan-store', [KegiatanController::class, 'store'])->name('kegiatan-store');
 Route::get('/kegiatan-fetchall', [KegiatanController::class, 'fetchAll'])->name('kegiatan-fetchAll');
 Route::delete('/kegiatan-delete', [KegiatanController::class, 'delete'])->name('kegiatan-delete');
 Route::get('/kegiatan-edit', [KegiatanController::class, 'edit'])->name('kegiatan-edit');
 Route::post('/kegiatan-update', [KegiatanController::class, 'update'])->name('kegiatan-update');
+
+// Manage Berita
+Route::get('/berita', [BeritaController::class, 'index']);
+Route::post('/berita-store', [BeritaController::class, 'store'])->name('berita-store');
+Route::get('/berita-fetchall', [BeritaController::class, 'fetchAll'])->name('berita-fetchAll');
+Route::delete('/berita-delete', [BeritaController::class, 'delete'])->name('berita-delete');
+Route::get('/berita-edit', [BeritaController::class, 'edit'])->name('berita-edit');
+Route::post('/berita-update', [BeritaController::class, 'update'])->name('berita-update');
 
 
 
