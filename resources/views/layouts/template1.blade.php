@@ -2,18 +2,16 @@
 <html dir="ltr" lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <!-- Tell the browser to be responsive to screen width -->
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="keywords"
         content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template">
     <meta name="description"
         content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Yayasan At-Taufiq Malang Donation Website</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="//attaufiqmlg.com/wp-content/uploads/2016/06/logo-150.png">
@@ -423,13 +421,6 @@
     <script src="{{ asset('admins/assets/extra-libs/multicheck/datatable-checkbox-init.js') }}"></script>
     <script src="{{ asset('admins/assets/extra-libs/multicheck/jquery.multicheck.js') }}"></script>
     <script src="{{ asset('admins/assets/extra-libs/DataTables/datatables.min.js') }}"></script>
-    <script>
-            /****************************************
-             *       Basic Table                   *
-             ****************************************/
-            $('#zero_config').DataTable();
-    </script>
-    
     
 
 </body>

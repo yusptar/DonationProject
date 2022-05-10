@@ -1,145 +1,128 @@
 @extends('layouts.template1')
 @section('content')
-<!--  add new employee modal start  -->
-<div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-  data-bs-backdrop="static" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Foto Kegiatan</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form action="#" method="POST" id="add_employee_form" enctype="multipart/form-data">
-        @csrf
-        <div class="modal-body p-4 bg-light">
-          <div class="my-2">
-            <label for="title">Title</label>
-            <input type="text" name="title" class="form-control" placeholder="Title" required>
-          </div>
-          <div class="my-2">
-            <label for="description">Description</label>
-            <input type="text" name="description" class="form-control" placeholder="Description" required>
-          </div>
-          <div class="my-2">
-            <label for="image">Upload Image</label>
-            <input type="file" name="image" class="form-control" required>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" id="add_employee_btn" class="btn btn-primary">Add Employee</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<!-- add new employee modal end -->
 
-<!-- edit employee modal start -->
-<div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-  data-bs-backdrop="static" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Foto Kegiatan</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form action="#" method="POST" id="edit_employee_form" enctype="multipart/form-data">
-        @csrf
-        <input type="hidden" name="emp_id" id="emp_id">
-        <input type="hidden" name="emp_avatar" id="emp_avatar">
-        <div class="modal-body p-4 bg-light">
-          <div class="my-2">
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title" class="form-control" placeholder="Title" required>
-          </div>
-          <div class="my-2">
-            <label for="description">Description</label>
-            <input type="text" name="description" id="description" class="form-control" placeholder="Description" required>
-          </div>
-          <div class="my-2">
-            <label for="image">Upload Image</label>
-            <input type="file" name="image" class="form-control">
-          </div>
-          <div class="mt-2" id="image">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" id="edit_employee_btn" class="btn btn-success">Update Employee</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<!-- edit employee modal end -->
-<div class="page-warpper">
+  <div class="page-warpper">
     <div class="page-breadcrumb">
         <div class="row">
-            <div class="col-8 d-flex no-block align-items-center">
+            <div class="col-12 d-flex no-block align-items-center">
                 <h4 class="page-title">Data Foto Kegiatan</h4> 
-                <div class="ms-auto text-end">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <a class="btn btn-success" data-bs-toggle="modal" href="javascript:void(0)" data-bs-target="#addEmployeeModal">
-                                        <span class="svg-icon svg-icon-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="green" />
-                                            <rect x="10.8891" y="17.8033" width="12" height="2" rx="1" transform="rotate(-90 10.8891 17.8033)" fill="black" />
-                                            <rect x="6.01041" y="10.9247" width="12" height="2" rx="1" fill="black" />
-                                            </svg>
-                                        </span> 
-                                    Tambah Data</a>
-                                </ol>
-                            </nav>
-                        </div>           
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-8">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <div class="card-body" id="show_all_employees">
-                                <h1 class="text-center text-secondary my-5">Loading...</h1>
+                  <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <a class="btn btn-success" data-bs-toggle="modal" href="javascript:void(0)" data-bs-target="#addEmployeeModal">
+                                <span class="svg-icon svg-icon-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="green" />
+                                    <rect x="10.8891" y="17.8033" width="12" height="2" rx="1" transform="rotate(-90 10.8891 17.8033)" fill="black" />
+                                    <rect x="6.01041" y="10.9247" width="12" height="2" rx="1" fill="black" />
+                                    </svg>
+                                </span> 
+                            Tambah Data</a>
+                        </ol>
+                    </nav>
+                  </div>           
+              </div>
+          </div>
+      </div>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="table-responsive">
+                            <div id="show_all_employees">
+                              <h1 class="text-center text-secondary my-5">Loading...</h1>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!--  add new employee modal start  -->
+  <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    data-bs-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tambah Foto Kegiatan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="#" method="POST" id="add_employee_form" enctype="multipart/form-data">
+          @csrf
+          <div class="modal-body p-4 bg-light">
+            <div class="my-2">
+              <label for="title">Title</label>
+              <input type="text" name="title" class="form-control" placeholder="Title" required>
             </div>
-        </div>
-    </div>
-</div>
-<body class="bg-light">
-  <!-- <div class="container">
-    <div class="row my-5">
-      <div class="col-lg-12">
-        <div class="card shadow">
-          <div class="card-header bg-danger d-flex justify-content-between align-items-center">
-            <h3 class="text-light">Manage Foto Kegiatan</h3>
-            <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addEmployeeModal"><i
-                class="bi-plus-circle me-2"></i>Tambah Foto Kegiatan</button>
+            <div class="my-2">
+              <label for="description">Description</label>
+              <input type="text" name="description" class="form-control" placeholder="Description" required>
+            </div>
+            <div class="my-2">
+              <label for="image">Upload Image</label>
+              <input type="file" name="image" class="form-control" required>
+            </div>
           </div>
-          <div class="card-body" id="show_all_employees">
-            <h1 class="text-center text-secondary my-5">Loading...</h1>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" id="add_employee_btn" class="btn btn-primary">Add Employee</button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
-  </div> -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </div>
+  <!-- add new employee modal end -->
+
+  <!-- edit employee modal start -->
+  <div class="modal fade" id="editKegiatanModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    data-bs-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Foto Kegiatan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="#" method="POST" id="edit_employee_form" enctype="multipart/form-data">
+          @csrf
+          <input type="hidden" name="emp_id" id="emp_id">
+          <input type="hidden" name="emp_avatar" id="emp_avatar">
+          <div class="modal-body p-4 bg-light">
+            <div class="my-2">
+              <label for="title">Title</label>
+              <input type="text" name="title" id="title" class="form-control" placeholder="Title" required>
+            </div>
+            <div class="my-2">
+              <label for="description">Description</label>
+              <input type="text" name="description" id="description" class="form-control" placeholder="Description" required>
+            </div>
+            <div class="my-2">
+              <label for="image">Upload Image</label>
+              <input type="file" name="image" class="form-control">
+            </div>
+            <div class="mt-2" id="image">
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" id="edit_employee_btn" class="btn btn-success">Update Employee</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- edit employee modal end -->
+
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js'></script>
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> 
   <script type="text/javascript">
     $(function() {
 
@@ -276,6 +259,4 @@
       }
     });
   </script>
-</body>
-
 @endsection

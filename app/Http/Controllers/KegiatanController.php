@@ -18,7 +18,7 @@ class KegiatanController extends Controller
 		$emps = Kegiatan::all();
 		$output = '';
 		if ($emps->count() > 0) {
-			$output .= '<table class="table table-bordered data-table" id="laravel_datatable">
+			$output .= '<table class="table table-bordered data-table">
             <thead>
               <tr>
                 <th>ID</th>
@@ -43,7 +43,7 @@ class KegiatanController extends Controller
                 </td>
               </tr>';
 			}
-			$output .= '</tbody></table>';
+			$output .= '</tbody>';
 			echo $output;
 		} else {
 			echo '<h1 class="text-center text-secondary my-5">No record present in the database!</h1>';
