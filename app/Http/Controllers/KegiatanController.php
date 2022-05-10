@@ -83,7 +83,7 @@ class KegiatanController extends Controller
 				Storage::delete('public/images/' . $emp->image);
 			}
 		} else {
-			$fileName = $request->emp_image;
+			$fileName = $request->kegiatan_image;
 		}
 
 		$empData = ['title' => $request->title, 'description' => $request->description, 'image' => $fileName];
