@@ -60,11 +60,11 @@
           <div class="modal-body p-4 bg-light">
             <div class="my-2">
               <label for="title">Title</label>
-              <input type="text" name="title" class="form-control" placeholder="Title" required>
+              <input type="text" name="title" class="form-control" placeholder="Enter Title" required>
             </div>
             <div class="my-2">
               <label for="description">Description</label>
-              <input type="text" name="description" class="form-control" placeholder="Description" required>
+              <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description" required></textarea>
             </div>
             <div class="my-2">
               <label for="image">Upload Image</label>
@@ -97,11 +97,11 @@
           <div class="modal-body p-4 bg-light">
             <div class="my-2">
               <label for="title">Title</label>
-              <input type="text" name="title" id="title" class="form-control" placeholder="Title" required>
+              <input type="text" name="title" id="title" class="form-control" placeholder="Enter Title" required>
             </div>
             <div class="my-2">
               <label for="description">Description</label>
-              <input type="text" name="description" id="description" class="form-control" placeholder="Description" required>
+              <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description" required></textarea>
             </div>
             <div class="my-2">
               <label for="image">Upload Image</label>

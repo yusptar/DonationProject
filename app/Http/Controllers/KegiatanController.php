@@ -36,7 +36,7 @@ class KegiatanController extends Controller
                 <td width="5px">' . $numbering++ . '</td>
                 <td><img src="storage/images/' . $emp->image . '" width="100" height="100" src="https://via.placeholder.com/150"></td>
                 <td>' . $emp->title . '</td>
-                <td>' . $emp->description . '</td>
+                <td width="200px">' . $emp->description . '</td>
                 <td>
                   <a href="#" id="' . $emp->id . '" class="edit btn btn-primary btn-sm editIcon" data-bs-toggle="modal" data-bs-target="#editKegiatanModal"><i class="bi-pencil-square h4"></i>Edit</a>
 
