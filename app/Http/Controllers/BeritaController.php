@@ -66,7 +66,7 @@ class BeritaController extends Controller
 		]);
     }
 
-    public function edit($id)
+    public function edit(Request $request)
     {   
         $id = $request->id;
 		$emp = Berita::find($id);
