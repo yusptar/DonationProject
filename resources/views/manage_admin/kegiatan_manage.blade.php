@@ -77,14 +77,29 @@
 <div class="page-warpper">
     <div class="page-breadcrumb">
         <div class="row">
-            <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Data Foto Kegiatan</h4>            
+            <div class="col-8 d-flex no-block align-items-center">
+                <h4 class="page-title">Data Foto Kegiatan</h4> 
+                <div class="ms-auto text-end">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <a class="btn btn-success" data-bs-toggle="modal" href="javascript:void(0)" data-bs-target="#addEmployeeModal">
+                                        <span class="svg-icon svg-icon-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="green" />
+                                            <rect x="10.8891" y="17.8033" width="12" height="2" rx="1" transform="rotate(-90 10.8891 17.8033)" fill="black" />
+                                            <rect x="6.01041" y="10.9247" width="12" height="2" rx="1" fill="black" />
+                                            </svg>
+                                        </span> 
+                                    Tambah Data</a>
+                                </ol>
+                            </nav>
+                        </div>           
             </div>
         </div>
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
+            <div class="col-8">
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
@@ -99,7 +114,7 @@
     </div>
 </div>
 <body class="bg-light">
-  <div class="container">
+  <!-- <div class="container">
     <div class="row my-5">
       <div class="col-lg-12">
         <div class="card shadow">
@@ -114,12 +129,17 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js'></script>
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> 
+  <script type="text/javascript">
     $(function() {
 
       // add new employee ajax request
@@ -144,7 +164,7 @@
               )
               fetchAllEmployees();
             }
-            $("#add_employee_btn").text('Add Employee');
+            $("#add_employee_btn").text('Tambah');
             $("#add_employee_form")[0].reset();
             $("#addEmployeeModal").modal('hide');
           }
