@@ -73,7 +73,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" id="add_employee_btn" class="btn btn-primary">Add Employee</button>
+            <button type="submit" id="add_employee_btn" class="btn btn-primary">Tambah Kegiatan</button>
           </div>
         </form>
       </div>

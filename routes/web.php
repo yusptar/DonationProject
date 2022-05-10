@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\FotoKegiatanController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\BeritaController;
 
 
 /*
