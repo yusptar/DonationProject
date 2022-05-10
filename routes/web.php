@@ -41,10 +41,17 @@ Route::post('fotokegiatan/store', [FotoKegiatanController::class, 'store']);
 Route::get('fotokegiatan/delete/{id}', [FotoKegiatanController::class, 'destroy']);
 
 //Manage Kegiatan
-Route::get('kegiatan-list', [KegiatanController::class, 'index']);
-Route::get('kegiatan-list/{id}/edit', [KegiatanController::class, 'edit']);
-Route::post('kegiatan-list/store', [KegiatanController::class, 'store']);
-Route::get('kegiatan-list/delete/{id}', [KegiatanController::class, 'destroy']);
+// Route::get('kegiatan-list', [KegiatanController::class, 'index']);
+// Route::get('kegiatan-list/{id}/edit', [KegiatanController::class, 'edit']);
+// Route::post('kegiatan-list/store', [KegiatanController::class, 'store']);
+// Route::get('kegiatan-list/delete/{id}', [KegiatanController::class, 'destroy']);
+
+Route::get('/kegiatan', [KegiatanController::class, 'index']);
+Route::post('/kegiatan-store', [KegiatanController::class, 'store'])->name('kegiatan-store');
+Route::get('/kegiatan-fetchall', [KegiatanController::class, 'fetchAll'])->name('kegiatan-fetchAll');
+Route::delete('/kegiatan-delete', [KegiatanController::class, 'delete'])->name('kegiatan-delete');
+Route::get('/kegiatan-edit', [KegiatanController::class, 'edit'])->name('kegiatan-edit');
+Route::post('/kegiatan-update', [KegiatanController::class, 'update'])->name('kegiatan-update');
 
 
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kegiatan extends Model
 {
-    use HasFactory;
+    use HasFactory; 
 
     protected $fillable = [
         'title',
