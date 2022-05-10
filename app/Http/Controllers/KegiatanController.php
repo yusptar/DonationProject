@@ -6,7 +6,7 @@ use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-
+ 
 class KegiatanController extends Controller
 {
     // set index page view
