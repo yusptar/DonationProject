@@ -6,7 +6,7 @@
 <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 
   <div class="page-warpper">
-    <div class="page-breadcrumb">
+      <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
                 <h4 class="page-title">Data Foto Kegiatan</h4> 
@@ -25,8 +25,8 @@
                         </ol>
                     </nav>
                   </div>           
-              </div>
-          </div>
+            </div>
+        </div>
       </div>
       <div class="container-fluid">
           <div class="row">
@@ -42,17 +42,7 @@
                   </div>
               </div>
           </div>
-<<<<<<< HEAD
       </div>
-=======
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" id="add_employee_btn" class="btn btn-primary">Tambah Foto Kegiatan</button>
-        </div>
-      </form>
-    </div>
->>>>>>> 8eb84444772ff6b7c888ce196dd6a408657f0fe8
   </div>
 
   <!--  add new employee modal start  -->
@@ -131,7 +121,6 @@
   <!-- edit employee modal end -->
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script type="text/javascript">
     $(function() {
