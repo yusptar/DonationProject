@@ -18,7 +18,7 @@ class KegiatanController extends Controller
 		$emps = Kegiatan::all();
 		$output = '';
 		if ($emps->count() > 0) {
-			$output .= '<table class="table table-striped table-sm text-center align-middle">
+			$output .= '<table class="table table-bordered data-table" id="laravel_datatable">
             <thead>
               <tr>
                 <th>ID</th>
