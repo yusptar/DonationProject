@@ -42,7 +42,17 @@
                   </div>
               </div>
           </div>
+<<<<<<< HEAD
       </div>
+=======
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" id="add_employee_btn" class="btn btn-primary">Tambah Foto Kegiatan</button>
+        </div>
+      </form>
+    </div>
+>>>>>>> 8eb84444772ff6b7c888ce196dd6a408657f0fe8
   </div>
 
   <!--  add new employee modal start  -->
