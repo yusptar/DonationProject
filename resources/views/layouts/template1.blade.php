@@ -258,7 +258,7 @@
                                 href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span
                                     class="hide-menu">Page Content</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i
+                                <li class="sidebar-item"><a href="berita" class="sidebar-link"><i
                                             class="mdi mdi-note-outline"></i><span class="hide-menu"> Manage Berita
                                         </span></a></li>
                                 <li class="sidebar-item"><a href="kegiatan" class="sidebar-link"><i
