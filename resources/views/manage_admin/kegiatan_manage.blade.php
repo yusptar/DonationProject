@@ -35,7 +35,7 @@
                   <div class="card">
                       <div class="card-body">
                           <div class="table-responsive">
-                            <div id="show_all_employees">
+                            <div id="show_all_kegiatan">
                               <h1 class="text-center text-secondary my-5">Loading...</h1>
                             </div>
                           </div>
@@ -46,7 +46,7 @@
       </div>
   </div>
 
-  <!--  add new employee modal start  -->
+  <!--  add modal start  -->
   <div class="modal fade" id="addKegiatanModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     data-bs-backdrop="static" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -79,9 +79,9 @@
       </div>
     </div>
   </div>
-  <!-- add new employee modal end -->
+  <!-- add modal end -->
 
-  <!-- edit employee modal start -->
+  <!-- edit modal start -->
   <div class="modal fade" id="editKegiatanModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     data-bs-backdrop="static" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -119,7 +119,7 @@
       </div>
     </div>
   </div>
-  <!-- edit employee modal end -->
+  <!-- edit modal end -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
@@ -150,7 +150,7 @@
                 'Foto Kegiatan Added Successfully!',
                 'success'
               )
-              fetchAllEmployees();
+              fetchAllKegiatan();
             }
             $("#add_kegiatan_btn").text('Tambah');
             $("#add_kegiatan_form")[0].reset();
@@ -201,16 +201,16 @@
                 'Foto Kegiatan Updated Successfully!',
                 'success'
               )
-              fetchAllEmployees();
+              fetchAllKegiatan();
             }
-            $("#edit_kegiatan_btn").text('Update Employee');
+            $("#edit_kegiatan_btn").text('Update Kegiatan');
             $("#edit_kegiatan_form")[0].reset();
-            $("#editEmployeeModal").modal('hide');
+            $("#editKegiatanModal").modal('hide');
           }
         });
       });
 
-      // delete employee ajax request
+      // delete ajax request
       $(document).on('click', '.deleteIcon', function(e) {
         e.preventDefault();
         let id = $(this).attr('id');
@@ -239,22 +239,22 @@
                   'Your file has been deleted.',
                   'success'
                 )
-                fetchAllEmployees();
+                fetchAllKegiatan();
               }
             });
           }
         })
       });
 
-      // fetch all employees ajax request
-      fetchAllEmployees();
+      // fetch all kegiatan ajax request
+      fetchAllKegiatan();
 
-      function fetchAllEmployees() {
+      function fetchAllKegiatan() {
         $.ajax({
           url: '{{ route('kegiatan-fetchAll') }}',
           method: 'get',
           success: function(response) {
-            $("#show_all_employees").html(response);
+            $("#show_all_kegiatan").html(response);
             $("table").DataTable({
               order: [0, 'desc']
             });
