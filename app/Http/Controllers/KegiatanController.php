@@ -65,7 +65,7 @@ class KegiatanController extends Controller
 		]);
     }
 
-    public function edit($id)
+    public function edit(Request $request)
     {   
         $id = $request->id;
 		$emp = Kegiatan::find($id);
@@ -74,7 +74,7 @@ class KegiatanController extends Controller
 
     public function update(Request $request) {
 		$fileName = '';
-		$emp = Kegiatan::find($request->emp_id);
+		$emp = Kegiatan::find($request->kegiatan_id);
 		if ($request->hasFile('image')) {
 			$file = $request->file('image');
 			$fileName = time() . '.' . $file->getClientOriginalExtension();

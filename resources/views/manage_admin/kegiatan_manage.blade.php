@@ -92,8 +92,8 @@
         </div>
         <form action="#" method="POST" id="edit_kegiatan_form" enctype="multipart/form-data">
           @csrf
-          <input type="hidden" name="emp_id" id="emp_id">
-          <input type="hidden" name="emp_avatar" id="emp_avatar">
+          <input type="hidden" name="kegiatan_id" id="kegiatan_id">
+          <input type="hidden" name="kegiatan_image" id="kegiatan_image">
           <div class="modal-body p-4 bg-light">
             <div class="my-2">
               <label for="title">Title</label>
@@ -174,9 +174,9 @@
             $("#title").val(response.title);
             $("#description").val(response.description);
             $("#image").html(
-              `<img src="storage/images/${response.image}" width="100" height="100" src="https://via.placeholder.com/150">`);
-            $("#emp_id").val(response.id);
-            $("#emp_image").val(response.image);
+              `<img src="storage/images/${response.image}" width="200" class="img-fluid img-thumbnail">`);
+            $("#kegiatan_id").val(response.id);
+            $("#kegiatan_image").val(response.image);
           }
         });
       });
