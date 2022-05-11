@@ -157,7 +157,7 @@
               <h4>{{ $k->title}}</h4>
               <p>Card</p>
               <a href="{{ url('storage/images/'.$k->image) }}" data-gallery="portfolioGallery" class="responsive portfolio-lightbox preview-link" title="{{ $k->title }}"><i class="bx bx-plus"></i></a>
-              <a href="" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="{{ '/detail-kegiatan/'.$k->id }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
           @endforeach

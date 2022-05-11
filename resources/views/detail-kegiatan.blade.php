@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,99 +36,92 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('user/assets/css/style.css') }}" rel="stylesheet">
-  
 </head>
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
+<header id="header" class="fixed-top header-inner-pages">
     <div class="container-fluid">
 
       <div class="row justify-content-center">
         <div class="col-xl-9 d-flex align-items-center justify-content-lg-between">
           <h1 class="logo me-auto me-lg-0"><a href="/"></a></h1>
           <!-- Uncomment below if you prefer to use an image logo -->
-          <a href="/" class="logo me-auto me-lg-0"><img src="//attaufiqmlg.com/wp-content/uploads/2016/06/logo-150.png" alt="" class="img-fluid"></a>
+          <a href="/" class="logo me-auto me-lg-6"><img src="//attaufiqmlg.com/wp-content/uploads/2016/06/logo-150.png" alt="" class="responsive"></a>
 
           <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-              @can('admin')
-              <li><a class="nav-link scrollto" href="#">Data User</a></li>
-              <li><a class="nav-link scrollto" href="#">Riwayat Donasi</a></li>
-              <li><a class="nav-link scrollto" href="#">Cetak Laporan</a></li>
-              @endcan
-              
-
-              <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-              <li><a class="nav-link scrollto" href="#about">Profil</a></li>
-              @can('donatur')   
-              <li><a class="nav-link scrollto" href="#services">Donasi</a></li>
-              <li><a class="nav-link scrollto" href="#pricing">Riwayat Donasi</a></li>
-              @endcan
-
-              @cannot('donatur')
-              <li class="dropdown"><a href=""><span>Informasi</span><i class="bi bi-chevron-down"></i></a>
-                <ul>
-                  <li><a class="nav-link scrollto" href="#portfolio">Foto Kegiatan</a></li>
-                  <li><a class="nav-link scrollto" href="#pricing">Berita</a></li>
-                </ul>
-              </li>
-              <li><a class="nav-link scrollto" href="#contact">Hubungi Kami</a></li>
-              @endcannot
+              <li><a class="nav-link scrollto " href="/">Home</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav><!-- .navbar -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="get-started-btn scrollto" href="{{ route('login') }}">{{ __('Masuk/Daftar') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="dropdown">
-                                <a id="navbarDropdown" class="dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest          
         </div>
       </div>
 
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-xl-8">
-          <h1>Yayasan At-Taufiq Malang Donation Website</h1>
-          <h2>Bersama kita merajut masa depan Anak Yatim</h2>
-          <a href="https://www.youtube.com/watch?v=byWzFXQdnEw" class="glightbox play-btn mb-4"></a>
-        </div>
-      </div>
-    </div>
-  </section><!-- End Hero -->
-
   <main id="main">
-   @yield('content')
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li>Foto Kegiatan Detail</li>
+        </ol>
+        <h2>{{ $kegiatan->title }}</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+   <!-- ======= Portfolio Details Section ======= -->
+   <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="">
+                  <img src="{{ url('storage/images/'.$kegiatan->image) }}" class="responsive" alt="">
+                </div>
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>{{ $kegiatan->title }} information</h3>
+              <ul>
+                <li><strong>Category</strong>: Web design</li>
+                <li><strong>Client</strong>: ASU Company</li>
+                <li><strong>Project date</strong>: 01 March, 2020</li>
+                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>{{ $kegiatan->title }}</h2>
+              <p>
+                {{ $kegiatan->description }}
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
     <div class="container">
     <a class="logo me-auto me-lg-0"><img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" alt="" class="img-fluid"></a>
       <p>Jl. Sanan 70 RT 08 RW.15 Purwantoro Blimbing Malang 65122, (0341) 411105</p>
@@ -159,3 +153,4 @@
 </body>
 
 </html>
+
