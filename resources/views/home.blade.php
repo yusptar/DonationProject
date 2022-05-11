@@ -28,6 +28,18 @@
       </div>
     </section><!-- End About Us Section -->
 
+    <!-- ======= Berita Section ======= -->
+    <section id="pricing" class="pricing">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Berita</h2>
+          <p>INI HALAMAN BERITA, MAINTENANCE ON PROGRESS</p>
+        </div>
+
+      </div>
+    </section><!-- Berita Section -->
+
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
       <div class="container">
@@ -77,8 +89,7 @@
         </div>
 
         <div class="row portfolio-container">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <img src="{{ asset('user/assets/img/portfolio/portfolio-1.jpg') }}" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>App 1</h4>
@@ -97,6 +108,8 @@
               <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
+        
+        
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <img src="{{ asset('user/assets/img/portfolio/portfolio-3.jpg') }}" class="img-fluid" alt="">
@@ -136,19 +149,19 @@
               <a href="{{ asset('user/assets/img/portfolio/portfolio-6.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
               <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
-          </div>
-
+          </div> -->
+         @foreach($kegiatan as $k)
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="{{ asset('user/assets/img/portfolio/portfolio-7.jpg') }}" class="img-fluid" alt="">
+            <img src="{{ url('storage/images/'.$k->image) }}" class="responsive" alt="">
             <div class="portfolio-info">
-              <h4>Card 1</h4>
+              <h4>{{ $k->title}}</h4>
               <p>Card</p>
-              <a href="{{ asset('user/assets/img/portfolio/portfolio-7.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="{{ url('storage/images/'.$k->image) }}" data-gallery="portfolioGallery" class="responsive portfolio-lightbox preview-link" title="{{ $k->title }}"><i class="bx bx-plus"></i></a>
+              <a href="" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          @endforeach
+          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <img src="{{ asset('user/assets/img/portfolio/portfolio-8.jpg') }}" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>Card 3</h4>
@@ -166,105 +179,12 @@
               <a href="{{ asset('user/assets/img/portfolio/portfolio-9.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
               <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
-          </div>
+          </div> -->
 
         </div>
 
       </div>
     </section><!-- End Portfolio Section -->
-
-
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-6 order-2 order-lg-1">
-            <div class="icon-box mt-5 mt-lg-0">
-              <i class="bx bx-receipt"></i>
-              <h4>Est labore ad</h4>
-              <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-            </div>
-            <div class="icon-box mt-5">
-              <i class="bx bx-cube-alt"></i>
-              <h4>Harum esse qui</h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-            </div>
-            <div class="icon-box mt-5">
-              <i class="bx bx-images"></i>
-              <h4>Aut occaecati</h4>
-              <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-            </div>
-            <div class="icon-box mt-5">
-              <i class="bx bx-shield"></i>
-              <h4>Beatae veritatis</h4>
-              <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
-            </div>
-          </div>
-          <div class="image col-lg-6 order-1 order-lg-2" style='background-image: url("assets/img/features.jpg");'></div>
-        </div>
-
-      </div>
-    </section><!-- End Features Section -->
-
-    <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
-      <div class="container">
-
-        <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="{{ asset('user/assets/img/clients/client-1.png') }}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="{{ asset('user/assets/img/clients/client-2.png') }}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="{{ asset('user/assets/img/clients/client-3.png') }}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="{{ asset('user/assets/img/clients/client-4.png') }}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="{{ asset('user/assets/img/clients/client-5.png') }}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="{{ asset('user/assets/img/clients/client-6.png') }}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="{{ asset('user/assets/img/clients/client-7.png') }}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="{{ asset('user/assets/img/clients/client-8.png') }}" class="img-fluid" alt="">
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Clients Section -->
 
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">

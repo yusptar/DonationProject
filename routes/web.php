@@ -18,14 +18,12 @@ use App\Http\Controllers\BeritaController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+
 
 
 Auth::routes();
 
-Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('admin', [AdminController::class, 'user_view'])->name('admin');
 Route::get('dashboard', [AdminController::class, 'dashboard_view'])->name('dashboard');
 

@@ -2,6 +2,15 @@
 <html lang="en">
 
 <head>
+
+  <style>
+  .responsive {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  </style>
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -63,6 +72,7 @@
               <li class="dropdown"><a href=""><span>Informasi</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a href="#portfolio">Foto Kegiatan</a></li>
+                  <li><a href="#pricing">Berita</a></li>
                 </ul>
               </li>
               <li><a class="nav-link scrollto" href="#contact">Hubungi Kami</a></li>
