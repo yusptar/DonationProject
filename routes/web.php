@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\SantriController;
+use App\Http\Controllers\DonaturController;
 
 
 /*
@@ -24,9 +25,11 @@ use App\Http\Controllers\SantriController;
 
 Auth::routes();
 
+// User View
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('admin', [AdminController::class, 'user_view'])->name('admin');
 Route::get('dashboard', [AdminController::class, 'dashboard_view'])->name('dashboard');
+Route::get('home', [DonaturController::class, 'index'])->name('donatur');
 
 // Manage User
 Route::resource('manageuser', AdminController::class);

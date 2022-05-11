@@ -64,11 +64,15 @@
               <li><a class="nav-link scrollto" href="#">Cetak Laporan</a></li>
               @endcan
               
+
               <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">Profil</a></li>
-              @can('donatur')
+              @can('donatur')   
               <li><a class="nav-link scrollto" href="#services">Donasi</a></li>
+              <li><a class="nav-link scrollto" href="#portofolio">Riwayat Donasi</a></li>
               @endcan
+
+              @cannot('donatur')
               <li class="dropdown"><a href=""><span>Informasi</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a href="#portfolio">Foto Kegiatan</a></li>
@@ -76,6 +80,7 @@
                 </ul>
               </li>
               <li><a class="nav-link scrollto" href="#contact">Hubungi Kami</a></li>
+              @endcannot
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav><!-- .navbar -->
