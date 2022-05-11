@@ -155,7 +155,7 @@
             <img src="{{ url('storage/images/'.$k->image) }}" class="responsive" alt="">
             <div class="portfolio-info">
               <h4>{{ $k->title}}</h4>
-              <p>Card</p>
+              <p>{{ $k->created_at }}</p>
               <a href="{{ url('storage/images/'.$k->image) }}" data-gallery="portfolioGallery" class="responsive portfolio-lightbox preview-link" title="{{ $k->title }}"><i class="bx bx-plus"></i></a>
               <a href="{{ '/detail-kegiatan/'.$k->id }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>

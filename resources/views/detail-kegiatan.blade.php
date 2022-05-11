@@ -99,10 +99,7 @@
             <div class="portfolio-info">
               <h3>{{ $kegiatan->title }} information</h3>
               <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+                <li><strong>Publish Date </strong>{{ $kegiatan->created_at }}</li>
               </ul>
             </div>
             <div class="portfolio-description">
