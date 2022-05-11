@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\SantriController;
 
 
 /*
@@ -45,6 +46,14 @@ Route::get('/berita-fetchall', [BeritaController::class, 'fetchAll'])->name('ber
 Route::delete('/berita-delete', [BeritaController::class, 'delete'])->name('berita-delete');
 Route::get('/berita-edit', [BeritaController::class, 'edit'])->name('berita-edit');
 Route::post('/berita-update', [BeritaController::class, 'update'])->name('berita-update');
+
+// Manage Santri
+Route::get('/santri', [SantriController::class, 'index']);
+Route::post('/santri-store', [SantriController::class, 'store'])->name('santri-store');
+Route::get('/santri-fetchall', [SantriController::class, 'fetchAll'])->name('santri-fetchAll');
+Route::delete('/santri-delete', [SantriController::class, 'delete'])->name('santri-delete');
+Route::get('/santri-edit', [SantriController::class, 'edit'])->name('santri-edit');
+Route::post('/santri-update', [SantriController::class, 'update'])->name('santri-update');
 
 
 
