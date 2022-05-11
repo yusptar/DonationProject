@@ -15,6 +15,13 @@ class CreateSantrisTable extends Migration
     {
         Schema::create('santris', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->date('ttl');
+            $table->string('asal');
+            $table->string('tahun_masuk');
+            $table->string('nama_ayah');
+            $table->string('nama_ibu');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
