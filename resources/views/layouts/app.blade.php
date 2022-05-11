@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <style>
+    .responsive {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        margin
+    }
+    </style>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,11 +26,6 @@
     <link rel="stylesheet" href="{{ asset('auth/css/style.css') }}">
 </head>
 <body>
-    <header id="header">
-        <nav flex-col class="flex flex-row items-center justify-center">
-            <a href="/" class="logo me-auto me-lg-1"><img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" alt="" class="img-fluid"></a> 
-        </nav>            
-    </header><!-- End Header -->
     <div class="main">
         @yield('content')
     </div>
