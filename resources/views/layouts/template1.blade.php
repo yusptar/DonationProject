@@ -20,6 +20,8 @@
     <!-- Custom CSS -->
     <link href="{{ asset('admins/dist/css/style.min.css') }}" rel="stylesheet">
     
+    <link rel="stylesheet" type="text/css" href="{{ asset('admins/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
+    
     <!-- HTML5 Shim and Respond.js') }} IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js') }} doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -267,7 +269,7 @@
                             </ul>
                         </li>   
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="#" aria-expanded="false"><i class="mdi mdi-face"></i><span
+                                href="santri" aria-expanded="false"><i class="mdi mdi-face"></i><span
                                     class="hide-menu">Data Santri</span></a></li>                     
                         <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span

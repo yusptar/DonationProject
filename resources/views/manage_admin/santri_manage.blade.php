@@ -63,9 +63,14 @@
               <input type="text" name="nama" class="form-control" placeholder="Nama" required>
             </div>
             <div class="my-2">
-              <label for="description">Description</label>
-              <input type="text" name="description" class="form-control" placeholder="Description" required>
-            </div>
+              <label for="ttl">Tanggal Lahir</label>
+              <div class="input-group">
+                <input type="text" name="ttl" class="form-control mydatepicker" placeholder="mm/dd/yyyy" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text h-100"><i class="fa fa-calendar"></i></span>
+                  </div>
+              </div>
+            </div>               
             <div class="my-2">
               <label for="image">Upload Foto</label>
               <input type="file" name="image" class="form-control" required>
