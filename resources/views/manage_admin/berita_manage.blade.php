@@ -256,7 +256,7 @@
           success: function(response) {
             $("#show_all_employees").html(response);
             $("table").DataTable({
-              order: [0, 'desc']
+              order: [0, 'asc']
             });
           }
         });
