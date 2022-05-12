@@ -67,7 +67,23 @@
               <div class="input-group">
                 <input type="date" name="ttl" class="form-control mydatepicker" placeholder="mm/dd/yyyy" required>
               </div>
+            </div>
+            <div class="my-2">
+              <label for="asal">Asal</label>
+              <input type="text" name="asal" class="form-control" placeholder="Asal" required>
+            </div>
+            <div class="my-2">
+              <label for="tahun_masuk">Tahun Masuk</label>
+              <input type="text" name="tahun_masuk" class="form-control" placeholder="Tahun Masuk" required>
+            </div>
+            <div class="my-2">
+              <label for="nama_ayah">Nama Ayah</label>
+              <input type="text" name="nama_ayah" class="form-control" placeholder="Nama Ayah" required>
             </div>               
+            <div class="my-2">
+              <label for="nama_ibu">Nama Ibu</label>
+              <input type="text" name="nama_ibu" class="form-control" placeholder="Nama Ibu" required>
+            </div>
             <div class="my-2">
               <label for="image">Upload Foto</label>
               <input type="file" name="image" class="form-control" required>
@@ -95,22 +111,37 @@
         <form action="#" method="POST" id="edit_employee_form" enctype="multipart/form-data">
           @csrf
           <input type="hidden" name="emp_id" id="emp_id">
-          <input type="hidden" name="emp_avatar" id="emp_avatar">
+          <input type="hidden" name="emp_image" id="emp_image">
           <div class="modal-body p-4 bg-light">
-            <div class="my-2">
-              <label for="title">Title</label>
-              <input type="text" name="title" id="title" class="form-control" placeholder="Title" required>
+          <div class="my-2">
+              <label for="nama">Nama</label>
+              <input type="text" name="nama" class="form-control" placeholder="Nama" required>
             </div>
             <div class="my-2">
-              <label for="description">Description</label>
-              <input type="text" name="description" id="description" class="form-control" placeholder="Description" required>
+              <label for="ttl">Tanggal Lahir</label>
+              <div class="input-group">
+                <input type="date" name="ttl" class="form-control mydatepicker" placeholder="mm/dd/yyyy" required>
+              </div>
+            </div>
+            <div class="my-2">
+              <label for="asal">Asal</label>
+              <input type="text" name="asal" class="form-control" placeholder="Asal" required>
+            </div>
+            <div class="my-2">
+              <label for="tahun_masuk">Tahun Masuk</label>
+              <input type="text" name="tahun_masuk" class="form-control" placeholder="Tahun Masuk" required>
+            </div>
+            <div class="my-2">
+              <label for="nama_ayah">Nama Ayah</label>
+              <input type="text" name="nama_ayah" class="form-control" placeholder="Nama Ayah" required>
+            </div>               
+            <div class="my-2">
+              <label for="nama_ibu">Nama Ibu</label>
+              <input type="text" name="nama_ibu" class="form-control" placeholder="Nama Ibu" required>
             </div>
             <div class="my-2">
               <label for="image">Upload Foto</label>
-              <input type="file" name="image" class="form-control">
-            </div>
-            <div class="mt-2" id="image">
-
+              <input type="file" name="image" class="form-control" required>
             </div>
           </div>
           <div class="modal-footer">
@@ -173,8 +204,12 @@
             _token: '{{ csrf_token() }}'
           },
           success: function(response) {
-            $("#title").val(response.title);
-            $("#description").val(response.description);
+            $("#nama").val(response.nama);
+            $("#ttl").val(response.ttl);
+            $("#asal").val(response.asal);
+            $("#tahun_masuk").val(response.tahun_masuk);
+            $("#nama_ayah").val(response.nama_ayah);
+            $("#nama_ibu").val(response.nama_ibu);
             $("#image").html(
               `<img src="storage/images/${response.image}" width="100" height="100" src="https://via.placeholder.com/150">`);
             $("#emp_id").val(response.id);
