@@ -4,19 +4,16 @@
 <!-- ======= Profile Section ======= -->
 <section id="about" class="about">
       <div class="container">
-
         <div class="section-title">   
           <h2>Profil</h2><a class="logo me-auto me-lg-0"><img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" alt="" class="img-fluid"></a>
           <p>Yayasan Attaufiq adalah Yayasan yang fokus mengabdi untuk mengasuh anak Yatim Piatu dan fakir miskin yang berada di Malang. Dengan segala kemampuan, kami bertanggungjawab mewujudkan cita cita Anak Yatim agar bisa terwujud kelak hingga mereka dewasa.</p>
         </div>
-
         <div class="row content">
           <div class="col-lg-6">
             <p>
             Bermula dari acara pengajian yang diadakan secara sederhana dalam rangka syukuran peringatan HUT Kemerdekaan RI pada bulan Agustus 1995 para peserta pengajian sepakat dan bertekad untuk memulai merawat anak yatim dengan modal uang hasil spontanitas sebesar Rp. 55.000,-. Dua bulan berikutnya uang tersebut bertambah menjadi Rp. 70.000,- dan dua bulan berikutnya lagi, tepatnya pada bulan November 1995 menjadi 125.000,- setelah diadakan pertemuan pertama untuk memastikan perlu tidaknya realisasi kesepakatan dan tekad di atas.<br>
             <br>Menyadari betapa sudah sangat jelas pesan agama Islam bahwa persoalan anak yatim dan orang miskin adalah menjadi tanggung jawab umat Islam yang dengan berkat Rahmat Allah swt. mereka mempunyai kelonggaran atau kelebihan untuk ikut serta secara aktif menyelesaikan problem tersebut agar masa depan mereka bisa survive, maka perlu segera diadakan musyawarah untuk membicarakan kesepakatan dan tekad yang sangat mulia dan terpuji tersebut.
             </p>
-
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
@@ -25,17 +22,15 @@
             </p>
           </div>
         </div>
-
       </div>
     </section><!-- End Profile Section -->
 
     <!-- ======= Berita Section ======= -->
     <section id="services" class="services">
       <div class="container">
-
         <div class="section-title">
           <h2>Berita</h2>
-          <p>INI HALAMAN BERITA, MAINTENANCE ON PROGRESS</p>
+          <h5>Berita Yayasan At-Taufiq Malang</h5>
         </div>
         <div class="row">
           @foreach($berita as $b)
@@ -45,31 +40,28 @@
               <br><br>
               <h4><a href="">{{ $b->title }}</a></h4>
               <p>{{ Str::limit($b->description, 220,'...') }} Read More &rarr;</p>
+              <br>
+              <p>Tanggal Publikasi, {!! date('d-M-Y', strtotime($b->created_at)) !!}</p>
             </div>
           </div>
           @endforeach
-          
         </div>
-
       </div>
     </section><!-- Berita Section -->
 
     <!-- ======= Donation Section ======= -->
     <section id="pricing" class="pricing">
       <div class="container">
-
         <div class="section-title">
           <h2>Donasi</h2>
           <p>INI HALAMAN DONASI, MAINTENANCE ON PROGRESS</p>
         </div>
-
       </div>
     </section><!-- End Donation Section -->
 
     <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta">
       <div class="container">
-
         <div class="row">
           <div class="col-lg-9 text-center text-lg-start">
             <h3>Sembahlah Allah dan janganlah kamu mempersekutukan-Nya dengan sesuatupun. Dan berbuat baiklah kepada dua orang ibu-bapak, karib-kerabat, anak-anak yatim, orang-orang miskin…</h3>
@@ -78,17 +70,14 @@
             <a class="cta-btn align-middle">(QS. an-Nisa: 36)</a>
           </div>
         </div>
-
       </div>
     </section><!-- End Cta Section -->
 
     <!-- ======= Foto Kegiatan Section ======= -->
     <section id="portfolio" class="portfolio">
       <div class="container">
-
         <div class="section-title">
-          <h2>Foto Kegiatan</h2>
-          <p>INI HALAMAN FOTO KEGIATAN, MAINTENANCE ON PROGRESS</p>
+          <h2>Galeri Yayasan At-Taufiq Malang</h2>
         </div>
 
         <div class="row">
@@ -103,102 +92,20 @@
         </div>
 
         <div class="row portfolio-container">
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="{{ asset('user/assets/img/portfolio/portfolio-1.jpg') }}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 1</h4>
-              <p>App</p>
-              <a href="{{ asset('user/assets/img/portfolio/portfolio-1.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="{{ asset('user/assets/img/portfolio/portfolio-2.jpg') }}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <a href="{{ asset('user/assets/img/portfolio/portfolio-2.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        
-        
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="{{ asset('user/assets/img/portfolio/portfolio-3.jpg') }}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 2</h4>
-              <p>App</p>
-              <a href="{{ asset('user/assets/img/portfolio/portfolio-3.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="{{ asset('user/assets/img/portfolio/portfolio-4.jpg') }}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 2</h4>
-              <p>Card</p>
-              <a href="{{ asset('user/assets/img/portfolio/portfolio-4.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="{{ asset('user/assets/img/portfolio/portfolio-5.jpg') }}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 2</h4>
-              <p>Web</p>
-              <a href="{{ asset('user/assets/img/portfolio/portfolio-5.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="{{ asset('user/assets/img/portfolio/portfolio-6.jpg') }}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 3</h4>
-              <p>App</p>
-              <a href="{{ asset('user/assets/img/portfolio/portfolio-6.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div> -->
          @foreach($kegiatan as $k)
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <img src="{{ url('storage/images/'.$k->image) }}" class="responsive" alt="">
             <div class="portfolio-info">
               <h4>{{ $k->title}}</h4>
-              <p>{{ $k->created_at }}</p>
+              <p>Tanggal Publikasi, {!! date('d-M-Y', strtotime($k->created_at)) !!}</p>
               <a href="{{ url('storage/images/'.$k->image) }}" data-gallery="portfolioGallery" class="responsive portfolio-lightbox preview-link" title="{{ $k->title }}"><i class="bx bx-plus"></i></a>
               <a href="{{ '/detail-kegiatan/'.$k->id }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
           @endforeach
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="{{ asset('user/assets/img/portfolio/portfolio-8.jpg') }}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 3</h4>
-              <p>Card</p>
-              <a href="{{ asset('user/assets/img/portfolio/portfolio-8.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="{{ asset('user/assets/img/portfolio/portfolio-9.jpg') }}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <a href="{{ asset('user/assets/img/portfolio/portfolio-9.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div> -->
-
         </div>
-
       </div>
-    </section><!-- End Portfolio Section -->
+    </section><!-- End Foto Kegiatan Section -->
 
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">

@@ -70,7 +70,8 @@
               <li class="dropdown"><a href=""><span>Informasi</span><i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a class="nav-link scrollto" href="#portfolio">Foto Kegiatan</a></li>
-                  <li><a class="nav-link scrollto" href="#pricing">Berita</a></li>
+                  <li><a class="nav-link scrollto" href="#services">Berita</a></li>
+                  <li><a class="nav-link scrollto" href="#pricing">Donasi Sukarela</a></li>
                 </ul>
               </li>
               <li><a class="nav-link scrollto" href="#contact">Hubungi Kami</a></li>
