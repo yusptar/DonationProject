@@ -1,6 +1,7 @@
 @extends('layouts.template')
 @section('content')
-<!-- ======= About Us Section ======= -->
+
+<!-- ======= Profile Section ======= -->
 <section id="about" class="about">
       <div class="container">
 
@@ -26,22 +27,35 @@
         </div>
 
       </div>
-    </section><!-- End About Us Section -->
+    </section><!-- End Profile Section -->
 
     <!-- ======= Berita Section ======= -->
-    <section id="pricing" class="pricing">
+    <section id="services" class="services">
       <div class="container">
 
         <div class="section-title">
           <h2>Berita</h2>
           <p>INI HALAMAN BERITA, MAINTENANCE ON PROGRESS</p>
         </div>
+        <div class="row">
+          @foreach($berita as $b)
+          <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
+            <div class="icon-box">
+              <img src="{{ url('storage/images/'.$b->image) }}" class="responsive" alt="">
+              <br><br>
+              <h4><a href="">{{ $b->title }}</a></h4>
+              <p>{{ Str::limit($b->description, 220,'...') }} Read More &rarr;</p>
+            </div>
+          </div>
+          @endforeach
+          
+        </div>
 
       </div>
     </section><!-- Berita Section -->
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
+    <!-- ======= Donation Section ======= -->
+    <section id="pricing" class="pricing">
       <div class="container">
 
         <div class="section-title">
@@ -50,7 +64,7 @@
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section><!-- End Donation Section -->
 
     <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta">
