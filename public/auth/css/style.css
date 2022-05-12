@@ -271,7 +271,7 @@ body {
   margin-bottom: 33px; }
 
 .signup-image {
-  margin-top: 45px; }
+  margin-top: 130px; }
 
 figure {
   margin-bottom: 50px;
@@ -298,7 +298,7 @@ figure {
   margin-top: 16px; }
 
 .signup-image-link {
-  font-size: 14px;
+  font-size: 15px;
   color: #222;
   display: block;
   text-align: center; }
@@ -518,7 +518,7 @@ label.valid {
 .signin-image {
   margin-left: 110px;
   margin-right: 20px;
-  margin-top: 10px; }
+  margin-top: 120px; }
 
 @media screen and (max-width: 1200px) {
   .container {
