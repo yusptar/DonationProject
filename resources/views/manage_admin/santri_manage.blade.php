@@ -266,6 +266,18 @@
           }
         });
       }
+      jQuery('.mydatepicker').datepicker();
+        jQuery('#datepicker-autoclose').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+        var quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+
+      
     });
+
+    
   </script>
 @endsection
