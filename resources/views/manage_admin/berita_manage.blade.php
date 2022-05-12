@@ -174,7 +174,7 @@
             $("#title").val(response.title);
             $("#description").val(response.description);
             $("#image").html(
-              `<img src="storage/images/${response.image}" width="200" class="img-fluid img-thumbnail">`);
+              `<img src="storage/images/${response.image}" width="100" height="100" src="https://via.placeholder.com/150">`);
             $("#emp_id").val(response.id);
             $("#emp_image").val(response.image);
           }

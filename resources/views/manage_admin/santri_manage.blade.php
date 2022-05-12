@@ -65,10 +65,7 @@
             <div class="my-2">
               <label for="ttl">Tanggal Lahir</label>
               <div class="input-group">
-                <input type="text" name="ttl" class="form-control mydatepicker" placeholder="mm/dd/yyyy" required>
-                  <div class="input-group-append">
-                    <span class="input-group-text h-100"><i class="fa fa-calendar"></i></span>
-                  </div>
+                <input type="date" name="ttl" class="form-control mydatepicker" placeholder="mm/dd/yyyy" required>
               </div>
             </div>               
             <div class="my-2">
@@ -266,14 +263,6 @@
           }
         });
       }
-      jQuery('.mydatepicker').datepicker();
-        jQuery('#datepicker-autoclose').datepicker({
-            autoclose: true,
-            todayHighlight: true
-        });
-        var quill = new Quill('#editor', {
-            theme: 'snow'
-        });
 
       
     });
