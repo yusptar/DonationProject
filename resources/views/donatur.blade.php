@@ -39,14 +39,16 @@
       </div>
     </section><!-- End Services Section -->
 
-    <section id="portfolio" class="portfolio">
+    <!-- ======= Berita Section ======= -->
+    <section id="pricing" class="pricing">
       <div class="container">
 
         <div class="section-title">
           <h2>Riwayat Donasi</h2>
-          <p>INI HALAMAN RIWAYAT DONASI, MAINTENANCE ON PROGRESS</p>
+          <p>INI HALAMAN BERITA, MAINTENANCE ON PROGRESS</p>
         </div>
-      </div>
 
-    </section>
+      </div>
+    </section><!-- Berita Section -->
+
 @endsection

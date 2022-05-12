@@ -12,5 +12,13 @@ class HomeController extends Controller
         $kegiatan = Kegiatan::all();
         return view('home', compact('kegiatan'));
     }
+
+    public function index_detail_kegiatan($id)
+    {
+        $kegiatan = Kegiatan::find($id);
+        return view('detail-kegiatan', ['kegiatan'=>$kegiatan, 'id'=>$id]);
+    }
+
+
     
 }
