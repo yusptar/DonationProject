@@ -39,7 +39,7 @@ class BeritaController extends Controller
                 <td>' . $emp->created_at . '</td>
                 <td>' . $emp->updated_at . '</td>
                 <td>
-                  <a href="#" id="' . $emp->id . '" class="edit btn btn-primary btn-sm editIcon" data-bs-toggle="modal" data-bs-target="#editKegiatanModal"><i class="bi-pencil-square h4"></i>Edit</a>
+                  <a href="#" id="' . $emp->id . '" class="edit btn btn-primary btn-sm editIcon" data-bs-toggle="modal" data-bs-target="#editBeritaModal"><i class="bi-pencil-square h4"></i>Edit</a>
 
                   <a href="#" id="' . $emp->id . '" class="btn btn-danger btn-sm deleteIcon"><i class="bi-trash h4"></i>Delete</a>
 

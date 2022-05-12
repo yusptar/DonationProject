@@ -82,7 +82,7 @@
   <!-- add new employee modal end -->
 
   <!-- edit employee modal start -->
-  <div class="modal fade" id="editKegiatanModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+  <div class="modal fade" id="editBeritaModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     data-bs-backdrop="static" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -93,7 +93,7 @@
         <form action="#" method="POST" id="edit_employee_form" enctype="multipart/form-data">
           @csrf
           <input type="hidden" name="emp_id" id="emp_id">
-          <input type="hidden" name="emp_avatar" id="emp_avatar">
+          <input type="hidden" name="emp_image" id="emp_image">
           <div class="modal-body p-4 bg-light">
             <div class="my-2">
               <label for="title">Title</label>
@@ -174,7 +174,7 @@
             $("#title").val(response.title);
             $("#description").val(response.description);
             $("#image").html(
-              `<img src="storage/images/${response.image}" width="100" height="100" src="https://via.placeholder.com/150">`);
+              `<img src="storage/images/${response.image}" width="200" class="img-fluid img-thumbnail">`);
             $("#emp_id").val(response.id);
             $("#emp_image").val(response.image);
           }
