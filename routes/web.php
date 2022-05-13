@@ -7,6 +7,7 @@ use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\SantriController;
 use App\Http\Controllers\DonaturController;
+use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -31,6 +32,12 @@ Route::get('/detail-kegiatan/{id}', [HomeController::class, 'index_detail_kegiat
 Route::get('admin', [AdminController::class, 'user_view'])->name('admin');
 Route::get('dashboard', [AdminController::class, 'dashboard_view'])->name('dashboard');
 Route::get('home', [DonaturController::class, 'index'])->name('donatur');
+
+// Update Donatur Profile
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('profile', [ProfileController::class, 'edit'])->name('edit');
+    Route::patch('profile', [ProfileController::class, 'update'])->name('update');
+});
 
 // Manage User
 Route::resource('manageuser', AdminController::class);

@@ -94,7 +94,7 @@
                           <span>{{ Auth::user()->name }}</span><i class="bi bi-chevron-down"></i>
                       </a>
                       <ul>       
-                          <li><a class="nav-link scrollto" href="#">Profile Saya</a></li>
+                          <li><a class="nav-link scrollto" href="{{ route('edit') }}">Profile Saya</a></li>
                           <li><a class="nav-link scrollto" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>
                               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
