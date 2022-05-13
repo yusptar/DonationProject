@@ -35,8 +35,8 @@ Route::get('home', [DonaturController::class, 'index'])->name('donatur');
 
 // Update Donatur Profile
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('profile', [ProfileController::class, 'edit'])->name('edit');
-    Route::patch('profile', [ProfileController::class, 'update'])->name('update');
+    Route::get('profile', [ProfileController::class, 'index'])->name('index');
+    Route::post('profile', [ProfileController::class, 'update'])->name('update');
 });
 
 // Manage User

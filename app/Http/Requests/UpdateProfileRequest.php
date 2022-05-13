@@ -5,6 +5,8 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
+
 
 class UpdateProfileRequest extends FormRequest
 {
@@ -35,10 +37,6 @@ class UpdateProfileRequest extends FormRequest
                 Rule::unique('users', 'email')->ignore(Auth::user()->id)
             ],
 
-            'password' => [
-                'required', 'password', 'max:255',
-                Rule::unique('users', 'password')
-            ],
         ];
     }
 }

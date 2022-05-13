@@ -23,5 +23,7 @@
     <!-- JS -->
     <script src="{{ asset('auth/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('auth/js/main.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @include('sweetalert::alert')
 </body>
 </html>
