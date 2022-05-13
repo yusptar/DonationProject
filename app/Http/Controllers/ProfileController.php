@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateProfileRequest;
 
 class ProfileController extends Controller
 {
@@ -19,7 +20,6 @@ class ProfileController extends Controller
         $request->user()->update(
             $request->all()
         );
-
         return redirect()->route('edit');
     }
 }
