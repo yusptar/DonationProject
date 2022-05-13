@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\UpdateProfileRequest;
 
 class ProfileController extends Controller
 {
@@ -15,7 +14,7 @@ class ProfileController extends Controller
 
     }
 
-    public function update(UpdateProfileRequest $request)
+    public function update(Request $request)
     {
         $request->user()->update(
             $request->all()

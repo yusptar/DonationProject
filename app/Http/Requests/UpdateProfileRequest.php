@@ -34,6 +34,11 @@ class UpdateProfileRequest extends FormRequest
                 'required', 'email', 'max:255',
                 Rule::unique('users', 'email')->ignore(Auth::user()->id)
             ],
+
+            'password' => [
+                'required', 'password', 'max:255',
+                Rule::unique('users', 'password')
+            ],
         ];
     }
 }

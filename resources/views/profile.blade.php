@@ -32,6 +32,15 @@
                                         </span>
                                     @enderror
                             </div>
+                            <div class="form-group">
+                                <label for="password"><i class="zmdi zmdi-lock material-icons-name"></i></label>
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password', $user->password) }}" autocomplete="password">
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                            </div>
                             <div class="form-group form-button">
                                     <input type="submit" name="signin" id="signin" class="form-submit" value="Update Profile"></input>
                             </div>                        
