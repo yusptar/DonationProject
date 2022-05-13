@@ -13,6 +13,6 @@ class DonaturController extends Controller
 
     public function index()
     {
-        return view('donatur');
+        return view('donatur.donatur');
     }
 }

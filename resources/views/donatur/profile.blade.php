@@ -3,16 +3,17 @@
 <!-- Update Profile Form -->
     <section class="sign-in">
             <div class="container">
+                <br>
+                <a href="{{ route('donatur') }}" class="back-to-home-link"><i class="zmdi zmdi-arrow-left"></i>&nbsp;&nbsp;Kembali ke Halaman Utama</a>
                 <div class="signin-content">
-                    <div class="signin-image">
-                        <img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" alt="sing in image">
-                        <a href="{{ route('donatur') }}" class="signup-image-link">Kembali ke Halaman Utama</a>
+                    <div class="profile-image">
+                        <img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" alt="Responsive image">
                     </div>
   
                     <div class="signin-form">
                     <h2 class="form-title">{{ Auth::user()->name }} Profile</h2>
-                        <form method="POST" action="">
-                            @csrf
+                        <form>
+                   
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                     <input id="name" type="name" class="form-control" name="name" value="{{ $user->name }}" readonly>

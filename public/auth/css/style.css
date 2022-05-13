@@ -273,6 +273,13 @@ body {
 .signup-image {
   margin-top: 130px; }
 
+.profile-image {
+  width: 50%;
+  overflow: hidden;
+  margin-top: 130px;
+  margin: 0 45px;
+  text-align: center;  }
+
 figure {
   margin-bottom: 50px;
   text-align: center; }
@@ -302,6 +309,14 @@ figure {
   color: #222;
   display: block;
   text-align: center; }
+
+.back-to-home-link {
+  font-size: 15px;
+  color: #222;
+  text-align: left;
+  margin-right: 50px;
+  margin-left: 50px;
+ }
 
 .term-service {
   font-size: 13px;
