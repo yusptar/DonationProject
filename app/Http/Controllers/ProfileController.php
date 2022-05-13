@@ -37,7 +37,7 @@ class ProfileController extends Controller
     	
     	$user->update();
 
-    	Alert::success('User Sukses diupdate', 'Success');
+    	Alert::success('Profile berhasil diupdate', 'Success');
     	return redirect('profile');
     }
 }
