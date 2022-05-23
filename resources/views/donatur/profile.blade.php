@@ -9,7 +9,9 @@
                 <a href="{{ route('donatur') }}" class="back-to-home-link"><i class="zmdi zmdi-arrow-left"></i>&nbsp;&nbsp;Kembali ke Halaman Utama</a>
                 <div class="signin-content">
                     <div class="profile-image">
+                        <div class="mt-2" id="image">
                         <img src="{{ url('storage/images/'.$user->image) }}" style="width: 250px; height: 250px; border-radius:50%; margin-left:50px;">
+                        </div>
                     </div>
   
                     <div class="signin-form">

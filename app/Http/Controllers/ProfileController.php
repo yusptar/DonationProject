@@ -41,11 +41,13 @@ class ProfileController extends Controller
 			$fileName = $request->image;
 		}
 		$user->image = $fileName;
-		
 		$user->nohp = $request->nohp;
 		$user->instansi = $request->instansi;
-    	$user->password = Hash::make($request->password);
-		
+
+		if(!empty($request->password))
+    	{
+    		$user->password = Hash::make($request->password);
+		}
     	
 
     	$user->update();
