@@ -91,6 +91,9 @@
                 <ul>
                   <li class="dropdown">
                       <a href="#" role="button" data-bs-toggle="dropdown">
+                      @if(Auth::user()->image)
+                          <img class="image rounded-circle" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="profile_image" style="width: 60px;height: 60px; padding: 10px; margin: 0px; ">
+                      @endif
                           <span>{{ Auth::user()->name }}</span><i class="bi bi-chevron-down"></i>
                       </a>
                       <ul>       
