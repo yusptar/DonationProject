@@ -105,13 +105,23 @@
                       @endif
                           <span>{{ Auth::user()->name }}</span><i class="bi bi-chevron-down"></i>
                       </a>
-                      <ul>       
+                      <ul>
+                          @can('donatur')       
                           <li><a class="nav-link scrollto" href="{{ url('profile') }}">Profile Saya</a></li>
                           <li><a class="nav-link scrollto" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>
                               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                               </form>
                           </li>
+                          @endcan
+                          @can('pengasuh')       
+                          <li><a class="nav-link scrollto" href="{{ url('profile-pengasuh') }}">Profile Saya</a></li>
+                          <li><a class="nav-link scrollto" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                              </form>
+                          </li>
+                          @endcan
                       </ul>
                   </li>
           @endguest  
@@ -125,6 +135,7 @@
 
   <!-- ======= Hero Section For Another User ======= -->
   @cannot('donatur')
+  @cannot('pengasuh')
   <section id="user" class="d-flex flex-column justify-content-center">
     <div class="container">
       <div class="row justify-content-center">
@@ -137,12 +148,28 @@
     </div>
   </section>
   @endcannot
+  @endcannot
   <!-- End Hero For Another User -->
   
 
   @can('donatur')
   <!-- ======= Hero Section For Donatur ======= -->
   <section id="donatur" class="d-flex flex-column justify-content-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-8">
+          <h1>Selamat Datang, {{ Auth::user()->name }}</h1>
+          <h2>Bersama kita merajut masa depan Anak Yatim</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  @endcan
+  <!-- End Hero For Donatur -->
+
+  @can('pengasuh')
+  <!-- ======= Hero Section For Pengasuh ======= -->
+  <section id="pengasuh" class="d-flex flex-column justify-content-center">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-xl-8">
