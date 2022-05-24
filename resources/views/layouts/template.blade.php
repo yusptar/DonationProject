@@ -58,8 +58,10 @@
               <li><a class="nav-link scrollto" href="#">Cetak Laporan</a></li>
               @endcan -->
               @cannot('donatur')
+              @cannot('pengasuh')
               <li><a class="nav-link scrollto active" href="#user">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">Profil</a></li>
+              @endcannot
               @endcannot
 
               @can('donatur')   
@@ -67,7 +69,13 @@
               <li><a class="nav-link scrollto" href="#pricing">Riwayat Donasi</a></li>
               @endcan
 
+              @can('pengasuh')
+              <li><a class="nav-link scrollto" href="#services">Data Santri</a></li>   
+              <li><a class="nav-link scrollto" href="#pricing">Data Donatur</a></li>
+              @endcan
+
               @cannot('donatur')
+              @cannot('pengasuh')
               <li class="dropdown"><a href="#"><span>Informasi</span><i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a class="nav-link scrollto" href="#portfolio">Foto Kegiatan</a></li>
@@ -76,6 +84,7 @@
                 </ul>
               </li>
               <li><a class="nav-link scrollto" href="#contact">Hubungi Kami</a></li>
+              @endcannot
               @endcannot
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
