@@ -10,7 +10,7 @@
                 <div class="signin-content">
                     <div class="profile-image">
                         <div class="mt-2" id="image">
-                        <img src="{{ url('storage/images/'.$user->image) }}" style="width: 250px; height: 250px; border-radius:50%; margin-left:50px;">
+                            <img src="{{ url('storage/images/'.$user->image) }}" style="width: 250px; height: 250px; border-radius:50%; margin-left:50px;">
                         </div>
                     </div>
   
@@ -43,7 +43,7 @@
                         <br><br> -->
                         <h2 class="form-title">{{ $user->name }}'s Profile</h2>
                         <form method="POST" action="{{ route('update') }}" enctype="multipart/form-data">
-                            <input type="hidden" name="user_image" id="user_image">
+                            
                             @csrf
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
@@ -109,9 +109,15 @@
                             <div class="form-group">
                                 <label for="image"><i class="zmdi zmdi-image material-icons-name"></i></label>
                                 <div class="col-md-6">
-                                    <input type="file" name="image" class="form-control">
+                                    <input type="file" name="image">
+                                    @error('image')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
+
                             <div class="form-group form-button">
                                     <input type="submit" name="signin" id="signin" class="form-submit" value="Update Profile"></input>
                             </div>                        
@@ -120,4 +126,17 @@
                 </div>
             </div>
     </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+      
+        $(document).ready(function (e) {
+            $('#image').change(function(){
+                let reader = new FileReader();
+                reader.onload = (e) => { 
+                    $('#preview-image-before-upload').attr('src', e.target.result); 
+                }
+                reader.readAsDataURL(this.files[0]); 
+            });
+        });
+    </script>
 @endsection

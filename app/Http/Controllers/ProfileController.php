@@ -38,19 +38,20 @@ class ProfileController extends Controller
 				Storage::delete('public/images/' . $user->image);
 			}
 		} else {
-			$fileName = $request->image;
+			$fileName = $user->image;
 		}
+
 		$user->image = $fileName;
 		$user->nohp = $request->nohp;
 		$user->instansi = $request->instansi;
-
+		
 		if(!empty($request->password))
     	{
     		$user->password = Hash::make($request->password);
 		}
     	
 
-    	$user->update();
+    	$user->save();
 
     	Alert::success('Sukses Update Profile');
 		return redirect()->back();
