@@ -1264,7 +1264,7 @@ section {
 }
 
 .pricing .riwayat h4 {
-  font-size: 24px;
+  font-size: 20px;
   color: #000000;
   font-weight: bold;
   font-family: "Open Sans", sans-serif;
@@ -1272,17 +1272,15 @@ section {
 }
 
 .pricing .riwayat span {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bold;
   font-family: "Open Sans", sans-serif;
   margin-bottom: 20px;
 }
 
 .comment{
-  border: 1px solid rgba(16, 46, 46, 1);
-  background-color: #90f1ce;
+ 
   float: left;
-  border-radius: 5px;
   padding-left: 40px;
   padding-right: 30px;
   padding-top: 10px;

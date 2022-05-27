@@ -67,11 +67,27 @@
             <div class="riwayat">
                 <div class="comment mt-4 text-justify float-left">
                     <img src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="" class="rounded-circle" width="60" height="60">
-                    <br><br>
-                    <h4>Donatur Name</h4>
-                    <span>Rp. 1.500.000, 10 April 2022</span>
                     <br>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                    <h4>Donatur Name</h4>
+                    <span>Rp. 1.500.000, &nbsp;10 April 2022</span>
+                    <br>
+                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
+                </div>
+                <div class="comment mt-4 text-justify float-left">
+                    <img src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="" class="rounded-circle" width="60" height="60">
+                    <br>
+                    <h4>Donatur Name</h4>
+                    <span>Rp. 1.500.000, &nbsp;10 April 2022</span>
+                    <br>
+                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
+                </div>
+                <div class="comment mt-4 text-justify float-left">
+                    <img src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="" class="rounded-circle" width="60" height="60">
+                    <br>
+                    <h4>Donatur Name</h4>
+                    <span>Rp. 1.500.000, &nbsp;10 April 2022</span>
+                    <br>
+                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
                 </div>
             </div>
           </div>
