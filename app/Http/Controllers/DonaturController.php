@@ -19,4 +19,9 @@ class DonaturController extends Controller
         $user = User::where('id', Auth::user()->id)->first();
         return view('donatur.donatur', compact('user'));
     }
+
+    public function index_table ()
+    {
+        
+    }
 }

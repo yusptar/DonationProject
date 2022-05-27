@@ -101,7 +101,7 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="d-none d-md-block">Selamat Datang, {{ Auth::user()->name }}</span>
+                                <!-- <span class="d-none d-md-block">Selamat Datang, {{ Auth::user()->name }}</span> -->
                                 <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>
                             </a>
                         </li>
