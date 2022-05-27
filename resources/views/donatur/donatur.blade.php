@@ -58,10 +58,25 @@
 
         <div class="section-title">
           <h2>Riwayat Donasi</h2>
-          <p>INI HALAMAN BERITA, MAINTENANCE ON PROGRESS</p>
         </div>
 
+    
+      <!-- Main Body -->
+      <div class="container">
+          <div class="row">
+            <div class="riwayat">
+                <div class="comment mt-4 text-justify float-left">
+                    <img src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="" class="rounded-circle" width="60" height="60">
+                    <br><br>
+                    <h4>Donatur Name</h4>
+                    <span>Rp. 1.500.000, 10 April 2022</span>
+                    <br>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                </div>
+            </div>
+          </div>
       </div>
-    </section><!-- Riwayat Donasi Section -->
+  </div>
+</section><!-- Riwayat Donasi Section -->
 
 @endsection

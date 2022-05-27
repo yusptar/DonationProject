@@ -1226,6 +1226,17 @@ section {
   background: #fefefe;
   box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.1);
 }
+
+.pricing .riwayat {
+  padding: 40px 20px;
+  text-align: left;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  background: #fefefe;
+  box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.1);
+}
+
 .pricing .box h3 {
   font-weight: 400;
   padding: 15px;
@@ -1234,6 +1245,16 @@ section {
   font-weight: 600;
   color: #282828;
 }
+
+.pricing .riwayat h3 {
+  font-weight: 400;
+  padding: 15px;
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #282828;
+}
+
 .pricing .box h4 {
   font-size: 42px;
   color: #009961;
@@ -1241,6 +1262,40 @@ section {
   font-family: "Open Sans", sans-serif;
   margin-bottom: 20px;
 }
+
+.pricing .riwayat h4 {
+  font-size: 24px;
+  color: #000000;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 10px;
+}
+
+.pricing .riwayat span {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 20px;
+}
+
+.comment{
+  border: 1px solid rgba(16, 46, 46, 1);
+  background-color: #90f1ce;
+  float: left;
+  border-radius: 5px;
+  padding-left: 40px;
+  padding-right: 30px;
+  padding-top: 10px;
+  
+}
+
+.pricing .riwayat p {
+  font-size: 17px;
+  font-weight: 500;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 30px;
+}
+
 .pricing .box h4 sup {
   font-size: 20px;
   top: -15px;
