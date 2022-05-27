@@ -38,7 +38,7 @@
             <div class="icon-box">
               <img src="{{ url('storage/images/'.$b->image) }}" class="responsive" alt="">
               <br><br>
-              <h4><a href="">{{ $b->title }}</a></h4>
+              <h4><a href="{{ '/detail-berita/'.$b->id }}">{{ $b->title }}</a></h4>
               <p>{{ Str::limit($b->description, 220,'...') }} Read More &rarr;</p>
               <br>
               <p>Tanggal Publikasi, {!! date('d-M-Y', strtotime($b->created_at)) !!}</p>
