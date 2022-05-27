@@ -115,34 +115,35 @@
           <div class="modal-body p-4 bg-light">
           <div class="my-2">
               <label for="nama">Nama</label>
-              <input type="text" name="nama" class="form-control" placeholder="Nama" required>
+              <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama" required>
             </div>
             <div class="my-2">
               <label for="ttl">Tanggal Lahir</label>
               <div class="input-group">
-                <input type="date" name="ttl" class="form-control mydatepicker" placeholder="mm/dd/yyyy" required>
+                <input type="date" name="ttl" id="ttl" class="form-control mydatepicker" placeholder="mm/dd/yyyy" required>
               </div>
             </div>
             <div class="my-2">
               <label for="asal">Asal</label>
-              <input type="text" name="asal" class="form-control" placeholder="Asal" required>
+              <input type="text" name="asal" id="asal" class="form-control" placeholder="Asal" required>
             </div>
             <div class="my-2">
               <label for="tahun_masuk">Tahun Masuk</label>
-              <input type="text" name="tahun_masuk" class="form-control" placeholder="Tahun Masuk" required>
+              <input type="text" name="tahun_masuk" id="tahun_masuk" class="form-control" placeholder="Tahun Masuk" required>
             </div>
             <div class="my-2">
               <label for="nama_ayah">Nama Ayah</label>
-              <input type="text" name="nama_ayah" class="form-control" placeholder="Nama Ayah" required>
+              <input type="text" name="nama_ayah" id="nama_ayah" class="form-control" placeholder="Nama Ayah" required>
             </div>               
             <div class="my-2">
               <label for="nama_ibu">Nama Ibu</label>
-              <input type="text" name="nama_ibu" class="form-control" placeholder="Nama Ibu" required>
+              <input type="text" name="nama_ibu" id="nama_ibu" class="form-control" placeholder="Nama Ibu" required>
             </div>
             <div class="my-2">
               <label for="image">Upload Foto</label>
               <input type="file" name="image" class="form-control" required>
             </div>
+            <div class="mt-2" id="image">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
