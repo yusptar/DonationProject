@@ -65,7 +65,7 @@
               @endcannot
 
               @can('donatur')   
-              <li><a class="nav-link scrollto" href="#services">Donasi</a></li>
+              <li><a class="nav-link scrollto" href="#contact">Donasi</a></li>
               <li><a class="nav-link scrollto" href="#pricing">Riwayat Donasi</a></li>
               @endcan
 
