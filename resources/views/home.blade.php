@@ -38,7 +38,7 @@
             <div class="icon-box">
               <img src="{{ url('storage/images/'.$b->image) }}" class="responsive" alt="">
               <br><br>
-              <h4><a href="">{{ $b->title }}</a></h4>
+              <h4><a href="{{ '/detail-berita/'.$b->id }}">{{ $b->title }}</a></h4>
               <p>{{ Str::limit($b->description, 220,'...') }} Read More &rarr;</p>
               <br>
               <p>Tanggal Publikasi, {!! date('d-M-Y', strtotime($b->created_at)) !!}</p>
@@ -54,7 +54,24 @@
       <div class="container">
         <div class="section-title">
           <h2>Donasi</h2>
-          <p>INI HALAMAN DONASI, MAINTENANCE ON PROGRESS</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6 col-md-8">
+            <div class="box">
+              <h3>Galang Donasi Untuk Anak Yatim Yayasan At-Taufiq Malang</h3>
+              <img src="{{ asset('user/assets/img/attaufiq.jpg') }}" class="responsive" alt="">
+              <ul>
+                <li/li>
+                <li/li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="{{ route('login') }}" class="btn-buy">Donasi Sekarang</a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section><!-- End Donation Section -->
@@ -108,12 +125,11 @@
     </section><!-- End Foto Kegiatan Section -->
 
     <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts">
+    <!-- <section id="counts" class="counts">
       <div class="container">
 
         <div class="text-center title">
           <h3>JUMLAH CIVITAS YAYASAN AT-TAUFIQ MALANG</h3>
-          <p>MAINTENANCE ON PROGRESS</p>
         </div>
 
         <div class="row counters position-relative">
@@ -141,7 +157,7 @@
         </div>
 
       </div>
-    </section><!-- End Counts Section -->
+    </section>End Counts Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
