@@ -8,6 +8,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\SantriController;
 use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfilePengasuhController;
 use App\Http\Controllers\PengasuhController;
 
 
@@ -40,6 +41,11 @@ Route::get('dashboard-pengasuh', [PengasuhController::class, 'index'])->name('pe
 Route::group(['middleware' => 'auth'], function () {
     Route::get('profile', [ProfileController::class, 'index'])->name('index');
     Route::post('profile', [ProfileController::class, 'update'])->name('update');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('profile-pengasuh', [ProfilePengasuhController::class, 'index'])->name('index');
+    Route::post('profile-pengasuh', [ProfilePengasuhController::class, 'update'])->name('update');
 });
 
 // Manage User
