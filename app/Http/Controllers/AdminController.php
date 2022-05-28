@@ -18,7 +18,7 @@ class AdminController extends Controller
 
     public function user_view()
     {
-        return view('home1');
+        return view('manage_admin.dashboard');
     }
 
     public function dashboard_view()

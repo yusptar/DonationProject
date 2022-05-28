@@ -12,7 +12,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashbboard</li>
                                 </ol>
                             </nav>
                         </div>
@@ -43,8 +43,8 @@
                     <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-success text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
-                                <h6 class="text-white">Charts</h6>
+                                <h1 class="font-light text-white"><i class="mdi mdi-account-key"></i></h1>
+                                <h6 class="text-white">Manage User</h6>
                             </div>
                         </div>
                     </div>
@@ -52,8 +52,8 @@
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-warning text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-collage"></i></h1>
-                                <h6 class="text-white">Widgets</h6>
+                                <h1 class="font-light text-white"><i class="mdi mdi-note-outline"></i></h1>
+                                <h6 class="text-white">Manage Berita</h6>
                             </div>
                         </div>
                     </div>
@@ -61,8 +61,8 @@
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-danger text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>
-                                <h6 class="text-white">Tables</h6>
+                                <h1 class="font-light text-white"><i class="mdi mdi-account-multiple"></i></h1>
+                                <h6 class="text-white">Data Santri</h6>
                             </div>
                         </div>
                     </div>
@@ -70,8 +70,8 @@
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-info text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-arrow-all"></i></h1>
-                                <h6 class="text-white">Full Width</h6>
+                                <h1 class="font-light text-white"><i class="mdi mdi-account-multiple"></i></h1>
+                                <h6 class="text-white">Data Pengasuh</h6>
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                         <div class="card card-hover">
                             <div class="box bg-danger text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-receipt"></i></h1>
-                                <h6 class="text-white">Forms</h6>
+                                <h6 class="text-white">Manage Foto Kegiatan</h6>
                             </div>
                         </div>
                     </div>
@@ -89,17 +89,17 @@
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-info text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-relative-scale"></i></h1>
-                                <h6 class="text-white">Buttons</h6>
+                                <h1 class="font-light text-white"><i class="mdi mdi-receipt"></i></h1>
+                                <h6 class="text-white">Donasi Offline</h6>
                             </div>
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                    <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-cyan text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-pencil"></i></h1>
-                                <h6 class="text-white">Elements</h6>
+                                <h1 class="font-light text-white"><i class="mdi mdi-receipt"></i></h1>
+                                <h6 class="text-white">Data Masuk Donasi</h6>
                             </div>
                         </div>
                     </div>
@@ -107,20 +107,20 @@
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-success text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-calendar-check"></i></h1>
-                                <h6 class="text-white">Calnedar</h6>
+                                <h1 class="font-light text-white"><i class="mdi mdi-receipt"></i></h1>
+                                <h6 class="text-white">Cetak Laporan</h6>
                             </div>
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                    <!-- <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-warning text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-alert"></i></h1>
                                 <h6 class="text-white">Errors</h6>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Column -->
                 </div>
                 <!-- ============================================================== -->

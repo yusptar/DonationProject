@@ -29,7 +29,7 @@ class LoginController extends Controller
     protected function redirectTo()
     {
         $for = [
-            'Admin' => 'admin',
+            'Admin' => 'dashboard',
             'Donatur' => 'donatur',
             'Pengasuh' => 'pengasuh',
         ];
