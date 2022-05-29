@@ -49,19 +49,12 @@
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-warning text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-note-outline"></i></h1>
-                                <h6 class="text-white">Manage Berita</h6>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <!-- Column -->
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-danger text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-account-multiple"></i></h1>
+                                <h1 class="font-light text-white"><i class="mdi mdi-face"></i></h1>
                                 <h6 class="text-white">Data Santri</h6>
                             </div>
                         </div>
@@ -76,12 +69,28 @@
                         </div>
                     </div>
                     <!-- Column -->
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-warning text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-account-card-details"></i></h1>
+                                <h6 class="text-white">Data Donatur</h6>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Column -->
                     <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-danger text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-receipt"></i></h1>
+                                <h1 class="font-light text-white"><i class="mdi mdi-image-multiple"></i></h1>
                                 <h6 class="text-white">Manage Foto Kegiatan</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-warning text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-newspaper"></i></h1>
+                                <h6 class="text-white">Manage Berita</h6>
                             </div>
                         </div>
                     </div>
@@ -95,32 +104,26 @@
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-4 col-xlg-3">
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-cyan text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-receipt"></i></h1>
+                                <h1 class="font-light text-white"><i class="mdi mdi-clipboard-flow"></i></h1>
                                 <h6 class="text-white">Data Masuk Donasi</h6>
                             </div>
                         </div>
                     </div>
                     <!-- Column -->
+                    
+                    
+                    <!-- Column -->
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-success text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-receipt"></i></h1>
+                                <h1 class="font-light text-white"><i class="mdi mdi-printer"></i></h1>
                                 <h6 class="text-white">Cetak Laporan</h6>
                             </div>
                         </div>
                     </div>
-                    <!-- Column -->
-                    <!-- <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-warning text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-alert"></i></h1>
-                                <h6 class="text-white">Errors</h6>
-                            </div>
-                        </div>
-                    </div> -->
                     <!-- Column -->
                 </div>
                 <!-- ============================================================== -->
@@ -132,8 +135,8 @@
                             <div class="card-body">
                                 <div class="d-md-flex align-items-center">
                                     <div>
-                                        <h4 class="card-title">Site Analysis</h4>
-                                        <h5 class="card-subtitle">Overview of Latest Month</h5>
+                                        <h4 class="card-title">Statistik</h4>
+                                        <h5 class="card-subtitle">Data Masuk Donasi</h5>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -206,7 +209,7 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Latest Posts</h4>
+                                <h4 class="card-title">Data Masuk Donasi</h4>
                             </div>
                             <div class="comment-widgets scrollable">
                                 <!-- Comment Row -->

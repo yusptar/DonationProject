@@ -259,14 +259,14 @@
                                 href="{{ route('manageuser.index') }}" aria-expanded="false"><i class="mdi mdi-account-key"></i><span
                                     class="hide-menu">Manage User</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span
+                                href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-file-multiple"></i><span
                                     class="hide-menu">Page Content</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="berita" class="sidebar-link"><i
-                                            class="mdi mdi-note-outline"></i><span class="hide-menu"> Manage Berita
+                                            class="mdi mdi-newspaper"></i><span class="hide-menu"> Manage Berita
                                         </span></a></li>
                                 <li class="sidebar-item"><a href="kegiatan" class="sidebar-link"><i
-                                            class="mdi mdi-note-plus"></i><span class="hide-menu"> Manage Foto Kegiatan
+                                            class="mdi mdi-image-multiple"></i><span class="hide-menu"> Manage Foto Kegiatan
                                         </span></a></li>        
                             </ul>
                         </li>   
@@ -277,16 +277,16 @@
                                 href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
                                     class="hide-menu">Data Pengasuh</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
+                                href="#" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span
                                     class="hide-menu">Data Donatur</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="#" aria-expanded="false"><i class="mdi mdi-receipt"></i><span
                                     class="hide-menu">Donasi Offline</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="#" aria-expanded="false"><i class="mdi mdi mdi-receipt"></i><span
+                                href="#" aria-expanded="false"><i class="mdi mdi-clipboard-flow"></i><span
                                     class="hide-menu">Data Masuk Donasi</span></a></li>                
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="#" aria-expanded="false"><i class="mdi mdi mdi-receipt"></i><span
+                                href="#" aria-expanded="false"><i class="mdi mdi-printer"></i><span
                                     class="hide-menu">Cetak Laporan</span></a></li>                                                                             
                         <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span
