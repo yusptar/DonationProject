@@ -15,7 +15,7 @@ class DonaturController extends Controller
     }
 
 
-    public function index(Request $request)
+    public function payment(Request $request)
     {
         $user = User::where('id', Auth::user()->id)->first();
         // Set your Merchant Server Key
@@ -32,11 +32,25 @@ class DonaturController extends Controller
                 'order_id' => rand(),
                 'gross_amount' => 10000,
             ),
+            /*'item_details' => array(
+                [
+                  "id" => "a01",
+                  "price"=> 10000,
+                  "quantity" => 1,
+                  "name"=> "Apple"
+                ],
+                [
+                  "id" => "b02",
+                  "price" => 8000,
+                  "quantity"=> 2,
+                  "name"=> "Orange"
+                ]
+            ),*/
             'customer_details' => array(
-                'first_name' => $request->get('name'),
+                'first_name' => $user->name,
                 'last_name' => '',
-                'email' => 'budi.pra@example.com',
-                'phone' => '08111222333',
+                'email' => $user->email,
+                'phone' => $user->nohp,
             ),
         );
         

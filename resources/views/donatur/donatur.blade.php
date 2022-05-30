@@ -16,7 +16,7 @@
       <div class="container">
         <div class="row mt-5">
           <div class="col-lg-8 mt-5 mt-lg-0">
-            <form action="/payment" method="GET" role="form" class="php-email-form">
+            <form action="#" method="POST" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <label for="name" class="form-label">Nama *</label>
@@ -101,22 +101,22 @@
       payButton.addEventListener('click', function () {
         // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
         window.snap.pay('{{ $snap_token }}', {
-          onSuccess: function(result){
-            /* You may add your own implementation here */
+          /* onSuccess: function(result){
+            
             alert("payment success!"); console.log(result);
           },
           onPending: function(result){
-            /* You may add your own implementation here */
+            
             alert("wating your payment!"); console.log(result);
           },
           onError: function(result){
-            /* You may add your own implementation here */
+            
             alert("payment failed!"); console.log(result);
           },
           onClose: function(){
-            /* You may add your own implementation here */
+            
             alert('you closed the popup without finishing the payment');
-          }
+          }*/
         })
       });
     </script>
