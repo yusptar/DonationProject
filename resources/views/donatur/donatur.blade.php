@@ -19,7 +19,7 @@
             <form action="#" method="POST" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <label for="name" class="form-label">Nama *</label>
+                  <label for="name" class="form-label">Nama</label>
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" value="{{ $user->name }}" required>
                   <!-- <label class="form-label">
                     <input x-model="hide_identity" name="anonymous" type="checkbox">
@@ -27,16 +27,16 @@
                   </label> -->
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <label for="email" class="form-label">E-mail *</label>
+                  <label for="email" class="form-label">E-mail</label>
                   <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" value="{{ $user->email }}" required>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <label for="nominal" class="form-label">Nominal Donasi *</label>
+                <label for="nominal" class="form-label">Jumlah Donasi</label>
                 <input type="text" class="form-control" name="nominal" id="rupiah" placeholder="Rp. " required>
               </div>
               <div class="form-group mt-3">
-                <label for="message" class="form-label">Pesan</label>
+                <label for="message" class="form-label">Pesan ( Opsional )</label>
                 <textarea class="form-control" name="message" rows="5" placeholder="Tulis pesan atau do'a ... "></textarea>
               </div>
               <div class="my-3">
@@ -44,7 +44,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit" id="confirm-button">Konfirmasi Donasi</button></div>
+              <div class="text-right"><button type="submit" id="confirm-button">Konfirmasi Donasi</button></div>
             </form>
 
           </div>
