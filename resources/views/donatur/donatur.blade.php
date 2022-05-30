@@ -33,7 +33,7 @@
               </div>
               <div class="form-group mt-3">
                 <label for="nominal" class="form-label">Nominal Donasi *</label>
-                <input type="text" class="form-control" name="nominal" id="nominal" placeholder="Rp. " required>
+                <input type="text" class="form-control" name="nominal" id="rupiah" placeholder="Rp. " required>
               </div>
               <div class="form-group mt-3">
                 <label for="message" class="form-label">Pesan</label>
@@ -96,7 +96,7 @@
     </section><!-- Riwayat Donasi Section -->
 
     <script type="text/javascript">
-      // For example trigger on button clicked, or any time you need
+   
       var payButton = document.getElementById('confirm-button');
       payButton.addEventListener('click', function () {
         // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
@@ -119,6 +119,28 @@
           }*/
         })
       });
+
+      var rupiah = document.getElementById('rupiah');
+      rupiah.addEventListener('keyup', function(e){
+        rupiah.value = formatRupiah(this.value, 'Rp. ');
+      });
+  
+      /* Fungsi Format Rupiah */
+      function formatRupiah(angka, prefix){
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        split   		= number_string.split(','),
+        sisa     		= split[0].length % 3,
+        rupiah     		= split[0].substr(0, sisa),
+        ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+  
+        if(ribuan){
+          separator = sisa ? '.' : '';
+          rupiah += separator + ribuan.join('.');
+        }
+  
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+      }
     </script>
 
 @endsection
