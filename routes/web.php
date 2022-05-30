@@ -28,25 +28,36 @@ use App\Http\Controllers\PengasuhController;
 
 Auth::routes();
 
+// ------------------- VIEW ALL USER ------------------ //
+
 // User View
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/detail-kegiatan/{id}', [HomeController::class, 'index_detail_kegiatan'])->name('detail-kegiatan');
-Route::get('/detail-berita/{id}', [HomeController::class, 'index_detail_berita'])->name('detail-berita');
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/detail-kegiatan/{id}', [HomeController::class, 'index_detail_kegiatan']);
+Route::get('/detail-berita/{id}', [HomeController::class, 'index_detail_berita']);
 Route::get('admin', [AdminController::class, 'user_view'])->name('admin');
 Route::get('dashboard', [AdminController::class, 'dashboard_view'])->name('dashboard');
 Route::get('home', [DonaturController::class, 'index'])->name('donatur');
 Route::get('dashboard-pengasuh', [PengasuhController::class, 'index'])->name('pengasuh');
 
-// Update Donatur Profile
+
+// ------------------- DONATUR ------------------ //
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('profile', [ProfileController::class, 'index'])->name('index');
     Route::post('profile', [ProfileController::class, 'update'])->name('update');
+
 });
+
+// ------------------- PENGASUH ------------------ //
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('profile-pengasuh', [ProfilePengasuhController::class, 'index'])->name('index');
     Route::post('profile-pengasuh', [ProfilePengasuhController::class, 'update'])->name('update');
 });
+
+
+
+// ------------------- ADMIN ------------------- //
 
 // Manage User
 Route::resource('manageuser', AdminController::class);
@@ -98,9 +109,3 @@ Route::post('/pengasuh-update', [PengasuhController::class, 'update'])->name('do
 
 
 
-/*Route::get('manageuser', [AdminController::class, 'user_view'])->name('manageuser');
-Route::post('tambah-user', [AdminController::class, 'store']);
-// Route::post('edit-user', [AdminController::class, 'edit']);
-Route::get('edit-user/{id}', [AdminController::class, 'edit_user']);
-Route::post('update-user/{id}', [AdminController::class, 'update_user']);
-Route::post('delete-user', [AdminController::class, 'destroy']);*/

@@ -1,5 +1,9 @@
 @extends('layouts.template')
 @section('content')
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+    data-client-key="SB-Mid-client-fSW1kufnC6UkZ0G6"></script>
+    <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
+
     <!-- ======= Donasi Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
@@ -12,7 +16,7 @@
       <div class="container">
         <div class="row mt-5">
           <div class="col-lg-8 mt-5 mt-lg-0">
-            <form action="#" method="post" role="form" class="php-email-form">
+            <form action="/payment" method="GET" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <label for="name" class="form-label">Nama *</label>
@@ -32,19 +36,15 @@
                 <input type="text" class="form-control" name="nominal" id="nominal" placeholder="Rp. " required>
               </div>
               <div class="form-group mt-3">
-                <label for="" class="form-label">Pilih Metode Pembayaran *</label>
-                <input type="text" class="form-control" name="" id="" placeholder="" required>
-              </div>
-              <div class="form-group mt-3">
                 <label for="message" class="form-label">Pesan</label>
-                <textarea class="form-control" name="message" rows="5" placeholder="Tulis pesan atau do'a ... " required></textarea>
+                <textarea class="form-control" name="message" rows="5" placeholder="Tulis pesan atau do'a ... "></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Konfirmasi Donasi</button></div>
+              <div class="text-center"><button type="submit" id="confirm-button">Konfirmasi Donasi</button></div>
             </form>
 
           </div>
@@ -91,8 +91,34 @@
                 </div>
             </div>
           </div>
+        </div>
       </div>
-  </div>
-</section><!-- Riwayat Donasi Section -->
+    </section><!-- Riwayat Donasi Section -->
+
+    <script type="text/javascript">
+      // For example trigger on button clicked, or any time you need
+      var payButton = document.getElementById('confirm-button');
+      payButton.addEventListener('click', function () {
+        // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+        window.snap.pay('{{ $snap_token }}', {
+          onSuccess: function(result){
+            /* You may add your own implementation here */
+            alert("payment success!"); console.log(result);
+          },
+          onPending: function(result){
+            /* You may add your own implementation here */
+            alert("wating your payment!"); console.log(result);
+          },
+          onError: function(result){
+            /* You may add your own implementation here */
+            alert("payment failed!"); console.log(result);
+          },
+          onClose: function(){
+            /* You may add your own implementation here */
+            alert('you closed the popup without finishing the payment');
+          }
+        })
+      });
+    </script>
 
 @endsection
