@@ -23,7 +23,7 @@ class PengasuhController extends Controller
         return view('manage_admin.pengasuh_manage');
     }
     public function fetchAll() {
-		$emps = User::latest()->where('roles', 'Pengasuh');
+		$emps = User::all()->where('roles', 'Pengasuh');
 		$output = '';
 		$numbering = 1;
 		if ($emps->count() > 0) {

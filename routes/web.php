@@ -97,10 +97,10 @@ Route::post('/donatur-update', [DonaturController::class, 'update'])->name('dona
 // Manage Pnegasuh
 Route::get('/pengasuh', [PengasuhController::class, 'index_table']);
 Route::post('/pengasuh-store', [PengasuhController::class, 'store'])->name('donatur-store');
-Route::get('/pengasuh-fetchall', [PengasuhController::class, 'fetchAll'])->name('donatur-fetchAll');
-Route::delete('/pengasuh-delete', [PengasuhController::class, 'delete'])->name('donatur-delete');
-Route::get('/pengasuh-edit', [PengasuhController::class, 'edit'])->name('donatur-edit');
-Route::post('/pengasuh-update', [PengasuhController::class, 'update'])->name('donatur-update');
+Route::get('/pengasuh-fetchall', [PengasuhController::class, 'fetchAll'])->name('pengasuh-fetchAll');
+Route::delete('/pengasuh-delete', [PengasuhController::class, 'delete'])->name('pengasuh-delete');
+Route::get('/pengasuh-edit', [PengasuhController::class, 'edit'])->name('pengasuh-edit');
+Route::post('/pengasuh-update', [PengasuhController::class, 'update'])->name('pengasuh-update');
 
 
 
