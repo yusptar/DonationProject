@@ -23,7 +23,8 @@ class AdminController extends Controller
 
     public function dashboard_view()
     {
-        return view('manage_admin.dashboard');
+        $jumlah_donatur = User::latest()->where('roles', 'Donatur')->count();
+        return view('manage_admin.dashboard', compact('jumlah_donatur'));
     }
 
     public function index(Request $request)

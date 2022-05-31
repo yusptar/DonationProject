@@ -151,8 +151,8 @@
                                             <div class="col-6">
                                                 <div class="bg-dark p-10 text-white text-center">
                                                     <i class="fa fa-user mb-1 font-16"></i>
-                                                    <h5 class="mb-0 mt-1">2540</h5>
-                                                    <small class="font-light">Total Users</small>
+                                                    <h5 class="mb-0 mt-1">{{$jumlah_donatur}}</h5>
+                                                    <small class="font-light">Total Donatur</small>
                                                 </div>
                                             </div>
                                             <div class="col-6">
