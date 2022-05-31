@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DataTables;
 use App\Models\User;
+use App\Models\Santri;
+use App\Models\Pengasuh;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
 
@@ -24,7 +26,9 @@ class AdminController extends Controller
     public function dashboard_view()
     {
         $jumlah_donatur = User::latest()->where('roles', 'Donatur')->count();
-        return view('manage_admin.dashboard', compact('jumlah_donatur'));
+        $jumlah_santri = Santri::latest()->count();
+        $jumlah_pengasuh = User::latest()->where('roles', 'Pengasuh')->count();
+        return view('manage_admin.dashboard', compact('jumlah_donatur', 'jumlah_santri', 'jumlah_pengasuh'));
     }
 
     public function index(Request $request)

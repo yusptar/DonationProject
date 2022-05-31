@@ -150,44 +150,44 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="bg-dark p-10 text-white text-center">
-                                                    <i class="fa fa-user mb-1 font-16"></i>
+                                                    <i class="mdi mdi-account-card-details mb-1 font-16"></i>
                                                     <h5 class="mb-0 mt-1">{{$jumlah_donatur}}</h5>
-                                                    <small class="font-light">Total Donatur</small>
+                                                    <small class="font-light">Donatur</small>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="bg-dark p-10 text-white text-center">
-                                                    <i class="fa fa-plus mb-1 font-16"></i>
-                                                    <h5 class="mb-0 mt-1">120</h5>
-                                                    <small class="font-light">New Users</small>
+                                                    <i class="mdi mdi-face mb-1 font-16"></i>
+                                                    <h5 class="mb-0 mt-1">{{$jumlah_santri}}</h5>
+                                                    <small class="font-light">Santri</small>
                                                 </div>
                                             </div>
                                             <div class="col-6 mt-3">
                                                 <div class="bg-dark p-10 text-white text-center">
-                                                    <i class="fa fa-cart-plus mb-1 font-16"></i>
-                                                    <h5 class="mb-0 mt-1">656</h5>
-                                                    <small class="font-light">Total Shop</small>
+                                                    <i class="mdi mdi-account-multiple mb-1 font-16"></i>
+                                                    <h5 class="mb-0 mt-1">{{$jumlah_pengasuh}}</h5>
+                                                    <small class="font-light">Pengasuh</small>
                                                 </div>
                                             </div>
                                             <div class="col-6 mt-3">
                                                 <div class="bg-dark p-10 text-white text-center">
-                                                    <i class="fa fa-tag mb-1 font-16"></i>
-                                                    <h5 class="mb-0 mt-1">9540</h5>
-                                                    <small class="font-light">Total Orders</small>
+                                                    <i class="mdi mdi-account-plus g mb-1 font-16"></i>
+                                                    <h5 class="mb-0 mt-1">x</h5>
+                                                    <small class="font-light">Akun Baru</small>
                                                 </div>
                                             </div>
                                             <div class="col-6 mt-3">
                                                 <div class="bg-dark p-10 text-white text-center">
-                                                    <i class="fa fa-table mb-1 font-16"></i>
-                                                    <h5 class="mb-0 mt-1">100</h5>
-                                                    <small class="font-light">Pending Orders</small>
+                                                    <i class="mdi mdi-receipt mb-1 font-16"></i>
+                                                    <h5 class="mb-0 mt-1">Rp. </h5>
+                                                    <small class="font-light">Donasi Offline</small>
                                                 </div>
                                             </div>
                                             <div class="col-6 mt-3">
                                                 <div class="bg-dark p-10 text-white text-center">
-                                                    <i class="fa fa-globe mb-1 font-16"></i>
-                                                    <h5 class="mb-0 mt-1">8540</h5>
-                                                    <small class="font-light">Online Orders</small>
+                                                    <i class="mdi mdi-clipboard-flow mb-1 font-16"></i>
+                                                    <h5 class="mb-0 mt-1">Rp. </h5>
+                                                    <small class="font-light">Donasi Transfer</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -209,7 +209,7 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Masuk Donasi</h4>
+                                <h4 class="card-title">History Donasi</h4>
                             </div>
                             <div class="comment-widgets scrollable">
                                 <!-- Comment Row -->
