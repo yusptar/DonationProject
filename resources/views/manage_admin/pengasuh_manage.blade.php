@@ -13,7 +13,7 @@
                 <h4 class="page-title">Data Pengasuh</h4> 
                   <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
+                        <!-- <ol class="breadcrumb">
                             <a class="btn btn-success" data-bs-toggle="modal" href="javascript:void(0)" data-bs-target="#addEmployeeModal">
                                 <span class="svg-icon svg-icon-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -23,7 +23,7 @@
                                     </svg>
                                 </span> 
                             Tambah Data</a>
-                        </ol>
+                        </ol> -->
                     </nav>
                   </div>           
             </div>
@@ -107,17 +107,29 @@
           <input type="hidden" name="emp_id" id="emp_id">
           <input type="hidden" name="emp_image" id="emp_image">
           <div class="modal-body p-4 bg-light">
-            <div class="my-2">
-              <label for="title">Title</label>
-              <input type="text" name="title" id="title" class="form-control" placeholder="Title" required>
+          <div class="my-2">
+              <label for="name">Nama</label>
+              <input type="text" name="name" id="name" class="form-control" placeholder="Nama" required>
             </div>
             <div class="my-2">
-              <label for="description">Description</label>
-              <input type="text" name="description" id="description" class="form-control" placeholder="Description" required>
+              <label for="email">E-Mail</label>
+              <input type="text" name="email" id="email" class="form-control" placeholder="E-Mail" required>
+            </div>
+            <div class="my-2">
+              <label for="alamat">Alamat</label>
+              <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat" required>
+            </div>
+            <div class="my-2">
+              <label for="nohp">No. Hp</label>
+              <input type="text" name="nohp" id="nohp" class="form-control" placeholder="No. Hp" required>
+            </div>
+            <div class="my-2">
+              <label for="instansi">Instansi</label>
+              <input type="text" name="instansi" id="instansi" class="form-control" placeholder="Instansi" required>
             </div>
             <div class="my-2">
               <label for="image">Upload Image</label>
-              <input type="file" name="image" class="form-control">
+              <input type="file" name="image" class="form-control" required>
             </div>
             <div class="mt-2" id="image">
 
@@ -148,7 +160,7 @@
         const fd = new FormData(this);
         $("#add_employee_btn").text('Adding...');
         $.ajax({
-          url: '{{ route('berita-store') }}',
+          url: '{{ route('pengasuh-store') }}',
           method: 'post',
           data: fd,
           cache: false,
@@ -176,7 +188,7 @@
         e.preventDefault();
         let id = $(this).attr('id');
         $.ajax({
-          url: '{{ route('berita-edit') }}',
+          url: '{{ route('pengasuh-edit') }}',
           method: 'get',
           data: {
             id: id,
@@ -202,7 +214,7 @@
         const fd = new FormData(this);
         $("#edit_employee_btn").text('Updating...');
         $.ajax({
-          url: '{{ route('berita-update') }}',
+          url: '{{ route('pengasuh-update') }}',
           method: 'post',
           data: fd,
           cache: false,
@@ -241,7 +253,7 @@
         }).then((result) => {
           if (result.isConfirmed) {
             $.ajax({
-              url: '{{ route('berita-delete') }}',
+              url: '{{ route('pengasuh-delete') }}',
               method: 'delete',
               data: {
                 id: id,

@@ -64,4 +64,54 @@ class PengasuhController extends Controller
 			echo '<h1 class="text-center text-secondary my-5">No record present in the database!</h1>';
 		}
 	}
+
+    public function store(Request $request)
+    {  
+        $file = $request->file('image');
+		$fileName = time() . '.' . $file->getClientOriginalExtension();
+		$file->storeAs('public/images', $fileName);
+
+		$empData = ['name' => $request->name, 'email' => $request->email, 'alamat' => $request->alamat, 'nohp' => $request->nohp, 'instansi' => $request->instansi, 'image' => $fileName];
+		User::create($empData);
+		return response()->json([
+			'status' => 200,
+		]);
+    }
+
+    public function edit(Request $request)
+    {   
+        $id = $request->id;
+		$emp = User::find($id);
+		return response()->json($emp);
+    }
+
+    public function update(Request $request) {
+		$fileName = '';
+		$emp = Berita::find($request->emp_id);
+		if ($request->hasFile('image')) {
+			$file = $request->file('image');
+			$fileName = time() . '.' . $file->getClientOriginalExtension();
+			$file->storeAs('public/images', $fileName);
+			if ($emp->image) {
+				Storage::delete('public/images/' . $emp->image);
+			}
+		} else {
+			$fileName = $request->emp_image;
+		}
+
+		$empData = ['name' => $request->name, 'email' => $request->email, 'alamat' => $request->alamat, 'nohp' => $request->nohp, 'instansi' => $request->instansi, 'image' => $fileName];
+
+		$emp->update($empData);
+		return response()->json([
+			'status' => 200,
+		]);
+	}
+
+    public function delete(Request $request) {
+		$id = $request->id;
+		$emp = User::find($id);
+		if (Storage::delete('public/images/' . $emp->image)) {
+			User::destroy($id);
+		}
+	}
 }
