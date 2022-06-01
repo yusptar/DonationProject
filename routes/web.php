@@ -36,7 +36,7 @@ Route::get('/detail-kegiatan/{id}', [HomeController::class, 'index_detail_kegiat
 Route::get('/detail-berita/{id}', [HomeController::class, 'index_detail_berita']);
 Route::get('admin', [AdminController::class, 'user_view'])->name('admin');
 Route::get('dashboard', [AdminController::class, 'dashboard_view'])->name('dashboard');
-Route::get('home', [DonaturController::class, 'payment'])->name('donatur');
+Route::get('home', [DonaturController::class, 'index'])->name('donatur');
 Route::get('dashboard-pengasuh', [PengasuhController::class, 'index'])->name('pengasuh');
 
 
@@ -45,8 +45,10 @@ Route::get('dashboard-pengasuh', [PengasuhController::class, 'index'])->name('pe
 Route::group(['middleware' => 'auth'], function () {
     Route::get('profile', [ProfileController::class, 'index'])->name('index');
     Route::post('profile', [ProfileController::class, 'update'])->name('update');
-
 });
+
+Route::get('home', [DonaturController::class, 'payment'])->name('payment');
+Route::post('home', [DonaturController::class, 'payment_post'])->name('payment_post');
 
 // ------------------- PENGASUH ------------------ //
 

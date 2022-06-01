@@ -16,7 +16,7 @@
       <div class="container">
         <div class="row mt-5">
           <div class="col-lg-8 mt-5 mt-lg-0">
-            <form action="#" method="POST" role="form" class="php-email-form">
+            <form method="POST" action="{{ route('payment_post') }}" role="form" class="php-email-form" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <label for="name" class="form-label">Nama</label>
@@ -32,21 +32,21 @@
                 </div>
               </div>
               <div class="form-group mt-3">
-                <label for="nominal" class="form-label">Jumlah Donasi</label>
-                <input type="text" class="form-control" name="nominal" id="rupiah" placeholder="Rp. " required>
+                <label for="gross_amount" class="form-label">Jumlah Donasi</label>
+                <input type="text" class="form-control" name="gross_amount" id="rupiah" placeholder="Rp. " required>
               </div>
               <div class="form-group mt-3">
                 <label for="message" class="form-label">Pesan ( Opsional )</label>
                 <textarea class="form-control" name="message" rows="5" placeholder="Tulis pesan atau do'a ... "></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-right"><button type="submit" id="confirm-button">Konfirmasi Donasi</button></div>
+              <br>
+              <div class="text-center"><button type="submit" id="confirm-button">Konfirmasi Donasi</button></div>
             </form>
-
+            @if(session('alert-success'))
+            <script>alert("{{session('alert-success')}}")</script>
+            @elseif(session('alert-failed'))
+            <script>alert("{{session('alert-failed')}}")</script>
+            @endif
           </div>
         </div>
       </div>
@@ -101,22 +101,22 @@
       payButton.addEventListener('click', function () {
         // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
         window.snap.pay('{{ $snap_token }}', {
-          /* onSuccess: function(result){
+          onSuccess: function(result){
             
-            alert("payment success!"); console.log(result);
+            console.log(result);
           },
           onPending: function(result){
             
-            alert("wating your payment!"); console.log(result);
+             console.log(result);
           },
           onError: function(result){
             
-            alert("payment failed!"); console.log(result);
+             console.log(result);
           },
           onClose: function(){
             
             alert('you closed the popup without finishing the payment');
-          }*/
+          }
         })
       });
 
