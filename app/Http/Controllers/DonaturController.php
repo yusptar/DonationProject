@@ -58,21 +58,22 @@ class DonaturController extends Controller
     }
 
     public function payment_post(Request $request){
-        $user = User::where('id', Auth::user()->id)->first();
+        $donasi = Donation::where('donatur_id', Auth::user()->id)-where('status',0)->first();
 
-        $json = json_decode($request->get('json'));
         $donasi = new Donation();
-        $donasi->donatur_id = $request->get(Auth::user()->id);
-        $donasi->status = $json->transaction_status;
-        $donasi->donatur_name = $request->get(Auth::user()->name);
-        $donasi->donatur_email = $request->get(Auth::user()->email);
-        $donasi->transaction_id = $json->transaction_id;
-        $donasi->order_id = $json->order_id;
-        $donasi->gross_amount = $json->gross_amount;
-        $donasi->payment_type = $json->payment_type;
-        $donasi->payment_code = isset($json->payment_code) ? $json->payment_code : null;
-        $donasi->pdf_url = isset($json->pdf_url) ? $json->pdf_url : null;
-        return $donasi->save() ? redirect(url('donatur.donatur'))->with('alert-success', 'Donasi telah berhasil dibuat') : redirect(url('donatur.donatur'))->with('alert-failed', 'Terjadi kesalahan');
+        $donasi->donatur_id = Auth::user()->id;
+        $donasi->status = $request->transaction_status;
+        $donasi->donatur_name = Auth::user()->name;
+        $donasi->donatur_email = Auth::user()->email;
+        $donasi->transaction_id = $request->transaction_id;
+        $donasi->order_id = $request->order_id;
+        $donasi->gross_amount = $request->gross_amount;
+        $donasi->payment_type = $request->payment_type;
+        $donasi->payment_code = isset($request->payment_code) ? $request->payment_code : null;
+        $donasi->pdf_url = isset($request->pdf_url) ? $request->pdf_url : null;
+        return $donasi->save() ? redirect(url('donatur.donatur'))->with('alert-success', 'Order berhasil dibuat') : redirect(url('donatur.donatur'))->with('alert-failed', 'Terjadi kesalahan');
+        /*$donasi->save();
+        return redirect('donatur.donatur');*/
     }
 
     public function index_table ()

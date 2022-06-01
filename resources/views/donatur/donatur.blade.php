@@ -16,9 +16,11 @@
       <div class="container">
         <div class="row mt-5">
           <div class="col-lg-8 mt-5 mt-lg-0">
-            <form method="POST" action="{{ route('payment_post') }}" role="form" class="php-email-form" enctype="multipart/form-data">
+            <form method="POST" action="" id="submit_form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
+                @csrf
+                  <input type="hidden" name="json" id="json_callback">
                   <label for="name" class="form-label">Nama</label>
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" value="{{ $user->name }}" required>
                   <!-- <label class="form-label">
@@ -104,14 +106,17 @@
           onSuccess: function(result){
             
             console.log(result);
+            send_response_to_form(result);
           },
           onPending: function(result){
             
              console.log(result);
+             send_response_to_form(result);
           },
           onError: function(result){
             
              console.log(result);
+             send_response_to_form(result);
           },
           onClose: function(){
             
@@ -119,6 +124,11 @@
           }
         })
       });
+
+      function send_response_to_form(result){
+        document.getElementById('json_callback').value = JSON.stringify(result);
+        $('#submit_form').submit();
+      }
 
       var rupiah = document.getElementById('rupiah');
       rupiah.addEventListener('keyup', function(e){
