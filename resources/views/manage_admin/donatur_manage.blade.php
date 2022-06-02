@@ -94,7 +94,7 @@
   <!-- add new employee modal end -->
 
   <!-- edit employee modal start -->
-  <div class="modal fade" id="editPengasuhModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+  <div class="modal fade" id="editDonaturModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     data-bs-backdrop="static" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -137,7 +137,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" id="edit_employee_btn" class="btn btn-success">Update Berita</button>
+            <button type="submit" id="edit_employee_btn" class="btn btn-success">Update Data Donatur</button>
           </div>
         </form>
       </div>
