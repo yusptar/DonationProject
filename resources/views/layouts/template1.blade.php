@@ -277,7 +277,7 @@
                                 href="pengasuh" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
                                     class="hide-menu">Data Pengasuh</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="#" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span
+                                href="donatur" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span
                                     class="hide-menu">Data Donatur</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="#" aria-expanded="false"><i class="mdi mdi-clipboard-flow"></i><span

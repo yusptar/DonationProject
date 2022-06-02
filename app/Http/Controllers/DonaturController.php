@@ -78,6 +78,6 @@ class DonaturController extends Controller
 
     public function index_table ()
     {
-        
+        return view('manage_admin.donatur_manage');
     }
 }
