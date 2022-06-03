@@ -129,7 +129,7 @@
             </div>
             <div class="my-2">
               <label for="image">Upload Image</label>
-              <input type="file" name="image" class="form-control" required>
+              <input type="file" name="image" class="form-control">
             </div>
             <div class="mt-2" id="image">
 

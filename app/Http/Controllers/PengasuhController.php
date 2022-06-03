@@ -87,7 +87,7 @@ class PengasuhController extends Controller
 
     public function update(Request $request) {
 		$fileName = '';
-		$emp = Berita::find($request->emp_id);
+		$emp = User::find($request->emp_id);
 		if ($request->hasFile('image')) {
 			$file = $request->file('image');
 			$fileName = time() . '.' . $file->getClientOriginalExtension();
