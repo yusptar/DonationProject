@@ -72,7 +72,7 @@
                 <h4 class="page-title">Data Pengasuh</h4> 
                   <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
-                        <!-- <ol class="breadcrumb">
+                        <ol class="breadcrumb">
                             <a class="btn btn-success" data-bs-toggle="modal" href="javascript:void(0)" data-bs-target="#addEmployeeModal">
                                 <span class="svg-icon svg-icon-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -82,7 +82,7 @@
                                     </svg>
                                 </span> 
                             Tambah Data</a>
-                        </ol> -->
+                        </ol>
                     </nav>
                   </div>           
             </div>
@@ -111,7 +111,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Tambah Pengasuh</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="#" method="POST" id="add_employee_form" enctype="multipart/form-data">
@@ -119,32 +119,20 @@
           <div class="modal-body p-4 bg-light">
             <div class="my-2">
               <label for="Nama">Nama</label>
-              <input type="text" name="name" class="form-control" placeholder="Nama" required>
+              <input type="text" name="nama" class="form-control" placeholder="Nama" required>
             </div>
             <div class="my-2">
-              <label for="E-Mail">E-Mail</label>
-              <input type="text" name="email" class="form-control" placeholder="E-Mail" required>
+              <label for="Nominal">Nominal</label>
+              <input type="number" name="nominal" class="form-control" placeholder="Rp. " required>
             </div>
             <div class="my-2">
-              <label for="Alamat">Alamat</label>
-              <input type="text" name="alamat" class="form-control" placeholder="Alamat" required>
-            </div>
-            <div class="my-2">
-              <label for="No. Hp">No. Hp</label>
-              <input type="text" name="nohp" class="form-control" placeholder="No. Hp" required>
-            </div>
-            <div class="my-2">
-              <label for="Instansi">Instansi</label>
-              <input type="text" name="instansi" class="form-control" placeholder="Instansi" required>
-            </div>
-            <div class="my-2">
-              <label for="image">Upload Image</label>
-              <input type="file" name="image" class="form-control">
+              <label for="Do'a">Doa</label>
+              <input type="text" name="doa" class="form-control" placeholder="Do'a" required>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" id="add_employee_btn" class="btn btn-primary">Tambah Pengasuh</button>
+            <button type="submit" id="add_employee_btn" class="btn btn-primary">Tambah Data</button>
           </div>
         </form>
       </div>
@@ -153,7 +141,7 @@
   <!-- add new employee modal end -->
 
   <!-- edit employee modal start -->
-  <div class="modal fade" id="editPengasuhModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+  <!-- <div class="modal fade" id="editPengasuhModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     data-bs-backdrop="static" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -201,7 +189,7 @@
         </form>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- edit employee modal end -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
@@ -219,7 +207,7 @@
         const fd = new FormData(this);
         $("#add_employee_btn").text('Adding...');
         $.ajax({
-          url: '{{ route('pengasuh-store') }}',
+          url: '{{ route('offline-store') }}',
           method: 'post',
           data: fd,
           cache: false,
@@ -247,22 +235,17 @@
         e.preventDefault();
         let id = $(this).attr('id');
         $.ajax({
-          url: '{{ route('pengasuh-edit') }}',
+          url: '{{ route('offline-edit') }}',
           method: 'get',
           data: {
             id: id,
             _token: '{{ csrf_token() }}'
           },
           success: function(response) {
-            $("#name").val(response.name);
-            $("#email").val(response.email);
-            $("#alamat").val(response.alamat);
-            $("#nohp").val(response.nohp);
-            $("#instansi").val(response.instansi);
-            $("#image").html(
-              `<img src="storage/images/${response.image}" width="100" height="100" src="https://via.placeholder.com/150">`);
+            $("#nama").val(response.nama);
+            $("#nominal").val(response.nominal);
+            $("#doa").val(response.doa);
             $("#emp_id").val(response.id);
-            $("#emp_image").val(response.image);
           }
         });
       });
@@ -273,7 +256,7 @@
         const fd = new FormData(this);
         $("#edit_employee_btn").text('Updating...');
         $.ajax({
-          url: '{{ route('pengasuh-update') }}',
+          url: '{{ route('offline-update') }}',
           method: 'post',
           data: fd,
           cache: false,
@@ -312,7 +295,7 @@
         }).then((result) => {
           if (result.isConfirmed) {
             $.ajax({
-              url: '{{ route('pengasuh-delete') }}',
+              url: '{{ route('offline-delete') }}',
               method: 'delete',
               data: {
                 id: id,
@@ -337,7 +320,7 @@
 
       function fetchAllEmployees() {
         $.ajax({
-          url: '{{ route('pengasuh-fetchAll') }}',
+          url: '{{ route('offline-fetchAll') }}',
           method: 'get',
           success: function(response) {
             $("#show_all_employees").html(response);
