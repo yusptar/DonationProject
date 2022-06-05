@@ -96,13 +96,21 @@ Route::delete('/donatur-delete', [DonaturController::class, 'delete'])->name('do
 Route::get('/donatur-edit', [DonaturController::class, 'edit'])->name('donatur-edit');
 Route::post('/donatur-update', [DonaturController::class, 'update'])->name('donatur-update');
 
-// Manage Pnegasuh
+// Manage Pengasuh
 Route::get('/pengasuh', [PengasuhController::class, 'index_table']);
 Route::post('/pengasuh-store', [PengasuhController::class, 'store'])->name('pengasuh-store');
 Route::get('/pengasuh-fetchall', [PengasuhController::class, 'fetchAll'])->name('pengasuh-fetchAll');
 Route::delete('/pengasuh-delete', [PengasuhController::class, 'delete'])->name('pengasuh-delete');
 Route::get('/pengasuh-edit', [PengasuhController::class, 'edit'])->name('pengasuh-edit');
 Route::post('/pengasuh-update', [PengasuhController::class, 'update'])->name('pengasuh-update');
+
+// Manage Donasi Offline
+Route::get('/offline', [OfflineController::class, 'index']);
+Route::post('/offline-store', [OfflineController::class, 'store'])->name('offline-store');
+Route::get('/offline-fetchall', [OfflineController::class, 'fetchAll'])->name('offline-fetchAll');
+Route::delete('/offline-delete', [OfflineController::class, 'delete'])->name('offline-delete');
+Route::get('/offline-edit', [OfflineController::class, 'edit'])->name('offline-edit');
+Route::post('/offline-update', [OfflineController::class, 'update'])->name('offline-update');
 
 
 
