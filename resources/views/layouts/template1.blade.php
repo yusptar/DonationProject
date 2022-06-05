@@ -286,7 +286,7 @@
                                 href="#" aria-expanded="false"><i class="mdi mdi-printer"></i><span
                                     class="hide-menu">Cetak Laporan</span></a></li>  
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="#" aria-expanded="false"><i class="mdi mdi-receipt"></i><span
+                                href="offline" aria-expanded="false"><i class="mdi mdi-receipt"></i><span
                                     class="hide-menu">Donasi Offline</span></a></li>                                                                           
                         <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span

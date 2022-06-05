@@ -16,14 +16,14 @@ class OfflineController extends Controller
 
     public function index()
     {
-        return view('pengasuh.pengasuh');
+        return view('manage_admin.offline_manage');
     }
-    public function index_table()
-    {
-        return view('manage_admin.pengasuh_manage');
-    }
+    // public function index_table()
+    // {
+    //     return view('manage_admin.pengasuh_manage');
+    // }
     public function fetchAll() {
-		$emps = User::all()->where('roles', 'Pengasuh');
+		$emps = Offline::all();
 		$output = '';
 		$numbering = 1;
 		if ($emps->count() > 0) {
@@ -31,25 +31,18 @@ class OfflineController extends Controller
             <thead>
               <tr>
                 <th>No</th>
-                <th>Foto</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Alamat</th>
-                <th>No. Hp</th>
-                <th>Instansi</th>
-                <th>Action</th>
+                <th>Nama</th>
+                <th>Nominal</th>
+                <th>Doa</th>
               </tr>
             </thead>
             <tbody>';
 			foreach ($emps as $emp) {
 				$output .= '<tr>
                 <td width="5px">' . $numbering++ . '</td>
-                <td><img src="storage/images/' . $emp->image . '" width="100" height="100" src="https://via.placeholder.com/150"></td>
-                <td>' . $emp->name . '</td>
-                <td>' . $emp->email . '</td>
-                <td>' . $emp->alamat . '</td>
-                <td>' . $emp->nohp . '</td>
-                <td>' . $emp->instansi . '</td>
+                <td>' . $emp->nama . '</td>
+                <td>' . $emp->nominal . '</td>
+                <td>' . $emp->doa . '</td>
                 <td>
                   <a href="#" id="' . $emp->id . '" class="edit btn btn-primary btn-sm editIcon" data-bs-toggle="modal" data-bs-target="#editPengasuhModal"><i class="bi-pencil-square h4"></i>Edit</a>
 
@@ -67,12 +60,12 @@ class OfflineController extends Controller
 
     public function store(Request $request)
     {  
-        $file = $request->file('image');
-		$fileName = time() . '.' . $file->getClientOriginalExtension();
-		$file->storeAs('public/images', $fileName);
+        // $file = $request->file('image');
+		// $fileName = time() . '.' . $file->getClientOriginalExtension();
+		// $file->storeAs('public/images', $fileName);
 
-		$empData = ['name' => $request->name, 'email' => $request->email, 'alamat' => $request->alamat, 'nohp' => $request->nohp, 'instansi' => $request->instansi, 'image' => $fileName];
-		User::create($empData);
+		$empData = ['nama' => $request->nama, 'nominal' => $request->nominal, 'doa' => $request->doa];
+		Offline::create($empData);
 		return response()->json([
 			'status' => 200,
 		]);
@@ -81,25 +74,25 @@ class OfflineController extends Controller
     public function edit(Request $request)
     {   
         $id = $request->id;
-		$emp = User::find($id);
+		$emp = Offline::find($id);
 		return response()->json($emp);
     }
 
     public function update(Request $request) {
-		$fileName = '';
-		$emp = User::find($request->emp_id);
-		if ($request->hasFile('image')) {
-			$file = $request->file('image');
-			$fileName = time() . '.' . $file->getClientOriginalExtension();
-			$file->storeAs('public/images', $fileName);
-			if ($emp->image) {
-				Storage::delete('public/images/' . $emp->image);
-			}
-		} else {
-			$fileName = $request->emp_image;
-		}
+		// $fileName = '';
+		$emp = Offline::find($request->emp_id);
+		// if ($request->hasFile('image')) {
+		// 	$file = $request->file('image');
+		// 	$fileName = time() . '.' . $file->getClientOriginalExtension();
+		// 	$file->storeAs('public/images', $fileName);
+		// 	if ($emp->image) {
+		// 		Storage::delete('public/images/' . $emp->image);
+		// 	}
+		// } else {
+		// 	$fileName = $request->emp_image;
+		// }
 
-		$empData = ['name' => $request->name, 'email' => $request->email, 'alamat' => $request->alamat, 'nohp' => $request->nohp, 'instansi' => $request->instansi, 'image' => $fileName];
+		$empData = ['nama' => $request->nama, 'nominal' => $request->nominal, 'doa' => $request->doa];
 
 		$emp->update($empData);
 		return response()->json([
@@ -109,9 +102,9 @@ class OfflineController extends Controller
 
     public function delete(Request $request) {
 		$id = $request->id;
-		$emp = User::find($id);
+		$emp = Offline::find($id);
 		if (Storage::delete('public/images/' . $emp->image)) {
-			User::destroy($id);
+			Offline::destroy($id);
 		}
 	}
 }
