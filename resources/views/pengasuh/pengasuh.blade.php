@@ -38,10 +38,10 @@
           <p>Donatur Yayasan At-Taufiq Malang</p>
         </div>
 
-        <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
+        <div class="row no-gutters donatur-clients-wrap clearfix wow fadeInUp">
           @foreach($data_donatur as $dd)
           <div class="col-lg-3 col-md-4 col-xs-6 text-center">
-            <div class="client-logo">
+            <div class="donatur-client-logo">
               <img src="{{ url('storage/images/'.$dd->image) }}" class="rounded-circle" width="120" height="120">
             </div>
             <br>
