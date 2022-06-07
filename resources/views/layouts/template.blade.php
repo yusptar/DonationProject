@@ -71,7 +71,7 @@
 
               @can('pengasuh')
               <li><a class="nav-link scrollto" href="#clients">Data Santri</a></li>   
-              <li><a class="nav-link scrollto" href="#pricing">Data Donatur</a></li>
+              <li><a class="nav-link scrollto" href="#donatur-clients">Data Donatur</a></li>
               @endcan
 
               @cannot('donatur')

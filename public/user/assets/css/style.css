@@ -1078,6 +1078,83 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Donatur Clients
+--------------------------------------------------------------*/
+.donatur-clients {
+  padding-top: 30px;
+}
+.donatur-clients .donatur-clients-wrap {
+  border-top: 2px solid #e7e7e7;
+  border-bottom: 2px solid #e7e7e7;
+}
+.donatur-clients .donatur-client-logo {
+  padding: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 0px solid #e7e7e7;
+  border-bottom: 0px solid #e7e7e7;
+  overflow: hidden;
+  background: #fff;
+  height: 140px;
+}
+.donatur-clients .donatur-client-logo:hover img {
+  transform: scale(1.1);
+}
+.donatur-clients img {
+  transition: all 0.4s ease-in-out;
+}
+
+/*--------------------------------------------------------------
+# Counts
+--------------------------------------------------------------*/
+.counts {
+  background: url("../img/attaufiq.jpg") center center no-repeat;
+  background-size: cover;
+  padding: 80px 0 60px 0;
+  position: relative;
+}
+.counts::before {
+  content: "";
+  position: absolute;
+  background: rgba(17, 17, 17, 0.9);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.counts .title {
+  position: relative;
+  color: #fff;
+  margin-bottom: 40px;
+}
+.counts .title h3 {
+  font-size: 36px;
+  font-weight: 700;
+}
+.counts .counters span {
+  margin-left: 260px;
+  font-size: 48px;
+  display: block;
+  font-weight: 700;
+  color: #009961;
+}
+.counts .counters p {
+  
+  padding: 0;
+  margin-left: 250px;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  color: #fff;
+}
+@media (min-width: 1200px) {
+  .counts {
+    background-attachment: fixed;
+  }
+}
+
+
+/*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
 .portfolio #portfolio-flters {
