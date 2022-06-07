@@ -70,7 +70,7 @@
               @endcan
 
               @can('pengasuh')
-              <li><a class="nav-link scrollto" href="#services">Data Santri</a></li>   
+              <li><a class="nav-link scrollto" href="#clients">Data Santri</a></li>   
               <li><a class="nav-link scrollto" href="#pricing">Data Donatur</a></li>
               @endcan
 
