@@ -7,7 +7,7 @@
   <style>
   .responsive {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     height: auto;
   }
   </style>
@@ -77,13 +77,13 @@
       </div>
     </section><!-- End Breadcrumbs -->
 
-   <!-- ======= Portfolio Details Section ======= -->
-   <section id="portfolio-details" class="portfolio-details">
+   <!-- ======= Kegiatan Details Section ======= -->
+   <section id="kegiatan-details" class="kegiatan-details">
       <div class="container">
 
         <div class="row gy-4">
           <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper">
+            <div class="kegiatan-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
 
                 <div class="">
@@ -96,13 +96,13 @@
           </div>
 
           <div class="col-lg-4">
-            <div class="portfolio-info">
+            <div class="kegiatan-info">
               <h3>{{ $kegiatan->title }} information</h3>
               <ul>
                 <li><strong>Publish Date </strong>{{ $kegiatan->created_at }}</li>
               </ul>
             </div>
-            <div class="portfolio-description">
+            <div class="kegiatan-description">
               <h2>{{ $kegiatan->title }}</h2>
               <p>
                 {{ $kegiatan->description }}
@@ -113,7 +113,7 @@
         </div>
 
       </div>
-    </section><!-- End Portfolio Details Section -->
+    </section><!-- End Kegiatan Details Section -->
 
   </main><!-- End #main -->
 

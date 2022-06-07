@@ -37,14 +37,14 @@ class DonaturController extends Controller
                 'order_id' => rand(),
                 'gross_amount' => 1000
             ),
-            /*'item_details' => array(
+            'item_details' => array(
                 [
                   "id" => "a01",
                   "price"=> 10000,
                   "quantity"=> 1,
-                  "name"=> "Apple"
+                  "name"=> "Jumlah Donasi"
                 ]
-            ),*/
+            ),
             'customer_details' => array(
                 'first_name' => Auth::user()->name,
                 'last_name' => '',

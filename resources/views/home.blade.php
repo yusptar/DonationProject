@@ -54,6 +54,7 @@
       <div class="container">
         <div class="section-title">
           <h2>Donasi</h2>
+          <h5>Donasi Yayasan At-Taufiq Malang</h5>
         </div>
 
         <div class="row">
@@ -94,16 +95,17 @@
     <section id="portfolio" class="portfolio">
       <div class="container">
         <div class="section-title">
-          <h2>Galeri Yayasan At-Taufiq Malang</h2>
+          <h2>Galeri</h2>
+          <h5>Galeri Yayasan At-Taufiq Malang</h5>
         </div>
 
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
+              <!-- <li data-filter="*" class="filter-active">All</li>
               <li data-filter=".filter-app">App</li>
               <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter=".filter-web">Web</li> -->
             </ul>
           </div>
         </div>
@@ -125,39 +127,39 @@
     </section><!-- End Foto Kegiatan Section -->
 
     <!-- ======= Counts Section ======= -->
-    <!-- <section id="counts" class="counts">
+    <section id="counts" class="counts">
       <div class="container">
 
         <div class="text-center title">
-          <h3>JUMLAH CIVITAS YAYASAN AT-TAUFIQ MALANG</h3>
+          <h3>Civitas Yayasan At-Taufiq Malang</h3>
         </div>
 
         <div class="row counters position-relative">
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-            <p>TK & BALITA</p>
+            <span data-purecounter-start="0" data-purecounter-end="{{ $jumlah_santri }}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Santri</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-            <p>SD/MI</p>
+            <span data-purecounter-start="0" data-purecounter-end="{{ $jumlah_donatur }}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Donatur</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-            <p>SMP/MTS</p>
+            <span data-purecounter-start="0" data-purecounter-end="{{ $jumlah_pengasuh }}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Pengasuh</p>
           </div>
 
-          <div class="col-lg-3 col-6 text-center">
+          <!-- <div class="col-lg-3 col-6 text-center">
             <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
             <p>MAHASISWA</p>
-          </div>
+          </div> -->
 
         </div>
 
       </div>
-    </section>End Counts Section -->
+    </section> <!-- ==== End Counts Section ===== -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -199,24 +201,24 @@
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Masukkan Nama" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Masukkan E-mail" required>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Tuliskan Subyek" required>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                <textarea class="form-control" name="message" rows="5" placeholder="Tuliskan Pesan" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit">Kirim Pesan</button></div>
             </form>
 
           </div>

@@ -7,7 +7,7 @@
   <style>
   .responsive {
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     height: auto;
   }
   </style>
@@ -77,13 +77,13 @@
       </div>
     </section><!-- End Breadcrumbs -->
 
-   <!-- ======= Portfolio Details Section ======= -->
-   <section id="portfolio-details" class="portfolio-details">
+   <!-- ======= Berita Details Section ======= -->
+   <section id="berita-details" class="berita-details">
       <div class="container">
 
         <div class="row gy-4">
           <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper">
+            <div class="berita-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
 
                 <div class="">
@@ -96,13 +96,13 @@
           </div>
 
           <div class="col-lg-4">
-            <div class="portfolio-info">
+            <div class="berita-info">
               <h3>{{ $berita->title }} information</h3>
               <ul>
-                <li><strong>Publish Date </strong>{{ $berita->created_at }}</li>
+                <li><strong>Tanggal Publikasi, </strong>{!! date('d-M-Y', strtotime($berita->created_at)) !!}</li>
               </ul>
             </div>
-            <div class="portfolio-description">
+            <div class="berita-description">
               <h2>{{ $berita->title }}</h2>
               <p>
                 {{ $berita->description }}
@@ -113,7 +113,7 @@
         </div>
 
       </div>
-    </section><!-- End Portfolio Details Section -->
+    </section><!-- End Berita Details Section -->
 
   </main><!-- End #main -->
 
