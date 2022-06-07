@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Santri;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,7 +17,8 @@ class PengasuhController extends Controller
 
     public function index()
     {
-        return view('pengasuh.pengasuh');
+        $data_santri = Santri::all();
+        return view('pengasuh.pengasuh', compact('data_santri'));
     }
     public function index_table()
     {
