@@ -18,7 +18,8 @@ class PengasuhController extends Controller
     public function index()
     {
         $data_santri = Santri::all();
-        return view('pengasuh.pengasuh', compact('data_santri'));
+        $data_donatur = User::all()->where('roles', 'Donatur');
+        return view('pengasuh.pengasuh', compact('data_santri', 'data_donatur'));
     }
     public function index_table()
     {
