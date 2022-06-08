@@ -48,8 +48,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('profile', [ProfileController::class, 'update'])->name('update');
 });
 
-Route::get('home', [DonaturController::class, 'payment'])->name('donatur');
-Route::post('home', [DonaturController::class, 'payment_post'])->name('payment_post');
+Route::get('/payment', [DonaturController::class, 'payment']);
+Route::post('/payment', [DonaturController::class, 'payment_post']);
 
 // ------------------- PENGASUH ------------------ //
 

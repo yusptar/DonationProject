@@ -15,11 +15,12 @@ class CreateDonationsTable extends Migration
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
-            $table->integer('donatur_id')->nullable();
+            $table->integer('donatur_id');
             $table->string('status');
             $table->string('donatur_name')->nullable();
             $table->string('donatur_email')->nullable();
             $table->string('donatur_phone')->nullable();
+            $table->string('nominal')->nullable();
             $table->string('message')->nullable();
             $table->string('transaction_id');
             $table->string('order_id');

@@ -9,4 +9,9 @@ class Donation extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function users() 
+    {
+         return $this->belongsTo('App\Models\User');
+    }
 }

@@ -44,8 +44,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function donasi() 
+    public function donations() 
     {
-         return $this->hasMany('App\Models\Donation','donatur_id', 'id');
+         return $this->hasMany('App\Models\Donation');
     }
 }
