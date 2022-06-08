@@ -17,7 +17,8 @@ class DonaturController extends Controller
 
     public function index(){
         $user = User::where('id', Auth::user()->id)->first();
-        return view('donatur.donatur', ['user' => $user]);
+        $donasi = Donation::all();
+        return view('donatur.donatur', ['user' => $user, 'donasi' => $donasi]);
     }
 
     public function payment(Request $request)
@@ -73,6 +74,7 @@ class DonaturController extends Controller
         $donasi->donatur_email = $request->get('donatur_email');
         $donasi->nominal = $request->get('nominal');
         $donasi->message = $request->get('message');
+        $donasi->image = Auth::user()->image;
         $donasi->donatur_phone = Auth::user()->nohp;
         $donasi->transaction_id = $json->transaction_id;
         $donasi->order_id = $json->order_id;

@@ -22,6 +22,7 @@ class CreateDonationsTable extends Migration
             $table->string('donatur_phone')->nullable();
             $table->string('nominal')->nullable();
             $table->string('message')->nullable();
+            $table->string('image')->nullable();
             $table->string('transaction_id');
             $table->string('order_id');
             $table->string('gross_amount');

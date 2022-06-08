@@ -60,30 +60,15 @@
       <div class="container">
           <div class="row">
             <div class="riwayat">
+                @foreach($donasi as $d)
                 <div class="comment mt-4 text-justify float-left">
-                    <img src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="" class="rounded-circle" width="60" height="60">
-                    <br>
-                    <h4>Donatur Name</h4>
-                    <span>Rp. 1.500.000, &nbsp;10 April 2022</span>
-                    <br>
-                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
+                    <img src="{{ url('/storage/images/'.$d->image)}}" alt="" class="rounded-circle" width="60" height="60">
+                    <br><br>
+                    <h4>{{ $d->donatur_name }}</h4>
+                    <span>Rp. {{ $d->nominal }}&nbsp;, pada tanggal {!! date('d-M-Y', strtotime($d->created_at)) !!}</span>
+                    <p>{{ $d->message }}</p>
                 </div>
-                <div class="comment mt-4 text-justify float-left">
-                    <img src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="" class="rounded-circle" width="60" height="60">
-                    <br>
-                    <h4>Donatur Name</h4>
-                    <span>Rp. 1.500.000, &nbsp;10 April 2022</span>
-                    <br>
-                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
-                </div>
-                <div class="comment mt-4 text-justify float-left">
-                    <img src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="" class="rounded-circle" width="60" height="60">
-                    <br>
-                    <h4>Donatur Name</h4>
-                    <span>Rp. 1.500.000, &nbsp;10 April 2022</span>
-                    <br>
-                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
-                </div>
+                @endforeach
             </div>
           </div>
         </div>
