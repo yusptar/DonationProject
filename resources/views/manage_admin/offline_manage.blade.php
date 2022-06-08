@@ -11,24 +11,23 @@
       <div class="card">
                             <form class="form-horizontal">
                                 <div class="card-body">
-                                    <h4 class="card-title">Personal Info</h4>
+                                    <h4 class="card-title">Input Data Donasi Offline</h4>
                                     <div class="form-group row">
                                         <label for="fname"
-                                            class="col-md-3 text-end control-label col-form-label">First Name</label>
+                                            class="col-md-3 text-end control-label col-form-label">Nama</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" id="fname"
-                                                placeholder="First Name Here">
+                                            <input type="text" class="form-control" id="name"
+                                                placeholder="Masukkan Nama Donatur">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-end control-label col-form-label">Last
-                                            Name</label>
+                                        <label for="lname" class="col-sm-3 text-end control-label col-form-label">Nominal</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="lname"
-                                                placeholder="Last Name Here">
+                                            <input type="number" class="form-control" id="nominal"
+                                                placeholder="Masukkan Jumlah Nominal">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    <!-- <div class="form-group row">
                                         <label for="lname"
                                             class="col-sm-3 text-end control-label col-form-label">Password</label>
                                         <div class="col-sm-9">
@@ -51,12 +50,12 @@
                                             <input type="text" class="form-control" id="cono1"
                                                 placeholder="Contact No Here">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group row">
                                         <label for="cono1"
-                                            class="col-sm-3 text-end control-label col-form-label">Message</label>
+                                            class="col-sm-3 text-end control-label col-form-label">Do'a</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control"></textarea>
+                                            <textarea class="form-control" id="doa"></textarea>
                                         </div>
                                     </div>
                                 </div>
