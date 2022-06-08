@@ -40,7 +40,7 @@
                 <textarea class="form-control" name="message" rows="5" placeholder="Tulis pesan atau do'a ... "></textarea>
               </div>
               <br>
-              <div class="text-center"><button type="submit">Konfirmasi Donasi</button></div>
+              <div class="text-center"><button type="submit" class="btn btn-primary">Konfirmasi Donasi</button></div>
             </form>
           </div>
         </div>
