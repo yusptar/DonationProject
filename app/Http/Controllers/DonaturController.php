@@ -85,7 +85,7 @@ class DonaturController extends Controller
 
         $donasi->save();
 
-        Alert::success('Transaksi Sukses, Mohon Segera Dibayar');
+        Alert::success('Transaksi Pending, Mohon Segera Dibayar');
         return redirect()->back();
     }
 

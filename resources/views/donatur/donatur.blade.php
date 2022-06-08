@@ -1,5 +1,46 @@
 @extends('layouts.template')
 @section('content')
+    <style>
+      .button {
+        display: inline-block;
+        border-radius: 10px;
+        background-color: #4CAF50;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 15px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+      }
+
+      .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
+
+      .button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+
+      .button:hover span {
+        padding-right: 25px;
+      }
+
+      .button:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+    </style>
     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
     data-client-key="SB-Mid-client-fSW1kufnC6UkZ0G6"></script>
     <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
@@ -40,7 +81,7 @@
                 <textarea class="form-control" name="message" rows="5" placeholder="Tulis pesan atau do'a ... "></textarea>
               </div>
               <br>
-              <div class="text-center"><button type="submit" class="btn btn-primary">Konfirmasi Donasi</button></div>
+              <div class="text-center"><button class="button" style="vertical-align:middle" type="submit" class="btn btn-primary"><span>Konfirmasi Donasi</span></button></div>
             </form>
           </div>
         </div>
@@ -58,19 +99,19 @@
     
       <!-- Main Body -->
       <div class="container">
+          @foreach($donasi as $d)
           <div class="row">
-            <div class="riwayat">
-                @foreach($donasi as $d)
+            <div class="riwayat">  
                 <div class="comment mt-4 text-justify float-left">
                     <img src="{{ url('/storage/images/'.$d->image)}}" alt="" class="rounded-circle" width="60" height="60">
                     <br><br>
                     <h4>{{ $d->donatur_name }}</h4>
-                    <span>Rp. {{ $d->nominal }}&nbsp;, pada tanggal {!! date('d-M-Y', strtotime($d->created_at)) !!}</span>
+                    <span>Rp. {{ $d->nominal }}&nbsp;, pada tanggal {{ $d->created_at->format('d M Y') }}</span>
                     <p>{{ $d->message }}</p>
-                </div>
-                @endforeach
+                </div>    
             </div>
           </div>
+          @endforeach
         </div>
       </div>
     </section><!-- Riwayat Donasi Section -->
