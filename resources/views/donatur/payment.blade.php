@@ -34,7 +34,9 @@
                 <a href="{{ route('donatur') }}" class="back-to-home-link"><i class="zmdi zmdi-arrow-left"></i>&nbsp;&nbsp;Kembali ke Halaman Utama</a>
                 <div class="signin-content">
                     <div class="profile-image">
-                       
+                        <div class="mt-2" id="image">
+                            <img src="{{ asset('user/assets/img/attaufiq.jpg') }}" style="width: 500px; height: 200px; border-radius:5%; margin-left:1px;">
+                        </div>
                     </div>
   
                     <div class="signin-form">
@@ -47,17 +49,16 @@
  
                         
                         
-                           
-                      
+                        <h2 class="form-title">Pembayaran Donasi</h2>  
                         <form action="" id="submit_form" method="POST">
                             @csrf
                             <input type="hidden" name="json" id="json_callback">
                         </form>
-                        <button class="button button1" id="pay-button">Lanjut Pembayaran</button>
+                        <button class="button button1" id="confirm-button">Bayar Sekarang</button>
                     
                         <script type="text/javascript">
                         // For example trigger on button clicked, or any time you need
-                        var payButton = document.getElementById('pay-button');
+                        var payButton = document.getElementById('confirm-button');
                         payButton.addEventListener('click', function () {
                             // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
                             window.snap.pay('{{$snap_token}}', {

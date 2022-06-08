@@ -13,7 +13,7 @@
         width: 200px;
         transition: all 0.5s;
         cursor: pointer;
-        margin: 5px;
+        margin: 5;
       }
 
       .button span {
@@ -40,52 +40,88 @@
         opacity: 1;
         right: 0;
       }
+
+      .form-donasi {
+        background-color: #f2f2f2;
+        padding: 30px 30px 30px 30px;
+        border: 1px solid lightgrey;
+        border-radius: 10px;
+        margin-left: 300px;
+      }
+
+      .logo-form {
+        margin-bottom: 50px;
+      }
+
+      .text-anonymous {
+        font-style: italic;
+        font-size: 15px;
+        
+      }
+
+      .text-footer {
+        font-size: 14px;
+        text-align: center;
+      }
+
+      
     </style>
     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
     data-client-key="SB-Mid-client-fSW1kufnC6UkZ0G6"></script>
     <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- ======= Donasi Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
         <div class="section-title">
           <h2>Donasi</h2>
-          <p></p>
+          <p>Formulir donasi online untuk Yayasan At-Taufiq Malang</p>
         </div>
       </div>
 
       <div class="container">
-        <div class="row mt-5">
-          <div class="col-lg-8 mt-5 mt-lg-0">
+        <div class="row">
+          <div class="col-lg-5 mt-lg-0 form-donasi">
             <form method="GET" action="/payment" >
               <div class="row">
+                <img class="logo-form" src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png">
                 <div class="col-md-6 form-group">
-                  <label for="donatur_name" class="form-label">Nama</label>
+                  <label for="donatur_name" class="form-label"><i class="fa fa-user"></i> Nama <strong>*</strong></label>
                   <input type="text" name="donatur_name" class="form-control" id="donatur_name" placeholder="Masukkan Nama" required>
-                  <!-- <label class="form-label">
+                  <label class="form-label">
                     <input x-model="hide_identity" name="anonymous" type="checkbox">
-                    <span class="text-xs italic">Sembunyikan nama (Hamba Allah)</span>
-                  </label> -->
+                    <span class="text-anonymous">Sembunyikan nama (Hamba Allah)</span>
+                  </label>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <label for="donatur_email" class="form-label">E-mail</label>
+                  <label for="donatur_email" class="form-label"><i class="fa fa-envelope"></i> E-mail <strong>*</strong></label>
                   <input type="email" class="form-control" name="donatur_email" id="donatur_email" placeholder="Masukkan Email"  required>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <label for="nominal" class="form-label">Jumlah Donasi</label>
+                <label for="nominal" class="form-label"><i class="fa fa-money"></i> Nominal Donasi <strong>*</strong></label>
                 <input type="text" class="form-control" name="nominal" placeholder="Rp. " required>
               </div>
               <div class="form-group mt-3">
-                <label for="message" class="form-label">Pesan ( Opsional )</label>
+                <label for="message" class="form-label"><i class="fa fa-commenting"></i> Pesan ( Opsional )</label>
                 <textarea class="form-control" name="message" rows="5" placeholder="Tulis pesan atau do'a ... "></textarea>
               </div>
               <br>
+              <label class="form-label">
+                  <input  checked="checked" type="checkbox">
+                  <span class="text-anonymous">Saya menyatakan donasi yang dititipkan melalui Yayasan At-Taufiq Malang bukan bersumber dari dan bertujuan untuk pencucian uang, dana kegiatan terorisme, organisasi teroris atau teroris, maupun tindak kejahatan lainnya baik secara langsung maupun tidak langsung.</span>
+              </label>
+              <br><br>
               <div class="text-center"><button class="button" style="vertical-align:middle" type="submit" class="btn btn-primary"><span>Konfirmasi Donasi</span></button></div>
             </form>
           </div>
+          <div class="col-lg-5 mt-lg-5 form-donasi">
+            <span class="text-footer">Pembayaran donasi ditujukan ke rekening atas nama Yayasan At-Taufiq Malang.</span>
+          </div>
         </div>
       </div>
+      
     </section><!-- End Contact Section -->
 
     <!-- ======= Riwayat Donasi Section ======= -->
@@ -94,20 +130,23 @@
 
         <div class="section-title">
           <h2>Riwayat Donasi</h2>
+          <p>History Donasi</p>
         </div>
 
     
       <!-- Main Body -->
       <div class="container">
-          @foreach($donasi as $d)
+          @foreach($donasi as $d)  
           <div class="row">
             <div class="riwayat">  
                 <div class="comment mt-4 text-justify float-left">
-                    <img src="{{ url('/storage/images/'.$d->image)}}" alt="" class="rounded-circle" width="60" height="60">
-                    <br><br>
-                    <h4>{{ $d->donatur_name }}</h4>
-                    <span>Rp. {{ $d->nominal }}&nbsp;, pada tanggal {{ $d->created_at->format('d M Y') }}</span>
+                    <h4>
+                      <img src="{{ url('/storage/images/'.$d->image)}}" alt="" class="rounded-circle" width="60" height="60">
+                         &nbsp;   {{ $d->donatur_name }}
+                    </h4>
+                    <h5>Berdonasi sebesar <strong>Rp. {{ $d->nominal }}</strong></h5>
                     <p>{{ $d->message }}</p>
+                    <h6>{{ $d->created_at->format('d M Y') }}<h6>
                 </div>    
             </div>
           </div>

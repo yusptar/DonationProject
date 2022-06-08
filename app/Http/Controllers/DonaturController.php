@@ -26,7 +26,7 @@ class DonaturController extends Controller
         $user = User::where('id', Auth::user()->id)->first();
 
         // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = 'SB-Mid-server-1ecbIYEWgTQc-y2iDWpCV60t';
+        \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         \Midtrans\Config::$isProduction = false;
         // Set sanitization on (default)
@@ -39,14 +39,6 @@ class DonaturController extends Controller
               'order_id' => rand(),
               'gross_amount' => $request->get('nominal'),
           ),
-          'item_details' => array(
-              [
-                  'id' => rand(),
-                  'price' => $request->get('nominal'),
-                  'quantity' => 1,
-                  'name' => 'Jumlah Donasi'
-              ]
-          ),
           'customer_details' => array(
               'first_name' => $request->get('donatur_name'),
               'last_name' => '',
@@ -55,8 +47,6 @@ class DonaturController extends Controller
           ),
         );
 
-      
-        
         $snapToken = \Midtrans\Snap::getSnapToken($params);
         return view('donatur.payment', [ 'snap_token' => $snapToken]);
     }
