@@ -17,6 +17,7 @@ class CreateOfflinesTable extends Migration
             $table->id();
             $table->string('nama');
             $table->integer('nominal');
+            $table->string('nohp');
             $table->string('doa');
             $table->timestamps();
         });

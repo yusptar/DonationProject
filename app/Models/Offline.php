@@ -12,6 +12,7 @@ class Offline extends Model
     protected $fillable = [
         'nama',
         'nominal',
+        'nohp',
         'doa'
 
     ];

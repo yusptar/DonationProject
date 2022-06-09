@@ -33,6 +33,7 @@ class OfflineController extends Controller
                 <th>No</th>
                 <th>Nama</th>
                 <th>Nominal</th>
+				<th>No. Hp</th>
                 <th>Doa</th>
 				<th>Action</th>
               </tr>
@@ -43,6 +44,7 @@ class OfflineController extends Controller
                 <td width="5px">' . $numbering++ . '</td>
                 <td>' . $emp->nama . '</td>
                 <td>' . $emp->nominal . '</td>
+				<td>' . $emp->nohp . '</td>
                 <td>' . $emp->doa . '</td>
                 <td>
 					
@@ -63,7 +65,7 @@ class OfflineController extends Controller
 		// $fileName = time() . '.' . $file->getClientOriginalExtension();
 		// $file->storeAs('public/images', $fileName);
 
-		$empData = ['nama' => $request->nama, 'nominal' => $request->nominal, 'doa' => $request->doa];
+		$empData = ['nama' => $request->nama, 'nominal' => $request->nominal, 'nohp' => $request->nohp, 'doa' => $request->doa];
 		Offline::create($empData);
 		return response()->json([
 			'status' => 200,
@@ -91,7 +93,7 @@ class OfflineController extends Controller
 		// 	$fileName = $request->emp_image;
 		// }
 
-		$empData = ['nama' => $request->nama, 'nominal' => $request->nominal, 'doa' => $request->doa];
+		$empData = ['nama' => $request->nama, 'nominal' => $request->nominal, 'nohp' => $request->nohp, 'doa' => $request->doa];
 
 		$emp->update($empData);
 		return response()->json([
