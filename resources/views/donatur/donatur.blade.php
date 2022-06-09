@@ -137,12 +137,13 @@
       <!-- Main Body -->
       <div class="container">
           @foreach($donasi as $d)  
+          @if($d->status == 'pending')
           <div class="row">
             <div class="riwayat">  
                 <div class="comment mt-4 text-justify float-left">
                     <h4>
-                      <img src="{{ url('/storage/images/'.$d->image)}}" alt="" class="rounded-circle" width="60" height="60">
-                         &nbsp;   {{ $d->donatur_name }}
+                        <img src="{{ asset('user/assets/img/default.jpg')}}" alt="" class="rounded-circle" width="60" height="60">  
+                        &nbsp;   {{ $d->donatur_name }}
                     </h4>
                     <h5>Berdonasi sebesar <strong>Rp. {{ $d->nominal }}</strong></h5>
                     <p>{{ $d->message }}</p>
@@ -150,6 +151,7 @@
                 </div>    
             </div>
           </div>
+          @endif
           @endforeach
         </div>
       </div>

@@ -25,7 +25,8 @@ class ProfileController extends Controller
         ]);
 
 		$fileName = '';
-    	$user = User::where('id', Auth::user()->id)->first();	
+    	$user = User::where('id', Auth::user()->id)->first();
+
     	$user->name = $request->name;
     	$user->email = $request->email;
 		$user->alamat = $request->alamat;
@@ -50,7 +51,6 @@ class ProfileController extends Controller
     		$user->password = Hash::make($request->password);
 		}
     	
-
     	$user->save();
 
     	Alert::success('Sukses Update Profile');

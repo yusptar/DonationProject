@@ -16,7 +16,7 @@ class DonaturController extends Controller
     }
 
     public function index(){
-        $user = User::where('id', Auth::user()->id)->first();
+        $user = User::all();
         $donasi = Donation::all();
         return view('donatur.donatur', ['user' => $user, 'donasi' => $donasi]);
     }
@@ -75,7 +75,7 @@ class DonaturController extends Controller
 
         $donasi->save();
 
-        Alert::success('Transaksi Pending, Mohon Segera Dibayar');
+        Alert::success('Transaksi Berhasil Dibuat<br>شُكْرًا');
         return redirect()->back();
     }
 

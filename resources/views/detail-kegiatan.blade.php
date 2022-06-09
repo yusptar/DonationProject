@@ -99,7 +99,7 @@
             <div class="kegiatan-info">
               <h3>{{ $kegiatan->title }} information</h3>
               <ul>
-                <li><strong>Publish Date </strong>{{ $kegiatan->created_at }}</li>
+                <li><strong>Publish Date </strong>{{ $kegiatan->created_at->format('d M Y') }}</li>
               </ul>
             </div>
             <div class="kegiatan-description">
