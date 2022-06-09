@@ -137,6 +137,7 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
+                @foreach ($emps as $e)
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card card-body printableArea">
@@ -145,23 +146,19 @@
                                     <div class="pull-left">
                                         <address>
                                             <h3> &nbsp;<b class="text-danger">Yayasan At-Taufiq Malang</b></h3>
-                                            <p class="text-muted ms-1">E 104, Dharti-2,
-                                                <br /> Nr' Viswakarma Temple,
-                                                <br /> Talaja Road,
-                                                <br /> Bhavnagar - 364002</p>
+                                            <p class="text-muted ms-1">Jl. Sanan No. 70, Purwantoro
+                                                <br /> Kecamatan Blimbing,
+                                                <br /> Kota Malang,
+                                                <br /> Jawa Timur - 651222</p>
                                         </address>
                                     </div>
                                     <div class="pull-right text-end">
                                         <address>
-                                            <h3>To,</h3>
-                                            <h4 class="font-bold">Gaala & Sons,</h4>
-                                            <p class="text-muted ms-4">E 104, Dharti-2,
-                                                <br /> Nr' Viswakarma Temple,
-                                                <br /> Talaja Road,
-                                                <br /> Bhavnagar - 364002</p>
-                                            <p class="mt-4"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> 23rd
-                                                Jan 2018</p>
-                                            <p><b>Due Date :</b> <i class="fa fa-calendar"></i> 25th Jan 2018</p>
+                                            <h3>Donatur,</h3>
+                                            
+                                            <h4 class="font-bold">{{$e->nama}}</h4>
+                                            <p class="text-muted ms-4">{{$e->nohp}}
+                                            <p class="mt-4"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> {{$e->created_at}}</p>
                                         </address>
                                     </div>
                                 </div>
@@ -239,6 +236,7 @@
                 <!-- End Right sidebar -->
                 <!-- ============================================================== -->
             </div>
+            @endforeach
       </div>
     </div>
   </div>

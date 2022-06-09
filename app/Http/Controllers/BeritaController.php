@@ -17,7 +17,7 @@ class BeritaController extends Controller
 		$output = '';
 		$numbering = 1;
 		if ($emps->count() > 0) {
-			$output .= '<table class="table table-bordered data-table">
+			$output .= '<table class="table table-responsive table-bordered data-table">
             <thead>
               <tr>
                 <th>No</th>
