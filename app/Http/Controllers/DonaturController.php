@@ -113,7 +113,7 @@ class DonaturController extends Controller
                 <td>' . $emp->nohp . '</td>
                 <td>' . $emp->instansi . '</td>
                 <td>
-                  <a href="#" id="' . $emp->id . '" class="edit btn btn-primary btn-sm editIcon" data-bs-toggle="modal" data-bs-target="#editDonaturModal"><i class="bi-pencil-square h4"></i>Edit</a>
+                  <a href="#" id="' . $emp->id . '" class="edit btn btn-primary btn-sm editIcon" data-bs-toggle="modal" data-bs-target="#editDonaturModal"><i class="bi-pencil-square h4"></i>View</a>
 
                   <a href="#" id="' . $emp->id . '" class="btn btn-danger btn-sm deleteIcon"><i class="bi-trash h4"></i>Delete</a>
 

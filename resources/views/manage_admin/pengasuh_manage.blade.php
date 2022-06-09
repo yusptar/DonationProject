@@ -102,7 +102,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Berita</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Edit Pengasuh</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="#" method="POST" id="edit_employee_form" enctype="multipart/form-data">
@@ -110,7 +110,8 @@
           <input type="hidden" name="emp_id" id="emp_id">
           <input type="hidden" name="emp_image" id="emp_image">
           <div class="modal-body p-4 bg-light">
-          <div class="my-2">
+            
+            <div class="my-2">
               <label for="name">Nama</label>
               <input type="text" name="name" id="name" class="form-control" placeholder="Nama" required>
             </div>

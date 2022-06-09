@@ -10,7 +10,7 @@
       <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Data Pengasuh</h4> 
+                <h4 class="page-title">Data Donasi Offline</h4> 
                   <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -67,7 +67,11 @@
               <input type="number" name="nominal" class="form-control" placeholder="Rp. " required>
             </div>
             <div class="my-2">
-              <label for="Do'a">Doa</label>
+              <label for="nohp">No. Hp</label>
+              <input type="text" name="nohp" class="form-control" placeholder="Nomor Handphone" required>
+            </div>
+            <div class="my-2">
+              <label for="Do'a">Do'a</label>
               <input type="text" name="doa" class="form-control" placeholder="Do'a" required>
             </div>
           </div>
@@ -136,13 +140,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card card-body printableArea">
-                            <h3><b>INVOICE</b> <span class="pull-right">#5669626</span></h3>
-                            <hr>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="pull-left">
                                         <address>
-                                            <h3> &nbsp;<b class="text-danger">Material Pro Admin</b></h3>
+                                            <h3> &nbsp;<b class="text-danger">Yayasan At-Taufiq Malang</b></h3>
                                             <p class="text-muted ms-1">E 104, Dharti-2,
                                                 <br /> Nr' Viswakarma Temple,
                                                 <br /> Talaja Road,
@@ -281,24 +283,25 @@
       });
 
       // edit employee ajax request
-      $(document).on('click', '.editIcon', function(e) {
-        e.preventDefault();
-        let id = $(this).attr('id');
-        $.ajax({
-          url: '{{ route('offline-edit') }}',
-          method: 'get',
-          data: {
-            id: id,
-            _token: '{{ csrf_token() }}'
-          },
-          success: function(response) {
-            $("#nama").val(response.nama);
-            $("#nominal").val(response.nominal);
-            $("#doa").val(response.doa);
-            $("#emp_id").val(response.id);
-          }
-        });
-      });
+      // $(document).on('click', '.editIcon', function(e) {
+      //   e.preventDefault();
+      //   let id = $(this).attr('id');
+      //   $.ajax({
+      //     url: '{{ route('offline-edit') }}',
+      //     method: 'get',
+      //     data: {
+      //       id: id,
+      //       _token: '{{ csrf_token() }}'
+      //     },
+      //     success: function(response) {
+      //       $("#nama").val(response.nama);
+      //       $("#nominal").val(response.nominal);
+      //       $("#nohp").val(response.nohp);
+      //       $("#doa").val(response.doa);
+      //       $("#emp_id").val(response.id);
+      //     }
+      //   });
+      // });
 
       // view ajax request
       $(document).on('click', '.viewIcon', function(e) {
@@ -314,6 +317,7 @@
           success: function(response) {
             $("#nama").val(response.nama);
             $("#nominal").val(response.nominal);
+            $("#nohp").val(response.nohp);
             $("#doa").val(response.doa);
             $("#emp_id").val(response.id);
           }

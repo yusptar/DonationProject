@@ -10,7 +10,7 @@
       <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Data Pengasuh</h4> 
+                <h4 class="page-title">Data Donatur</h4> 
                   <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <!-- <ol class="breadcrumb">
@@ -99,7 +99,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Berita</h5>
+          <h5 class="modal-title" id="exampleModalLabel">View</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="#" method="POST" id="edit_employee_form" enctype="multipart/form-data">
@@ -109,27 +109,27 @@
           <div class="modal-body p-4 bg-light">
           <div class="my-2">
               <label for="name">Nama</label>
-              <input type="text" name="name" id="name" class="form-control" placeholder="Nama" required>
+              <input type="text" name="name" id="name" class="form-control" placeholder="Nama" disabled>
             </div>
             <div class="my-2">
               <label for="email">E-Mail</label>
-              <input type="text" name="email" id="email" class="form-control" placeholder="E-Mail" required>
+              <input type="text" name="email" id="email" class="form-control" placeholder="E-Mail" disabled>
             </div>
             <div class="my-2">
               <label for="alamat">Alamat</label>
-              <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat" required>
+              <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat" disabled>
             </div>
             <div class="my-2">
               <label for="nohp">No. Hp</label>
-              <input type="text" name="nohp" id="nohp" class="form-control" placeholder="No. Hp" required>
+              <input type="text" name="nohp" id="nohp" class="form-control" placeholder="No. Hp" disabled>
             </div>
             <div class="my-2">
               <label for="instansi">Instansi</label>
-              <input type="text" name="instansi" id="instansi" class="form-control" placeholder="Instansi" required>
+              <input type="text" name="instansi" id="instansi" class="form-control" placeholder="Instansi" disabled>
             </div>
             <div class="my-2">
-              <label for="image">Upload Image</label>
-              <input type="file" name="image" class="form-control">
+              <label for="image">Foto</label>
+              <!-- <input type="file" name="image" class="form-control" disabled> -->
             </div>
             <div class="mt-2" id="image">
 
@@ -137,7 +137,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" id="edit_employee_btn" class="btn btn-success">Update Data Donatur</button>
+            <!-- <button type="submit" id="edit_employee_btn" class="btn btn-success">Update Data Donatur</button> -->
           </div>
         </form>
       </div>
