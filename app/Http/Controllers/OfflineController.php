@@ -34,6 +34,7 @@ class OfflineController extends Controller
                 <th>Nama</th>
                 <th>Nominal</th>
                 <th>Doa</th>
+				<th>Action</th>
               </tr>
             </thead>
             <tbody>';
@@ -44,9 +45,9 @@ class OfflineController extends Controller
                 <td>' . $emp->nominal . '</td>
                 <td>' . $emp->doa . '</td>
                 <td>
-                  <a href="#" id="' . $emp->id . '" class="edit btn btn-primary btn-sm editIcon" data-bs-toggle="modal" data-bs-target="#editPengasuhModal"><i class="bi-pencil-square h4"></i>Edit</a>
+                  <a href="#" id="' . $emp->id . '" class="edit btn btn-primary btn-sm editIcon" data-bs-toggle="modal" data-bs-target="#editPengasuhModal"><i class="bi-pencil-square h4"></i>View</a>
 
-                  <a href="#" id="' . $emp->id . '" class="btn btn-danger btn-sm deleteIcon"><i class="bi-trash h4"></i>Delete</a>
+                  
 
                 </td>
               </tr>';

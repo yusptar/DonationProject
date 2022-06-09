@@ -6,66 +6,8 @@
 <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-  <div class="page-wrapper">
+<div class="page-wrapper">
       <div class="page-breadcrumb">
-      <div class="card">
-                            <form class="form-horizontal">
-                                <div class="card-body">
-                                    <h4 class="card-title">Input Data Donasi Offline</h4>
-                                    <div class="form-group row">
-                                        <label for="fname"
-                                            class="col-md-3 text-end control-label col-form-label">Nama</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" id="name"
-                                                placeholder="Masukkan Nama Donatur">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-end control-label col-form-label">Nominal</label>
-                                        <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="nominal"
-                                                placeholder="Masukkan Jumlah Nominal">
-                                        </div>
-                                    </div>
-                                    <!-- <div class="form-group row">
-                                        <label for="lname"
-                                            class="col-sm-3 text-end control-label col-form-label">Password</label>
-                                        <div class="col-sm-9">
-                                            <input type="password" class="form-control" id="lname"
-                                                placeholder="Password Here">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="email1"
-                                            class="col-sm-3 text-end control-label col-form-label">Company</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="email1"
-                                                placeholder="Company Name Here">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="cono1"
-                                            class="col-sm-3 text-end control-label col-form-label">Contact No</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="cono1"
-                                                placeholder="Contact No Here">
-                                        </div>
-                                    </div> -->
-                                    <div class="form-group row">
-                                        <label for="cono1"
-                                            class="col-sm-3 text-end control-label col-form-label">Do'a</label>
-                                        <div class="col-sm-9">
-                                            <textarea class="form-control" id="doa"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="border-top">
-                                    <div class="card-body">
-                                        <button type="button" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
                 <h4 class="page-title">Data Pengasuh</h4> 
@@ -140,12 +82,12 @@
   <!-- add new employee modal end -->
 
   <!-- edit employee modal start -->
-  <!-- <div class="modal fade" id="editPengasuhModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+  <div class="modal fade" id="editPengasuhModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     data-bs-backdrop="static" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Berita</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="#" method="POST" id="edit_employee_form" enctype="multipart/form-data">
@@ -154,30 +96,17 @@
           <input type="hidden" name="emp_image" id="emp_image">
           <div class="modal-body p-4 bg-light">
           <div class="my-2">
-              <label for="name">Nama</label>
-              <input type="text" name="name" id="name" class="form-control" placeholder="Nama" required>
+              <label for="Nama">Nama</label>
+              <input type="text" name="nama" id="name" class="form-control" placeholder="Nama" required>
             </div>
             <div class="my-2">
-              <label for="email">E-Mail</label>
-              <input type="text" name="email" id="email" class="form-control" placeholder="E-Mail" required>
+              <label for="Nominal">Nominal</label>
+              <input type="number" name="nominal" id="nominal" class="form-control" placeholder="Rp. " required>
             </div>
             <div class="my-2">
-              <label for="alamat">Alamat</label>
-              <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat" required>
+              <label for="Do'a">Doa</label>
+              <input type="text" name="doa" id="doa" class="form-control" placeholder="Do'a" required>
             </div>
-            <div class="my-2">
-              <label for="nohp">No. Hp</label>
-              <input type="text" name="nohp" id="nohp" class="form-control" placeholder="No. Hp" required>
-            </div>
-            <div class="my-2">
-              <label for="instansi">Instansi</label>
-              <input type="text" name="instansi" id="instansi" class="form-control" placeholder="Instansi" required>
-            </div>
-            <div class="my-2">
-              <label for="image">Upload Image</label>
-              <input type="file" name="image" class="form-control" required>
-            </div>
-            <div class="mt-2" id="image">
 
             </div>
           </div>
@@ -188,7 +117,7 @@
         </form>
       </div>
     </div>
-  </div> -->
+  </div>
   <!-- edit employee modal end -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
@@ -217,7 +146,7 @@
             if (response.status == 200) {
               Swal.fire(
                 'Added!',
-                'Foto Kegiatan Added Successfully!',
+                'Added Successfully!',
                 'success'
               )
               fetchAllEmployees();

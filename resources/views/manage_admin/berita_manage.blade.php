@@ -147,7 +147,7 @@
             if (response.status == 200) {
               Swal.fire(
                 'Added!',
-                'Foto Kegiatan Added Successfully!',
+                'Added Successfully!',
                 'success'
               )
               fetchAllEmployees();
@@ -198,7 +198,7 @@
             if (response.status == 200) {
               Swal.fire(
                 'Updated!',
-                'Foto Kegiatan Updated Successfully!',
+                'Updated Successfully!',
                 'success'
               )
               fetchAllEmployees();
