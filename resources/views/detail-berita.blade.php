@@ -99,7 +99,7 @@
             <div class="berita-info">
               <h3>{{ $berita->title }} information</h3>
               <ul>
-                <li><strong>Tanggal Publikasi, </strong>{!! date('d-M-Y', strtotime($berita->created_at)) !!}</li>
+                <li><strong>Tanggal Publikasi, </strong>{{ $berita->created_at->format('d M Y') }}</li>
               </ul>
             </div>
             <div class="berita-description">

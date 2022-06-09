@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Kegiatan;
 use App\Models\Santri;
 use App\Models\Berita;
+use App\Models\Donation;
 
 class HomeController extends Controller
 {
@@ -17,7 +18,9 @@ class HomeController extends Controller
         $jumlah_donatur = User::latest()->where('roles', 'Donatur')->count();
         $jumlah_santri = Santri::latest()->count();
         $jumlah_pengasuh = User::latest()->where('roles', 'Pengasuh')->count();
-        return view('home', compact('kegiatan', 'berita', 'jumlah_donatur', 'jumlah_santri', 'jumlah_pengasuh'));
+        $donasi_terkumpul = Donation::latest()->sum('gross_amount');
+        return view('home', 
+            compact('kegiatan', 'berita', 'jumlah_donatur', 'jumlah_santri', 'jumlah_pengasuh', 'donasi_terkumpul'));
     }
 
 

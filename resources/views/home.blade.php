@@ -1,8 +1,13 @@
 @extends('layouts.template')
 @section('content')
-
-<!-- ======= Profile Section ======= -->
-<section id="about" class="about">
+    <style>
+      .total-donasi{
+        font-weight: bold;
+        font-size: 15px;
+      }
+    </style>
+    <!-- ======= Profile Section ======= -->
+    <section id="about" class="about">
       <div class="container">
         <div class="section-title">   
           <h2>Profil</h2><a class="logo me-auto me-lg-0"><img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" alt="" class="img-fluid"></a>
@@ -41,7 +46,7 @@
               <h4><a href="{{ '/detail-berita/'.$b->id }}">{{ $b->title }}</a></h4>
               <p>{{ Str::limit($b->description, 220,'...') }} Read More &rarr;</p>
               <br>
-              <p>Tanggal Publikasi, {!! date('d-M-Y', strtotime($b->created_at)) !!}</p>
+              <p>Tanggal Publikasi, {!! date('d M Y', strtotime($b->created_at)) !!}</p>
             </div>
           </div>
           @endforeach
@@ -64,8 +69,8 @@
               <h3>Galang Donasi Untuk Anak Yatim Yayasan At-Taufiq Malang</h3>
               <img src="{{ asset('user/assets/img/attaufiq.jpg') }}" class="responsive" alt="">
               <ul>
-                <li/li>
-                <li/li>
+                <li></li>
+                <li class ="total-donasi">Donasi Terkumpul Rp. {{ $donasi_terkumpul }}</li>
               </ul>
               <div class="btn-wrap">
                 <a href="{{ route('login') }}" class="btn-buy">Donasi Sekarang</a>
@@ -116,7 +121,7 @@
             <img src="{{ url('storage/images/'.$k->image) }}" class="responsive" alt="">
             <div class="portfolio-info">
               <h4>{{ $k->title}}</h4>
-              <p>Tanggal Publikasi, {!! date('d-M-Y', strtotime($k->created_at)) !!}</p>
+              <p>Tanggal Publikasi, {!! date('d M Y', strtotime($k->created_at)) !!}</p>
               <a href="{{ url('storage/images/'.$k->image) }}" data-gallery="portfolioGallery" class="responsive portfolio-lightbox preview-link" title="{{ $k->title }}"><i class="bx bx-plus"></i></a>
               <a href="{{ '/detail-kegiatan/'.$k->id }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
