@@ -162,9 +162,9 @@
                                         </address>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <!-- <div class="col-md-12">
                                     <div class="table-responsive mt-5" style="clear: both;">
-                                        <table class="table table-hover">
+                                        <table class="table">
                                             <thead>
                                                 <tr>
                                                     <th class="text-center">#</th>
@@ -182,42 +182,20 @@
                                                     <td class="text-end"> $24 </td>
                                                     <td class="text-end"> $48 </td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="text-center">2</td>
-                                                    <td>Air Conditioner</td>
-                                                    <td class="text-end"> 3 </td>
-                                                    <td class="text-end"> $500 </td>
-                                                    <td class="text-end"> $1500 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">3</td>
-                                                    <td>RC Cars</td>
-                                                    <td class="text-end"> 20 </td>
-                                                    <td class="text-end"> %600 </td>
-                                                    <td class="text-end"> $12000 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">4</td>
-                                                    <td>Down Coat</td>
-                                                    <td class="text-end"> 60 </td>
-                                                    <td class="text-end">$5 </td>
-                                                    <td class="text-end"> $300 </td>
-                                                </tr>
+                                                
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-md-12">
                                     <div class="pull-right mt-4 text-end">
-                                        <p>Sub - Total amount: $13,848</p>
-                                        <p>vat (10%) : $138 </p>
                                         <hr>
-                                        <h3><b>Total :</b> $13,986</h3>
+                                        <h3><b>Total :</b> Rp. {{$e->nominal}} ,00</h3>
                                     </div>
                                     <div class="clearfix"></div>
                                     <hr>
                                     <div class="text-end">
-                                        <button class="btn btn-danger text-white" type="submit"> Proceed to payment </button>
+                                        <button class="btn btn-danger text-white" type="submit"> Cetak Nota </button>
                                     </div>
                                 </div>
                             </div>
