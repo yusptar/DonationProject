@@ -112,7 +112,7 @@ Route::get('/offline-fetchall', [OfflineController::class, 'fetchAll'])->name('o
 Route::delete('/offline-delete', [OfflineController::class, 'delete'])->name('offline-delete');
 Route::get('/offline-edit', [OfflineController::class, 'edit'])->name('offline-edit');
 Route::post('/offline-update', [OfflineController::class, 'update'])->name('offline-update');
-
+Route::get('/detail/{id}', [OfflineController::class, 'detail'])->name('detail');
 
 
 
