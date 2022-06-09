@@ -45,10 +45,8 @@ class OfflineController extends Controller
                 <td>' . $emp->nominal . '</td>
                 <td>' . $emp->doa . '</td>
                 <td>
-                  <a href="#" id="' . $emp->id . '" class="edit btn btn-primary btn-sm editIcon" data-bs-toggle="modal" href=""><i class="bi-pencil-square h4"></i>View</a>
-
-                  
-
+					
+					<a href="#" id="' . $emp->id . '" class="edit btn btn-primary btn-sm viewIcon" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="bi-pencil-square h4"></i>View</a>
                 </td>
               </tr>';
 			}
@@ -109,13 +107,10 @@ class OfflineController extends Controller
 		}
 	}
 
-	public function detail(Request $id) {
-		$id = $request->id;
+	public function view(Request $request)
+    {   
+        $id = $request->id;
 		$emp = Offline::find($id);
-		$namas = $emp->nama;
-		$nominals = $emp->nominal;
-		$doas = $emp->doa;
-		$waktu = $emp->created_at;
-		return view('invoice', compact('namas', 'nominals', 'doas', 'waktu'));
-	}
+		return response()->json($emp);
+    }
 }
