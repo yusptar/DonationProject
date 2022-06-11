@@ -176,4 +176,59 @@ class DonaturController extends Controller
 			User::destroy($id);
 		}
 	}
+
+
+  public function index_donations ()
+    {
+        return view('manage_admin.donations_manage');
+    }
+
+
+  public function fetchAll_donations() {
+		$user = User::where('id', Auth::user()->id)->first();
+    $donasi = Donation::where('donatur_id', Auth::user()->id)->first();
+		$output = '';
+		$numbering = 1;
+		if ($emps->count() > 0) {
+			$output .= '<table class="table table-bordered data-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Status</th>
+                <th>Nama Donatur</th>
+                <th>Email Donatur</th>
+                <th>Nominal</th>
+                <th>Pesan</th>
+                <th>Payment Type</th>
+                <th>Payment Code</th>
+                <th>Download Nota</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>';
+			foreach ($emps as $emp) {
+				$output .= '<tr>
+                <td width="5px">' . $numbering++ . '</td>
+                <td>' . $donation->status . '</td>
+                <td>' . $donation->donatur_name . '</td>
+                <td>' . $donation->donatur_email . '</td>
+                <td>' . $donation->donatur_phone . '</td>
+                <td>' . $donation->nominal . '</td>
+                <td>' . $donation->pesan . '</td>
+                <td>' . $donation->payment_type . '</td>
+                <td>' . $donation->payment_code . '</td>
+                <td>' . $donation->pdf_url . '</td>
+                
+                <td>
+                  
+
+                </td>
+              </tr>';
+			}
+			$output .= '</tbody></table>';
+			echo $output;
+		} else {
+			echo '<h1 class="text-center text-secondary my-5">No record present in the database!</h1>';
+		}
+	}
 }

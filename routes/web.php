@@ -109,10 +109,15 @@ Route::post('/pengasuh-update', [PengasuhController::class, 'update'])->name('pe
 Route::get('/offline', [OfflineController::class, 'index']);
 Route::post('/offline-store', [OfflineController::class, 'store'])->name('offline-store');
 Route::get('/offline-fetchall', [OfflineController::class, 'fetchAll'])->name('offline-fetchAll');
-Route::delete('/offline-delete', [OfflineController::class, 'delete'])->name('offline-delete');
-Route::get('/offline-edit', [OfflineController::class, 'edit'])->name('offline-edit');
-Route::post('/offline-update', [OfflineController::class, 'update'])->name('offline-update');
+// Route::delete('/offline-delete', [OfflineController::class, 'delete'])->name('offline-delete');
+// Route::get('/offline-edit', [OfflineController::class, 'edit'])->name('offline-edit');
+// Route::post('/offline-update', [OfflineController::class, 'update'])->name('offline-update');
 Route::get('/offline-view', [OfflineController::class, 'view'])->name('offline-view');
+
+//Manage Donasi Transfer
+Route::get('/online', [DonaturController::class, 'index_donations']);
+Route::get('/online-fetchall', [DonaturController::class, 'fetchAll_donations'])->name('online-fetchAll');
+
 
 
 

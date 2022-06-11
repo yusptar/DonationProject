@@ -280,7 +280,7 @@
                                 href="donatur" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span
                                     class="hide-menu">Data Donatur</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="#" aria-expanded="false"><i class="mdi mdi-clipboard-flow"></i><span
+                                href="online" aria-expanded="false"><i class="mdi mdi-clipboard-flow"></i><span
                                     class="hide-menu">Data Masuk Donasi</span></a></li>                
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="#" aria-expanded="false"><i class="mdi mdi-printer"></i><span
