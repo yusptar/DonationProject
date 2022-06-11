@@ -186,10 +186,10 @@ class DonaturController extends Controller
 
   public function fetchAll_donations() {
 		$user = User::where('id', Auth::user()->id)->first();
-    $donasi = Donation::where('donatur_id', Auth::user()->id)->first();
+    $donasi = Donation::all();
 		$output = '';
 		$numbering = 1;
-		if ($emps->count() > 0) {
+		if ($donasi->count() > 0) {
 			$output .= '<table class="table table-bordered data-table">
             <thead>
               <tr>
@@ -197,16 +197,16 @@ class DonaturController extends Controller
                 <th>Status</th>
                 <th>Nama Donatur</th>
                 <th>Email Donatur</th>
+                <th>Nomor Hp</th>
                 <th>Nominal</th>
                 <th>Pesan</th>
-                <th>Payment Type</th>
                 <th>Payment Code</th>
                 <th>Download Nota</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>';
-			foreach ($emps as $emp) {
+			foreach ($donasi as $donation) {
 				$output .= '<tr>
                 <td width="5px">' . $numbering++ . '</td>
                 <td>' . $donation->status . '</td>
@@ -214,13 +214,11 @@ class DonaturController extends Controller
                 <td>' . $donation->donatur_email . '</td>
                 <td>' . $donation->donatur_phone . '</td>
                 <td>' . $donation->nominal . '</td>
-                <td>' . $donation->pesan . '</td>
-                <td>' . $donation->payment_type . '</td>
+                <td>' . $donation->message . '</td>
                 <td>' . $donation->payment_code . '</td>
                 <td>' . $donation->pdf_url . '</td>
-                
                 <td>
-                  
+                <a href="#" id="' . $donation->id . '" class="edit btn btn-primary btn-sm viewIcon" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="bi-pencil-square h4"></i>View</a>
 
                 </td>
               </tr>';
