@@ -90,7 +90,7 @@
                   <label for="donatur_name" class="form-label"><i class="fa fa-user"></i> Nama <strong>*</strong></label>
                   <input type="text" name="donatur_name" class="form-control" id="donatur_name" placeholder="Masukkan Nama" required>
                   <label class="form-label">
-                    <input x-model="hide_identity" name="anonymous" type="checkbox">
+                    <input name="isNameHidden" type="checkbox">
                     <span class="text-anonymous">Sembunyikan nama (Hamba Allah)</span>
                   </label>
                 </div>
@@ -142,8 +142,13 @@
             <div class="riwayat">  
                 <div class="comment mt-4 text-justify float-left">
                     <h4>
-                        <img src="{{ asset('user/assets/img/default.jpg')}}" alt="" class="rounded-circle" width="60" height="60">  
-                        &nbsp;   {{ $d->donatur_name }}
+                        <img src="{{ asset('user/assets/img/default.jpg')}}" alt="" class="rounded-circle" width="60" height="60"> 
+                        @if($d->isNameHidden) 
+                          &nbsp;   Hamba Allah
+                        @else
+                          
+                          &nbsp;   {{ $d->donatur_name }}
+                        @endif
                     </h4>
                     <h5>Berdonasi sebesar <strong>Rp. {{ $d->nominal }}</strong></h5>
                     <p>{{ $d->message }}</p>

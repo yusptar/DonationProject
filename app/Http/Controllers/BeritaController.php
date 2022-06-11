@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 class BeritaController extends Controller
@@ -59,7 +60,12 @@ class BeritaController extends Controller
 		$fileName = time() . '.' . $file->getClientOriginalExtension();
 		$file->storeAs('public/images', $fileName);
 
-		$empData = ['title' => $request->title, 'description' => $request->description, 'image' => $fileName];
+		$empData = ['title' => $request->title, 
+					'description' => $request->description,
+					'slug' => Str::slug($request->title, '-'), 
+					'image' => $fileName
+		];
+
 		Berita::create($empData);
 		return response()->json([
 			'status' => 200,
@@ -87,7 +93,11 @@ class BeritaController extends Controller
 			$fileName = $request->emp_image;
 		}
 
-		$empData = ['title' => $request->title, 'description' => $request->description, 'image' => $fileName];
+		$empData = ['title' => $request->title,
+					'description' => $request->description,
+					'slug' => Str::slug($request->title, '-'), 
+					'image' => $fileName
+		];
 
 		$emp->update($empData);
 		return response()->json([

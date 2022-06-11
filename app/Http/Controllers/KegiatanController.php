@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kegiatan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
  
@@ -58,7 +59,11 @@ class KegiatanController extends Controller
 		$fileName = time() . '.' . $file->getClientOriginalExtension();
 		$file->storeAs('public/images', $fileName);
 
-		$empData = ['title' => $request->title, 'description' => $request->description, 'image' => $fileName];
+		$empData = ['title' => $request->title,
+		 			'description' => $request->description,
+					'slug' => Str::slug($request->title, '-'),
+		  			'image' => $fileName
+		];
 		Kegiatan::create($empData);
 		return response()->json([
 			'status' => 200,
@@ -86,7 +91,11 @@ class KegiatanController extends Controller
 			$fileName = $request->kegiatan_image;
 		}
 
-		$empData = ['title' => $request->title, 'description' => $request->description, 'image' => $fileName];
+		$empData = ['title' => $request->title,
+					'description' => $request->description,
+					'slug' => Str::slug($request->title, '-'),
+					'image' => $fileName
+		];
 
 		$emp->update($empData);
 		return response()->json([

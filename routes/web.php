@@ -33,8 +33,8 @@ Auth::routes();
 
 // User View
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/detail-kegiatan/{id}', [HomeController::class, 'index_detail_kegiatan']);
-Route::get('/detail-berita/{id}', [HomeController::class, 'index_detail_berita']);
+Route::get('/detail-kegiatan/{slug}', [HomeController::class, 'index_detail_kegiatan']);
+Route::get('/detail-berita/{slug}', [HomeController::class, 'index_detail_berita']);
 Route::get('admin', [AdminController::class, 'user_view'])->name('admin');
 Route::get('dashboard', [AdminController::class, 'dashboard_view'])->name('dashboard');
 Route::get('home', [DonaturController::class, 'index'])->name('donatur');

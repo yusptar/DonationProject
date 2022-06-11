@@ -17,6 +17,7 @@ class CreateDonationsTable extends Migration
             $table->id();
             $table->integer('donatur_id');
             $table->string('status');
+            $table->boolean('isNameHidden')->nullable();
             $table->string('donatur_name')->nullable();
             $table->string('donatur_email')->nullable();
             $table->string('donatur_phone')->nullable();

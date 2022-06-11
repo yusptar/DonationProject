@@ -24,16 +24,16 @@ class HomeController extends Controller
     }
 
 
-    public function index_detail_kegiatan($id)
+    public function index_detail_kegiatan($slug)
     {
-        $kegiatan = Kegiatan::find($id);
-        return view('detail-kegiatan', ['kegiatan'=>$kegiatan, 'id'=>$id]);
+        $this->data['kegiatan'] = Kegiatan::where('slug','=',$slug)->firstOrFail();
+        return view('detail-kegiatan', $this->data);
     }
 
-    public function index_detail_berita($id)
+    public function index_detail_berita($slug)
     {
-        $berita = Berita::find($id);
-        return view('detail-berita', ['berita'=>$berita, 'id'=>$id]);
+        $this->data['berita'] = Berita::where('slug','=',$slug)->firstOrFail();
+        return view('detail-berita', $this->data);
     }
 
 

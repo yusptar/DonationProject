@@ -52,14 +52,18 @@ class DonaturController extends Controller
     }
 
     public function payment_post(Request $request){
+        $isNameHidden = false;
         $user = User::where('id', Auth::user()->id)->first();
         $donasi = Donation::where('donatur_id', Auth::user()->id)->first();
-
+        if ($request->isNameHidden == 'on') {
+          $isNameHidden = true;
+        }
         $json = json_decode($request->get('json'));
         $donasi = new Donation();
-
+        
         $donasi->donatur_id = Auth::user()->id;
         $donasi->status = $json->transaction_status;
+        $donasi->isNameHidden = $isNameHidden;
         $donasi->donatur_name = $request->get('donatur_name');
         $donasi->donatur_email = $request->get('donatur_email');
         $donasi->nominal = $request->get('nominal');
