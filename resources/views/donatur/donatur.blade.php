@@ -66,9 +66,7 @@
 
       
     </style>
-    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
-    data-client-key="SB-Mid-client-fSW1kufnC6UkZ0G6"></script>
-    <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
+ 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- ======= Donasi Section ======= -->
@@ -137,7 +135,7 @@
       <!-- Main Body -->
       <div class="container">
           @foreach($donasi as $d)  
-          @if($d->status == 'pending')
+          @if($d->status == 'settlement')
           <div class="row">
             <div class="riwayat">  
                 <div class="comment mt-4 text-justify float-left">
@@ -150,7 +148,7 @@
                           &nbsp;   {{ $d->donatur_name }}
                         @endif
                     </h4>
-                    <h5>Berdonasi sebesar <strong>Rp. {{ $d->nominal }}</strong></h5>
+                    <h5>Berdonasi sebesar <strong>Rp. {{ number_format($d->nominal, 0) }}</strong></h5>
                     <p>{{ $d->message }}</p>
                     <h6>{{ $d->created_at->format('d M Y') }}<h6>
                 </div>    

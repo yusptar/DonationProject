@@ -35,7 +35,7 @@
                 <div class="signin-content">
                     <div class="profile-image">
                         <div class="mt-2" id="image">
-                            <img src="{{ asset('user/assets/img/attaufiq.jpg') }}" style="width: 500px; height: 200px; border-radius:5%; margin-left:1px;">
+                            <img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" >
                         </div>
                     </div>
   

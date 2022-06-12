@@ -21,6 +21,7 @@ class DonaturController extends Controller
         return view('donatur.donatur', ['user' => $user, 'donasi' => $donasi]);
     }
 
+
     public function payment(Request $request)
     {
         $user = User::where('id', Auth::user()->id)->first();
@@ -81,6 +82,90 @@ class DonaturController extends Controller
 
         Alert::success('Transaksi Berhasil Dibuat<br>شُكْرًا');
         return redirect()->back();
+    }
+
+    public function pending_payment(Request $request)
+    {
+        $user = User::where('id', Auth::user()->id)->first();
+        $donasi = Donation::where('donatur_id', Auth::user()->id)->first();
+        $data_donasi = Donation::paginate(1);
+
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        if(!empty($donasi)){
+          $params = array(
+            'transaction_details' => array(
+                'order_id' => rand(),
+                'gross_amount' => $donasi->gross_amount,
+            ),
+            'customer_details' => array(
+                'first_name' => $donasi->donatur_name,
+                'last_name' => '',
+                'email' => $donasi->donatur_email,
+                'phone' => $donasi->donatur_phone,
+            ),
+          );
+        }else{
+          $params = array(
+            'transaction_details' => array(
+                'order_id' => rand(),
+                'gross_amount' => 1000,
+            ),
+            'customer_details' => array(
+                'first_name' => 'Tidak Dikenal',
+                'last_name' => '',
+                'email' => 'example@gmail.com',
+                'phone' => '0341240404',
+            ),
+          );
+        }
+
+
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+        return view('donatur.donasi', [ 'data_donasi' => $data_donasi, 'user' => $user, 'snap_token' => $snapToken]);
+    }
+
+    public function pending_payment_post(Request $request){
+        $isNameHidden = false;
+        $user = User::where('id', Auth::user()->id)->first();
+        $donasi = Donation::where('donatur_id', Auth::user()->id)->first();
+        if ($request->isNameHidden == 'on') {
+          $isNameHidden = true;
+        }
+        $json = json_decode($request->get('json'));
+        $donasi = new Donation();
+        
+        $donasi->donatur_id = Auth::user()->id;
+        $donasi->status = $json->transaction_status;
+        $donasi->isNameHidden = $isNameHidden;
+        $donasi->donatur_name = $request->get('donatur_name');
+        $donasi->donatur_email = $request->get('donatur_email');
+        $donasi->nominal = $request->get('nominal');
+        $donasi->message = $request->get('message');
+        $donasi->image = Auth::user()->image;
+        $donasi->donatur_phone = Auth::user()->nohp;
+        $donasi->transaction_id = $json->transaction_id;
+        $donasi->order_id = $json->order_id;
+        $donasi->gross_amount = $json->gross_amount;
+        $donasi->payment_type = $json->payment_type;
+        $donasi->payment_code = isset($json->payment_code) ? $json->payment_code : null;
+        $donasi->pdf_url = isset($json->pdf_url) ? $json->pdf_url : null;
+
+        $donasi->update();
+
+        Alert::success('Transaksi Berhasil<br>شُكْرًا');
+        return redirect()->back();
+    }
+
+    public function cancel_payment($id){
+        $donasi = Donation::find($id)->delete();
     }
 
     public function index_table ()

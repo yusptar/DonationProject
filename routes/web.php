@@ -51,6 +51,11 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/payment', [DonaturController::class, 'payment']);
 Route::post('/payment', [DonaturController::class, 'payment_post']);
 
+Route::get('/donasi-saya', [DonaturController::class, 'pending_payment']);
+Route::post('/donasi-saya', [DonaturController::class, 'pending_payment_post']);
+Route::delete('/cancel-donasi/{id}', [DonaturController::class, 'cancel_payment']);
+
+
 // ------------------- PENGASUH ------------------ //
 
 Route::group(['middleware' => 'auth'], function () {

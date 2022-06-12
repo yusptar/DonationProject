@@ -5,6 +5,11 @@
         font-weight: bold;
         font-size: 15px;
       }
+
+      .jumlah-donatur{
+        font-weight: bold;
+        font-size: 15px;
+      }
     </style>
     <!-- ======= Profile Section ======= -->
     <section id="about" class="about">
@@ -44,7 +49,7 @@
               <img src="{{ url('storage/images/'.$b->image) }}" class="responsive" alt="">
               <br><br>
               <h4><a href="{{ '/detail-berita/'.$b->slug }}">{{ $b->title }}</a></h4>
-              <p>{{ Str::limit($b->description, 220,'...') }} Read More &rarr;</p>
+              <p>{{ Str::limit($b->description, 220) }}<a href="{{ '/detail-berita/'.$b->slug }}" style="font-weight: bold;">Read More &rarr;</a></p>
               <br>
               <p>Tanggal Publikasi, {!! date('d M Y', strtotime($b->created_at)) !!}</p>
             </div>
@@ -69,8 +74,8 @@
               <h3>Galang Donasi Untuk Anak Yatim Yayasan At-Taufiq Malang</h3>
               <img src="{{ asset('user/assets/img/attaufiq.jpg') }}" class="responsive" alt="">
               <ul>
-                <li></li>
-                <li class ="total-donasi">Donasi Terkumpul Rp. {{ $donasi_terkumpul }}</li>
+                <li class ="total-donasi">Donasi Terkumpul Rp. {{ number_format($donasi_terkumpul, 0) }}</li>
+                <li class ="jumlah-donatur">Jumlah Donatur : {{ $jumlah_donatur }}</li>
               </ul>
               <div class="btn-wrap">
                 <a href="{{ route('login') }}" class="btn-buy">Donasi Sekarang</a>
@@ -203,7 +208,7 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="#" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Masukkan Nama" required>
@@ -232,4 +237,9 @@
 
       </div>
     </section><!-- End Contact Section -->
+
+    <script type="text/javascript">
+
+      
+    </script>
 @endsection
