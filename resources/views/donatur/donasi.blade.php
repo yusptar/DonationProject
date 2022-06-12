@@ -53,7 +53,8 @@
                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                         
                         <h2 class="form-title">Donasi Saya</h2> 
-
+                        
+                        @if(!empty($data_donasi))
                         @foreach($data_donasi as $d) 
                             <h3>Nama             : {{ $d->donatur_name }}</h3>
                             <h3>E-Mail           : {{ $d->donatur_email }}</h3>
@@ -67,6 +68,7 @@
                             <button class="button button1" id="confirm-button">Bayar Sekarang</button>
                             <button class="button button1"><a href="#">Cancel</a></button>       
                         @endforeach
+                        @endif
                         
                     
                         <script type="text/javascript">
