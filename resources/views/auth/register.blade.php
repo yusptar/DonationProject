@@ -47,7 +47,7 @@
                     </div>
                     <div class="signup-image">
                         <a href="/"><img src="{{ asset('user/assets/img/logotext.png') }}" alt="sing up image"></a>
-                        <a href="{{ route('login') }}" class="signup-image-link">Sudah mempunyai akun? masuk</a>
+                        <a href="{{ route('login') }}" class="signup-image-link">Sudah mempunyai akun? masuk<br>( Sign In )</a>
                     </div>
                 </div>
             </div>

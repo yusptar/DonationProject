@@ -7,7 +7,7 @@
                 <div class="signin-content">
                     <div class="signin-image">
                         <a href="/"><img src="{{ asset('user/assets/img/logotext.png') }}" alt="sing in image"></a>
-                        <a href="{{ route('register') }}" class="signup-image-link">Belum mempunyai akun? Daftar segera</a>
+                        <a href="{{ route('register') }}" class="signup-image-link">Belum mempunyai akun? Daftar segera<br>( Sign Up )</a>
                     </div>
 
                     <div class="signin-form">

@@ -288,6 +288,7 @@ figure {
   display: inline-block;
   background: #6dabe4;
   color: #fff;
+  font-weight: bold;
   border-bottom: none;
   width: auto;
   padding: 15px 39px;
@@ -305,10 +306,22 @@ figure {
   margin-top: 16px; }
 
 .signup-image-link {
-  font-size: 15px;
-  color: #222;
-  display: block;
-  text-align: center; }
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition-duration: 0.4s;
+  margin: 5px 5px 5px 5px;
+  cursor: pointer;
+  text-align: center;
+  background-color: #ddd;
+  color: black; }
+
+.signup-image-link:hover {
+  background-color: #04AA6D;
+  color: white; }
 
 .back-to-home-link {
   font-size: 15px;

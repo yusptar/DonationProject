@@ -5,11 +5,11 @@
             background-color: #4CAF50; /* Green */
             border: none;
             color: white;
-            padding: 16px 32px;
+            padding: 8px 16px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 16px;
+            font-size: 15px;
             margin: 4px 2px;
             transition-duration: 0.4s;
             cursor: pointer;
@@ -17,9 +17,9 @@
         }
 
         .button1 {
-        background-color: white; 
-        color: black; 
-        border: 2px solid #4CAF50;
+            background-color: white; 
+            color: black; 
+            border: 2px solid #4CAF50;
         }
 
         .button1:hover {
@@ -31,7 +31,9 @@
             margin-left: 200px;
         }
 
-        a {
+        .previous {
+            background-color: #04AA6D;
+            color: white;
             text-decoration: none;
             display: inline-block;
             padding: 8px 16px;
@@ -41,14 +43,9 @@
             cursor: pointer;
         }
 
-        a:hover {
+        .previous:hover {
             background-color: #ddd;
             color: black;
-        }
-
-        .previous {
-            background-color: #04AA6D;
-            color: white;
         }
 
     </style>
