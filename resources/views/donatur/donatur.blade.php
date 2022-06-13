@@ -81,7 +81,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-5 mt-lg-0 form-donasi">
-            <form method="GET" action="/payment" >
+            <form method="GET" action="/home/payment" >
               <div class="row">
                 <img class="logo-form" src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png">
                 <div class="col-md-6 form-group">
@@ -96,6 +96,10 @@
                   <label for="donatur_email" class="form-label"><i class="fa fa-envelope"></i> E-mail <strong>*</strong></label>
                   <input type="email" class="form-control" name="donatur_email" id="donatur_email" placeholder="Masukkan Email"  required>
                 </div>
+              </div>
+              <div class="form-group mt-3">
+                <label for="donatur_phone" class="form-label"><i class="fa fa-phone"></i> Nomer HP</label>
+                <input type="text" class="form-control" name="donatur_phone" placeholder="Masukkan Nomer HP">
               </div>
               <div class="form-group mt-3">
                 <label for="nominal" class="form-label"><i class="fa fa-money"></i> Nominal Donasi <strong>*</strong></label>

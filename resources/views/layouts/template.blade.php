@@ -107,8 +107,8 @@
                       </a>
                       <ul>
                           @can('donatur')       
-                          <li><a class="nav-link scrollto" href="{{ url('profile') }}">Profile Saya</a></li>
-                          <li><a class="nav-link scrollto" href="/donasi-saya">Donasi Saya</a></li>
+                          <li><a class="nav-link scrollto" href="/home/profile">Profile Saya</a></li>
+                          <li><a class="nav-link scrollto" href="/home/donasi-saya">Donasi Saya</a></li>
                           <li><a class="nav-link scrollto" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>
                               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
@@ -116,7 +116,7 @@
                           </li>
                           @endcan
                           @can('pengasuh')       
-                          <li><a class="nav-link scrollto" href="{{ url('profile-pengasuh') }}">Profile Saya</a></li>
+                          <li><a class="nav-link scrollto" href="/dashboard-pengasuh/profile-pengasuh">Profile Saya</a></li>
                           <li><a class="nav-link scrollto" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>
                               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf

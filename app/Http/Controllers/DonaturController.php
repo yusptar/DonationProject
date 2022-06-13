@@ -10,10 +10,7 @@ use Alert;
 
 class DonaturController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // ----------------------- DONATUR PAGE ------------------------ //
 
     public function index(){
         $user = User::all();
@@ -44,7 +41,7 @@ class DonaturController extends Controller
               'first_name' => $request->get('donatur_name'),
               'last_name' => '',
               'email' => $request->get('donatur_email'),
-              'phone' => Auth::user()->nohp,
+              'phone' => $request->get('donatur_phone'),
           ),
         );
 
@@ -70,7 +67,7 @@ class DonaturController extends Controller
         $donasi->nominal = $request->get('nominal');
         $donasi->message = $request->get('message');
         $donasi->image = Auth::user()->image;
-        $donasi->donatur_phone = Auth::user()->nohp;
+        $donasi->donatur_phone = $request->get('donatur_phone');
         $donasi->transaction_id = $json->transaction_id;
         $donasi->order_id = $json->order_id;
         $donasi->gross_amount = $json->gross_amount;
@@ -86,7 +83,6 @@ class DonaturController extends Controller
 
     public function pending_payment(Request $request)
     {
-        $user = User::where('id', Auth::user()->id)->first();
         $donasi = Donation::where('donatur_id', Auth::user()->id)->first();
         $data_donasi = Donation::paginate(1);
 
@@ -129,7 +125,7 @@ class DonaturController extends Controller
 
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-        return view('donatur.donasi', [ 'data_donasi' => $data_donasi, 'user' => $user, 'snap_token' => $snapToken]);
+        return view('donatur.donasi', [ 'data_donasi' => $data_donasi, 'snap_token' => $snapToken]);
     }
 
     public function pending_payment_post(Request $request){
@@ -149,6 +145,7 @@ class DonaturController extends Controller
         $donasi->donatur_email = $request->get('donatur_email');
         $donasi->nominal = $request->get('nominal');
         $donasi->message = $request->get('message');
+        $donasi->donatur_phone = $request->get('donatur_phone');
         $donasi->image = Auth::user()->image;
         $donasi->donatur_phone = Auth::user()->nohp;
         $donasi->transaction_id = $json->transaction_id;
@@ -165,8 +162,13 @@ class DonaturController extends Controller
     }
 
     public function cancel_payment($id){
-        $donasi = Donation::find($id)->delete();
+        $donasi = Donation::where('id', $id)->delete();
+        Alert::success('Data berhasil dihapus');
+        return redirect()->back();
     }
+
+
+    // ------------------------- ADMIN ----------------------- //
 
     public function index_table ()
     {

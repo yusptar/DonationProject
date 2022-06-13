@@ -39,7 +39,7 @@
                 <div class="signin-content">
                     <div class="profile-image">
                         <div class="mt-2" id="image">
-                            <img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" >
+                            <img src="{{ asset('user/assets/img/logo-yayasan.png') }}" >
                         </div>
                     </div>
   
@@ -55,21 +55,23 @@
                         <h2 class="form-title">Donasi Saya</h2> 
                         
                         @if(!empty($data_donasi))
-                        @foreach($data_donasi as $d) 
-                            <h3>Nama             : {{ $d->donatur_name }}</h3>
-                            <h3>E-Mail           : {{ $d->donatur_email }}</h3>
-                            <h3>Jumlah Donasi    : Rp. {{ number_format($d->gross_amount, 0) }}</h3> 
-                            <h3>Tanggal Donasi   : {{ $d->created_at->format('d M Y') }}</h3>
-                            <h3>Status Transaksi : {{ $d->status }}</h4>
-                            <form action="" id="submit_form" method="POST">
-                                @csrf
-                                <input type="hidden" name="json" id="json_callback">
-                            </form>
-                            <button class="button button1" id="confirm-button">Bayar Sekarang</button>
-                            <button class="button button1"><a href="#">Cancel</a></button>       
-                        @endforeach
+                            @foreach($data_donasi as $d) 
+                                <h3>Nama             : {{ $d->donatur_name }}</h3>
+                                <h3>E-Mail           : {{ $d->donatur_email }}</h3>
+                                <h3>Jumlah Donasi    : Rp. {{ number_format($d->gross_amount, 0) }}</h3> 
+                                <h3>Tanggal Donasi   : {{ $d->created_at->format('d M Y') }}</h3>
+                                <h3>Status Transaksi : {{ $d->status }}</h4>
+                                @if($d->status == 'pending')
+                                <button class="button button1" id="confirm-button">Bayar Sekarang</button>
+                                <button class="button button1"><a href="/home/cancel-donasi/{{ $d->id }}">Cancel</a></button>
+                                @elseif($d->status == 'settlement')
+                                @endif       
+                            @endforeach
                         @endif
-                        
+                        <form action="" id="submit_form" method="POST">
+                            @csrf
+                            <input type="hidden" name="json" id="json_callback">
+                        </form>
                     
                         <script type="text/javascript">
                         // For example trigger on button clicked, or any time you need
