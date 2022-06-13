@@ -44,9 +44,6 @@
               </div>
           </div>
       </div>
-  </div>
-
-  <div class="page-wrapper">
       <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
@@ -69,6 +66,8 @@
             </div>
         </div>
       </div>
+
+
       <div class="container-fluid">
           <div class="row">
               <div class="col-12">
@@ -84,6 +83,34 @@
               </div>
           </div>
       </div>
+  </div>
+
+  
+
+  <div class="page-wrapper">
+      <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                
+                  <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                        <!-- <ol class="breadcrumb">
+                            <a class="btn btn-success" data-bs-toggle="modal" href="javascript:void(0)" data-bs-target="#addEmployeeModal">
+                                <span class="svg-icon svg-icon-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="green" />
+                                    <rect x="10.8891" y="17.8033" width="12" height="2" rx="1" transform="rotate(-90 10.8891 17.8033)" fill="black" />
+                                    <rect x="6.01041" y="10.9247" width="12" height="2" rx="1" fill="black" />
+                                    </svg>
+                                </span> 
+                            Tambah Data</a>
+                        </ol> -->
+                    </nav>
+                  </div>           
+            </div>
+        </div>
+      </div>
+      
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
@@ -232,9 +259,9 @@
       });
 
       // fetch all employees ajax request
-      fetchAllEmployees();
+      fetchAllOnlines();
 
-      function fetchAllEmployees() {
+      function fetchAllOnlines() {
         $.ajax({
           url: '{{ route('cetaklaporan-fetchAll-online') }}',
           method: 'get',
@@ -247,10 +274,11 @@
         });
       }
 
-      // fetch all employees ajax request
-      fetchAllEmployees();
 
-      function fetchAllEmployees() {
+      // fetch all employees ajax request
+      fetchAllOfflines();
+
+      function fetchAllOfflines() {
         $.ajax({
           url: '{{ route('cetaklaporan-fetchAll-offline') }}',
           method: 'get',

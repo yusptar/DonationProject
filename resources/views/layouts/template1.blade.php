@@ -282,12 +282,13 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="online" aria-expanded="false"><i class="mdi mdi-clipboard-flow"></i><span
                                     class="hide-menu">Data Masuk Donasi</span></a></li>                
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="cetaklaporan" aria-expanded="false"><i class="mdi mdi-printer"></i><span
-                                    class="hide-menu">Cetak Laporan</span></a></li>  
+                         
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="offline" aria-expanded="false"><i class="mdi mdi-receipt"></i><span
-                                    class="hide-menu">Donasi Offline</span></a></li>                                                                           
+                                    class="hide-menu">Donasi Offline</span></a></li>  
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="cetaklaporan" aria-expanded="false"><i class="mdi mdi-printer"></i><span
+                                    class="hide-menu">Cetak Laporan</span></a></li>                                                                          
                         <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span
                                     class="hide-menu">Charts</span></a></li>
@@ -402,8 +403,8 @@
          <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a
-                    href="https://www.wrappixel.com">WrapPixel</a>.
+                Yayasan Anak Yatim At-Taufiq Malang. <a
+                    >2022</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

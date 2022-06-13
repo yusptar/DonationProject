@@ -25,102 +25,78 @@
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
-            <div class="container-fluid">
+            <div class="container-fluid"> 
                 <!-- ============================================================== -->
                 <!-- Sales Cards  -->
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-cyan text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
-                                <h6 class="text-white">Dashboard</h6>
+                    <div class="col-md-3">
+                        <div class="card mt-0">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="peity_line_neutral left text-center mt-2"><span><span
+                                                style="display: none;">10,15,8,14,13,10,10</span>
+                                            <canvas width="50" height="24"></canvas>
+                                        </span>
+                                        <h6>10%</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 border-left text-center pt-2">
+                                    <h3 class="mb-0 fw-bold">150</h3>
+                                    <span class="text-muted">New Users</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-4 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-success text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-account-key"></i></h1>
-                                <h6 class="text-white">Manage User</h6>
+                    <div class="col-md-3">
+                        <div class="card mt-0">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="peity_bar_bad left text-center mt-2"><span><span
+                                                style="display: none;">3,5,6,16,8,10,6</span>
+                                            <canvas width="50" height="24"></canvas>
+                                        </span>
+                                        <h6>-40%</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 border-left text-center pt-2">
+                                    <h3 class="mb-0 fw-bold">4560</h3>
+                                    <span class="text-muted">Orders</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Column -->
-                    
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-danger text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-face"></i></h1>
-                                <h6 class="text-white">Data Santri</h6>
+                    <div class="col-md-3">
+                        <div class="card mt-0">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="peity_line_good left text-center mt-2"><span><span
+                                                style="display: none;">12,6,9,23,14,10,17</span>
+                                            <canvas width="50" height="24"></canvas>
+                                        </span>
+                                        <h6>+60%</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 border-left text-center pt-2">
+                                    <h3 class="mb-0 ">5672</h3>
+                                    <span class="text-muted">Active Users</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-info text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-account-multiple"></i></h1>
-                                <h6 class="text-white">Data Pengasuh</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-warning text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-account-card-details"></i></h1>
-                                <h6 class="text-white">Data Donatur</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-4 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-danger text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-image-multiple"></i></h1>
-                                <h6 class="text-white">Manage Foto Kegiatan</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-warning text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-newspaper"></i></h1>
-                                <h6 class="text-white">Manage Berita</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-info text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-receipt"></i></h1>
-                                <h6 class="text-white">Donasi Offline</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-cyan text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-clipboard-flow"></i></h1>
-                                <h6 class="text-white">Data Masuk Donasi</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    
-                    
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-success text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-printer"></i></h1>
-                                <h6 class="text-white">Cetak Laporan</h6>
+                    <div class="col-md-3">
+                        <div class="card mt-0">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="peity_bar_good left text-center mt-2" ><span>12,6,9,23,14,10,13</span>
+                                        <h6>+30%</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 border-left text-center pt-2">
+                                    <h3 class="mb-0 fw-bold">2560</h3>
+                                    <span class="text-muted">Register</span>
+                                </div>
                             </div>
                         </div>
                     </div>
