@@ -1566,6 +1566,7 @@ section {
   background-repeat: no-repeat;
   background-position: center center;
   min-height: 400px;
+  border-radius: 10px;
 }
 .profile .accordion-list {
   padding: 0 100px 60px 100px;
@@ -1895,7 +1896,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #fff;
+  background: #ddd;
   color: #0f0f0f;
   font-size: 14px;
   text-align: center;

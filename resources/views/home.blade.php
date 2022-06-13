@@ -1,12 +1,10 @@
 @extends('layouts.template')
 @section('content')
-    <br>
+    <br><br>
     <!-- ======= Profile Section ======= -->
     <section id="profile" class="profile">
       <div class="container-fluid">
-
         <div class="row">
-
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
 
             <div class="content">
@@ -24,7 +22,6 @@
                     </p>
                   </div>
                 </li>
-
                 <li>
                   <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed">Sejarah Berdirinya Yayasan At-Taufiq Malang<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
@@ -34,7 +31,6 @@
                     </p>
                   </div>
                 </li>
-
                 <li>
                   <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed">Lanjutan Sejarah Berdirinya Yayasan At-Taufiq Malang <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
@@ -44,17 +40,14 @@
                     </p>
                   </div>
                 </li>
-
               </ul>
             </div>
-
           </div>
-
           <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("user/assets/img/yayasan-building.jpeg");'>&nbsp;</div>
         </div>
-
       </div>
-    </section><!-- End Profile Section -->
+    </section>
+    <!-- End Profile Section -->
 
     <!-- ======= Berita Section ======= -->
     <section id="services" class="services">
@@ -259,10 +252,6 @@
         </div>
 
       </div>
-    </section><!-- End Contact Section -->
-
-    <script type="text/javascript">
-
-      
-    </script>
+    </section>
+    <!-- End Contact Section -->
 @endsection
