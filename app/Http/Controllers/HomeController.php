@@ -15,12 +15,15 @@ class HomeController extends Controller
     {
         $kegiatan = Kegiatan::all();
         $berita = Berita::all();
+        $donasi = Donation::all();
         $jumlah_donatur = User::latest()->where('roles', 'Donatur')->count();
         $jumlah_santri = Santri::latest()->count();
         $jumlah_pengasuh = User::latest()->where('roles', 'Pengasuh')->count();
         $donasi_terkumpul = Donation::latest()->sum('gross_amount');
         return view('home', 
-            compact('kegiatan', 'berita', 'jumlah_donatur', 'jumlah_santri', 'jumlah_pengasuh', 'donasi_terkumpul'));
+            compact('kegiatan', 'berita', 'jumlah_donatur', 
+                    'jumlah_santri', 'jumlah_pengasuh', 'donasi_terkumpul',
+                    'donasi'));
     }
 
 
