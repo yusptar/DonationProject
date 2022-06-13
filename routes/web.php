@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilePengasuhController;
 use App\Http\Controllers\PengasuhController;
 use App\Http\Controllers\OfflineController;
+use App\Http\Controllers\LaporanController;
 
 
 /*
@@ -123,6 +124,11 @@ Route::group(['middleware' => 'auth'], function () {
     //Manage Donasi Transfer
     Route::get('/online', [DonaturController::class, 'index_donations']);
     Route::get('/online-fetchall', [DonaturController::class, 'fetchAll_donations'])->name('online-fetchAll');
+
+    //Manage Cetak Laporan
+    Route::get('/cetaklaporan', [LaporanController::class, 'index']);
+    Route::get('/cetaklaporan-fetchAll-online', [LaporanController::class, 'fetchAll_online'])->name('cetaklaporan-fetchAll-online');
+    Route::get('/cetaklaporan-fetchAll-offline', [LaporanController::class, 'fetchAll_offline'])->name('cetaklaporan-fetchAll-offline');
 });
 
 

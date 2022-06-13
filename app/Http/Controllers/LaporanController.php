@@ -10,14 +10,14 @@ use App\Models\Offline;
 
 class LaporanController extends Controller
 {
-    public function index_table ()
+    public function index()
     {
         return view('manage_admin.laporan_manage');
     }
 
     public function fetchAll_online() {
 		$user = User::where('id', Auth::user()->id)->first();
-        $donasi = Donation::all();
+    $donasi = Donation::all();
 		$output = '';
 		$numbering = 1;
 		if ($donasi->count() > 0) {
