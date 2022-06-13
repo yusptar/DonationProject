@@ -15,7 +15,7 @@
     <section id="about" class="about">
       <div class="container">
         <div class="section-title">   
-          <h2>Profil</h2><a class="logo me-auto me-lg-0"><img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" alt="" class="img-fluid"></a>
+          <h2>Profil</h2><a class="logo me-auto me-lg-0"><img src="{{ asset('user/assets/img/logotext.png') }}" alt="" class="img-fluid"></a>
           <p>Yayasan Attaufiq adalah Yayasan yang fokus mengabdi untuk mengasuh anak Yatim Piatu dan fakir miskin yang berada di Malang. Dengan segala kemampuan, kami bertanggungjawab mewujudkan cita cita Anak Yatim agar bisa terwujud kelak hingga mereka dewasa.</p>
         </div>
         <div class="row content">
@@ -74,7 +74,9 @@
               <h3>Galang Donasi Untuk Anak Yatim Yayasan At-Taufiq Malang</h3>
               <img src="{{ asset('user/assets/img/attaufiq.jpg') }}" class="responsive" alt="">
               <ul>
-                <li class ="total-donasi">Donasi Terkumpul Rp. {{ number_format($donasi_terkumpul, 0) }}</li>
+                <li class ="total-donasi">
+                  Donasi Terkumpul Rp.
+                  {{ number_format($donasi_terkumpul, 0) }}</li>
                 <li class ="jumlah-donatur">Jumlah Donatur : {{ $jumlah_donatur }}</li>
               </ul>
               <div class="btn-wrap">

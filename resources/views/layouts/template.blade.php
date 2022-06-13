@@ -20,7 +20,7 @@
 
   <!-- Favicons -->
   <link href="//attaufiqmlg.com/wp-content/uploads/2016/06/ico.ico" rel="icon">
-  <link href="//attaufiqmlg.com/wp-content/uploads/2016/06/logo-150.png" rel="apple-touch-icon">
+  <link href="{{ asset('user/assets/img/logo-yayasan.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -48,7 +48,7 @@
         <div class="col-xl-9 d-flex align-items-center justify-content-lg-between">
           <h1 class="logo me-auto me-lg-0"><a href="/"></a></h1>
           <!-- Uncomment below if you prefer to use an image logo -->
-          <a href="/" class="logo me-auto me-lg-0"><img src="//attaufiqmlg.com/wp-content/uploads/2016/06/logo-150.png" alt="" class="img-fluid"></a>
+          <a href="/" class="logo me-auto me-lg-0"><img src="{{ asset('user/assets/img/logo-yayasan.png') }}" alt="" class="img-fluid"></a>
 
           <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
@@ -190,7 +190,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
-    <a class="logo me-auto me-lg-0"><img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" alt="" class="img-fluid"></a>
+    <a class="logo me-auto me-lg-0"><img src="{{ asset('user/assets/img/logotext.png') }}" alt="" class="img-fluid"></a>
       <p>Jl. Sanan 70 RT 08 RW.15 Purwantoro Blimbing Malang 65122, (0341) 411105</p>
       <div class="social-links">
         <a href="https://www.facebook.com/yayasan.attaufiqmalang" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>

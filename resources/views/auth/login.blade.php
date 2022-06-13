@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <a href="/"><img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" alt="sing in image"></a>
+                        <a href="/"><img src="{{ asset('user/assets/img/logotext.png') }}" alt="sing in image"></a>
                         <a href="{{ route('register') }}" class="signup-image-link">Belum mempunyai akun? Daftar segera</a>
                     </div>
 

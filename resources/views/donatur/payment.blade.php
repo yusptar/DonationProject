@@ -26,16 +26,36 @@
         background-color: #4CAF50;
         color: white;
         }
+
+        a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 16px;
+            margin-left: 20px;
+            border-radius: 10px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .previous {
+            background-color: #04AA6D;
+            color: white;
+        }
     
     </style>
     <section class="sign-in">
             <div class="container">
                 <br>
-                <a href="{{ route('donatur') }}" class="back-to-home-link"><i class="zmdi zmdi-arrow-left"></i>&nbsp;&nbsp;Kembali ke Halaman Utama</a>
+                <a href="{{ route('donatur') }}" class="previous"><strong>&laquo; Kembali</strong></a>
                 <div class="signin-content">
                     <div class="profile-image">
                         <div class="mt-2" id="image">
-                            <img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" >
+                            <img src="{{ asset('user/assets/img/logo-yayasan.png') }}" >
                         </div>
                     </div>
   

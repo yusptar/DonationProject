@@ -46,7 +46,7 @@
                         </form>
                     </div>
                     <div class="signup-image">
-                        <a href="/"><img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" alt="sing up image"></a>
+                        <a href="/"><img src="{{ asset('user/assets/img/logotext.png') }}" alt="sing up image"></a>
                         <a href="{{ route('login') }}" class="signup-image-link">Sudah mempunyai akun? masuk</a>
                     </div>
                 </div>

@@ -83,7 +83,7 @@
           <div class="col-lg-5 mt-lg-0 form-donasi">
             <form method="GET" action="/home/payment" >
               <div class="row">
-                <img class="logo-form" src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png">
+                <img class="logo-form" src="{{ asset('user/assets/img/logotext.png') }}">
                 <div class="col-md-6 form-group">
                   <label for="donatur_name" class="form-label"><i class="fa fa-user"></i> Nama <strong>*</strong></label>
                   <input type="text" name="donatur_name" class="form-control" id="donatur_name" placeholder="Masukkan Nama" required>

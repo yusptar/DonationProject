@@ -84,7 +84,7 @@ class DonaturController extends Controller
     public function pending_payment(Request $request)
     {
         $donasi = Donation::where('donatur_id', Auth::user()->id)->first();
-        $data_donasi = Donation::paginate(1);
+        $data_donasi = Donation::paginate(2);
 
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');

@@ -1,12 +1,31 @@
 @extends('layouts.app')
 @section('content')
+    <style>
+        a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 16px;
+            margin-left: 20px;
+            border-radius: 10px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
 
+        a:hover {
+            background-color: #ddd;
+            color: black;
+        }
 
+        .previous {
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
 <!-- Update Profile Form -->
     <section class="sign-up">
             <div class="container">
                 <br>
-                <a href="{{ route('pengasuh') }}" class="back-to-home-link"><i class="zmdi zmdi-arrow-left"></i>&nbsp;&nbsp;Kembali ke Halaman Utama</a>
+                <a href="{{ route('pengasuh') }}" class="previous"><strong>&laquo; Kembali</strong></a>
                 <div class="signup-content">
                     <div class="profile-image">
                         <div class="mt-2" id="image">

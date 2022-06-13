@@ -23,19 +23,39 @@
         }
 
         .button1:hover {
-        background-color: #4CAF50;
-        color: white;
+            background-color: #4CAF50;
+            color: white;
         }
 
         .fa-times-circle{
             margin-left: 200px;
         }
-    
+
+        a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 16px;
+            margin-left: 20px;
+            border-radius: 10px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .previous {
+            background-color: #04AA6D;
+            color: white;
+        }
+
     </style>
     <section class="sign-in">
             <div class="container">
                 <br>
-                <a href="{{ route('donatur') }}" class="back-to-home-link"><i class="zmdi zmdi-arrow-left"></i>&nbsp;&nbsp;Kembali ke Halaman Utama</a>
+                <a href="{{ route('donatur') }}" class="previous"><strong>&laquo; Kembali</strong></a>
                 <div class="signin-content">
                     <div class="profile-image">
                         <div class="mt-2" id="image">
@@ -55,13 +75,13 @@
                         <h2 class="form-title">Donasi Saya</h2> 
                         
                         @if(!empty($data_donasi))
-                            @foreach($data_donasi as $d) 
+                            @foreach($data_donasi as $d)
+                                @if($d->status == 'pending') 
                                 <h3>Nama             : {{ $d->donatur_name }}</h3>
                                 <h3>E-Mail           : {{ $d->donatur_email }}</h3>
                                 <h3>Jumlah Donasi    : Rp. {{ number_format($d->gross_amount, 0) }}</h3> 
                                 <h3>Tanggal Donasi   : {{ $d->created_at->format('d M Y') }}</h3>
                                 <h3>Status Transaksi : {{ $d->status }}</h4>
-                                @if($d->status == 'pending')
                                 <button class="button button1" id="confirm-button">Bayar Sekarang</button>
                                 <button class="button button1"><a href="/home/cancel-donasi/{{ $d->id }}">Cancel</a></button>
                                 @elseif($d->status == 'settlement')
