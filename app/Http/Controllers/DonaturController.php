@@ -14,7 +14,7 @@ class DonaturController extends Controller
 
     public function index(){
         $user = User::all();
-        $donasi = Donation::all();
+        $donasi = Donation::paginate(5);
         return view('donatur.donatur', ['user' => $user, 'donasi' => $donasi]);
     }
 
@@ -78,13 +78,14 @@ class DonaturController extends Controller
         $donasi->save();
 
         Alert::success('Transaksi Berhasil Dibuat<br>شُكْرًا');
-        return redirect()->back();
+        return view('donatur.donatur');
     }
 
     public function pending_payment(Request $request)
     {
         $donasi = Donation::where('donatur_id', Auth::user()->id)->first();
-        $data_donasi = Donation::paginate(2);
+        $data_donasi = Donation::paginate(1)->where('donatur_id', Auth::user()->id);
+        $jumlah_donasi = Donation::latest()->where('donatur_id', Auth::user()->id)->count();
 
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
@@ -125,7 +126,10 @@ class DonaturController extends Controller
 
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-        return view('donatur.donasi', [ 'data_donasi' => $data_donasi, 'snap_token' => $snapToken]);
+        return view('donatur.donasi', [ 'data_donasi' => $data_donasi, 
+                                        'jumlah_donasi' => $jumlah_donasi, 
+                                        'snap_token' => $snapToken
+                                      ]);
     }
 
     public function pending_payment_post(Request $request){

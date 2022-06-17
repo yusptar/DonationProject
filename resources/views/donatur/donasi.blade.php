@@ -48,6 +48,16 @@
             color: black;
         }
 
+        .dot{
+            height: 25px;
+            width: 25px;
+            font-weight: bold;
+            background-color: #bbb;
+            border-radius: 50%;
+            text-align: center;
+            display: inline-block;
+        }
+
     </style>
     <section class="sign-in">
             <div class="container">
@@ -70,7 +80,7 @@
                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                         
                         <h2 class="form-title">Donasi Saya</h2> 
-                        
+                        <h4><span class="dot">{{ $jumlah_donasi }}</span>&nbsp; Note: Jumlah donasi yang telah dibuat<h4>
                         @if(!empty($data_donasi))
                             @foreach($data_donasi as $d)
                                 @if($d->status == 'pending') 
