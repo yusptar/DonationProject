@@ -14,7 +14,7 @@ class DonaturController extends Controller
 
     public function index(){
         $user = User::all();
-        $donasi = Donation::all();
+        $donasi = Donation::paginate(5);
         return view('donatur.donatur', ['user' => $user, 'donasi' => $donasi]);
     }
 
@@ -78,7 +78,7 @@ class DonaturController extends Controller
         $donasi->save();
 
         Alert::success('Transaksi Berhasil Dibuat<br>شُكْرًا');
-        return view('donatur.donatur');
+        return redirect()->back();
     }
 
     public function pending_payment(Request $request)
