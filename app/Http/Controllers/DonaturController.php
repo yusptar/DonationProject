@@ -14,7 +14,7 @@ class DonaturController extends Controller
 
     public function index(){
         $user = User::all();
-        $donasi = Donation::paginate(5);
+        $donasi = Donation::all();
         return view('donatur.donatur', ['user' => $user, 'donasi' => $donasi]);
     }
 
