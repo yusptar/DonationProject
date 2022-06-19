@@ -124,6 +124,8 @@ Route::group(['middleware' => 'auth'], function () {
     //Manage Donasi Transfer
     Route::get('/online', [DonaturController::class, 'index_donations']);
     Route::get('/online-fetchall', [DonaturController::class, 'fetchAll_donations'])->name('online-fetchAll');
+    Route::get('/online-view', [DonaturController::class, 'view'])->name('online-view');
+    
 
     //Manage Cetak Laporan
     Route::get('/cetaklaporan', [LaporanController::class, 'index']);

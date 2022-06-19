@@ -275,7 +275,8 @@ class DonaturController extends Controller
 
   public function index_donations ()
     {
-        return view('manage_admin.donations_manage');
+      $emps = Donation::all();
+        return view('manage_admin.donations_manage', compact('emps'));
     }
 
 
@@ -324,4 +325,11 @@ class DonaturController extends Controller
 			echo '<h1 class="text-center text-secondary my-5">No record present in the database!</h1>';
 		}
 	}
+
+  public function view(Request $request)
+    {   
+        $id = $request->id;
+		    $emp = Donation::find($id);
+		    return response()->json($emp);
+    }
 }
