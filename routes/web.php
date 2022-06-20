@@ -36,6 +36,8 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/detail-kegiatan/{slug}', [HomeController::class, 'index_detail_kegiatan']);
 Route::get('/detail-berita/{slug}', [HomeController::class, 'index_detail_berita']);
+Route::get('/payment', [HomeController::class, 'payment']);
+Route::post('/payment', [HomeController::class, 'payment_post']);
 
 
 // ------------------- DONATUR PAGE ------------------ //
@@ -49,6 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home/donasi-saya', [DonaturController::class, 'pending_payment']);
     Route::post('/home/donasi-saya', [DonaturController::class, 'pending_payment_post']);
     Route::get('/home/cancel-donasi/{id}', [DonaturController::class, 'cancel_payment']);
+    // Route::get('/home/confirm-donasi/{id}', [DonaturController::class, 'confirm_payment']);
 });
 
 

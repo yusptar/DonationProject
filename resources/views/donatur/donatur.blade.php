@@ -50,7 +50,11 @@
       }
 
       .logo-form {
-        margin-bottom: 50px;
+        margin-bottom: 30px;
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 14px;
+        text-align: center;
       }
 
       .text-anonymous {
@@ -83,7 +87,10 @@
           <div class="col-lg-5 mt-lg-0 form-donasi">
             <form method="GET" action="/home/payment" >
               <div class="row">
-                <img class="logo-form" src="{{ asset('user/assets/img/logotext.png') }}">
+                <img src="{{ asset('user/assets/img/logotext.png') }}">
+                <a href="https://api.whatsapp.com/send?phone=6285895634801"class="logo-form" target="_blank">Jika ingin melakukan donasi hubungi nomer<br>
+                <i class="bx bxl-whatsapp"></i>&nbsp;+6285895634801</a>
+                <hr>
                 <div class="col-md-6 form-group">
                   <label for="donatur_name" class="form-label"><i class="fa fa-user"></i> Nama <strong>*</strong></label>
                   <input type="text" name="donatur_name" class="form-control" id="donatur_name" placeholder="Masukkan Nama" required>

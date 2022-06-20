@@ -14,7 +14,7 @@ class DonaturController extends Controller
 
     public function index(){
         $user = User::all();
-        $donasi = Donation::paginate(5);
+        $donasi = Donation::latest()->paginate(5);
         return view('donatur.donatur', ['user' => $user, 'donasi' => $donasi]);
     }
 
@@ -84,7 +84,7 @@ class DonaturController extends Controller
     public function pending_payment(Request $request)
     {
         $donasi = Donation::where('donatur_id', Auth::user()->id)->first();
-        $data_donasi = Donation::paginate(1)->where('donatur_id', Auth::user()->id);
+        $data_donasi = Donation::latest()->paginate(1)->where('donatur_id', Auth::user()->id);
         $jumlah_donasi = Donation::latest()->where('donatur_id', Auth::user()->id)->count();
 
         // Set your Merchant Server Key
@@ -135,7 +135,7 @@ class DonaturController extends Controller
     public function pending_payment_post(Request $request){
         $isNameHidden = false;
         $user = User::where('id', Auth::user()->id)->first();
-        $donasi = Donation::where('donatur_id', Auth::user()->id)->first();
+        $donasi = Donation::latest()->where('donatur_id', Auth::user()->id);
         if ($request->isNameHidden == 'on') {
           $isNameHidden = true;
         }
@@ -170,6 +170,12 @@ class DonaturController extends Controller
         Alert::success('Data berhasil dihapus');
         return redirect()->back();
     }
+
+    /*public function confirm_payment($id){
+      $donasi = Donation::where('id', $id)->delete();
+      Alert::success('Donasi berhasil dikonfirmasi');
+      return redirect()->back();
+    }*/
 
 
     // ------------------------- ADMIN ----------------------- //

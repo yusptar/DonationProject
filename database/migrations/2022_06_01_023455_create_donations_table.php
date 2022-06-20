@@ -15,7 +15,7 @@ class CreateDonationsTable extends Migration
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
-            $table->integer('donatur_id');
+            $table->integer('donatur_id')->nullable();
             $table->string('status');
             $table->boolean('isNameHidden')->nullable();
             $table->string('donatur_name')->nullable();
