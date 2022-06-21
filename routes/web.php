@@ -132,8 +132,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Manage Cetak Laporan
     Route::get('/cetaklaporan', [LaporanController::class, 'index']);
-    Route::get('/cetaklaporan-fetchAll-online', [LaporanController::class, 'fetchAll_online'])->name('cetaklaporan-fetchAll-online');
-    Route::get('/cetaklaporan-fetchAll-offline', [LaporanController::class, 'fetchAll_offline'])->name('cetaklaporan-fetchAll-offline');
+    // Route::get('/cetaklaporan-fetchAll-online', [LaporanController::class, 'fetchAll_online'])->name('cetaklaporan-fetchAll-online');
+    // Route::get('/cetaklaporan-fetchAll-offline', [LaporanController::class, 'fetchAll_offline'])->name('cetaklaporan-fetchAll-offline');
+    Route::get('/cetakpdf', [LaporanController::class, 'cetak_pdf']);
 });
 
 
