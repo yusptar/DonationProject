@@ -71,8 +71,8 @@
               <input type="text" name="nohp" class="form-control" placeholder="Nomor Handphone" required>
             </div>
             <div class="my-2">
-              <label for="Do'a">Do'a</label>
-              <input type="text" name="doa" class="form-control" placeholder="Do'a" required>
+              <label for="Do'a">Pesan</label>
+              <input type="text" name="doa" class="form-control" placeholder="Pesan" required>
             </div>
           </div>
           <div class="modal-footer">

@@ -18,8 +18,9 @@ class LaporanController extends Controller
     public function cetak_pdf()
     {
         $online = Donation::all();
+        $total = Donation::latest()->sum('nominal');
  
-    	$pdf = PDF::loadview('rekap',['online'=>$online]);
+    	$pdf = PDF::loadview('rekap',['online'=>$online, 'total'=>$total]);
     	return $pdf->download('laporan-donasi');
         // return view('manage_admin.laporan_manage');
     }

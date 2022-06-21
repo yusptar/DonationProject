@@ -35,7 +35,7 @@ class OfflineController extends Controller
                 <th>Nama</th>
                 <th>Nominal</th>
 				<th>No. Hp</th>
-                <th>Doa</th>
+                <th>Pesan</th>
 				<th>Action</th>
               </tr>
             </thead>

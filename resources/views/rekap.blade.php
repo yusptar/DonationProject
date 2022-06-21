@@ -11,20 +11,33 @@
 			font-size: 9pt;
 		}
 	</style>
-	<center>
-		<h5>DONASI TRANSFER</h4>
-	</center>
 
-    <br><br>
- 
-	<table class='table table-bordered'>
+    <!-- <table style="border: 0px;">
         <tr style="border: 0px;">
-            <td style="text-align: center;border: 0px;"><img style="width:80px;" src="{{ asset('admins/assets/images/logo-yayasan.png') }}" alt="Kop Surat"></td>
-            <td style="text-align: center;border: 0px;"><b>YAYASAN AT-TAUFIQ KOTA MALANG<br>
+            <td style="text-align: center;border: 0px;"><img style="width:80px;" src="{{ public_path().('admins/assets/images/logo-yayasan.png') }}"></td>
+            <td style="text-align: center;border: 0px;"><b><br>
             Jl. Sanan No.70, Purwantoro<br>
             Kecamatan Blimbing, Kota Malang<br>
             Jawa Timur - 651222</b></td>
         </tr>
+    </table> -->
+    <center>
+        <div class="row">
+            <h5>YAYASAN AT-TAUFIQ KOTA MALANG</h4>
+            <h5>Jl. Sanan No.70, Purwantoro</h4>
+            <h5>Kecamatan Blimbing, Kota Malang</h4>
+            <h5>Jawa Timur - 651222</h4>
+        </div>
+	</center>
+    <hr>
+    <br>
+	<center>
+		<h5>DONASI TRANSFER</h4>
+	</center>
+
+    <br>
+ 
+	<table class='table table-bordered'>
 		<thead>
 			<tr>
 				<th>No</th>
@@ -44,10 +57,19 @@
 				<td>{{$o->donatur_email}}</td>
 				<td>{{$o->donatur_phone}}</td>
 				<td>{{$o->message}}</td>
-				<td>{{$o->nominal}}</td>
+				<td>Rp. {{$o->nominal}},00</td>
 			</tr>
 			@endforeach
 		</tbody>
+	</table>
+    <br>
+    <table class='table table-bordered'>
+		<thead>
+			<tr>
+				<th>TOTAL</th>
+				<th>Rp.{{ $total }},00</th>
+			</tr>
+		</thead>
 	</table>
  
 </body>
