@@ -31,9 +31,9 @@
 	</center>
     <hr>
     <br>
-	<center>
-		<h5>DONASI TRANSFER</h4>
-	</center>
+	<left>
+		<h5>A. DONASI TRANSFER</h4>
+	</left>
 
     <br>
  
@@ -62,12 +62,70 @@
 			@endforeach
 		</tbody>
 	</table>
+
+    <br>
+
+    <table class='table table-bordered'>
+		<thead>
+			<tr>
+				<th>TOTAL</th>
+				<th>Rp. {{ $total }},00</th>
+			</tr>
+		</thead>
+	</table>
+
+    <br>
+    <hr>
+    <br>
+
+    <left>
+		<h5>B. DONASI OFFLINE</h4>
+	</left>
+
+    <br>
+
+    <table class='table table-bordered'>
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>Nama</th>
+				<th>Nomor Hp</th>
+				<th>Pesan</th>
+				<th>Nominal</th>
+			</tr>
+		</thead>
+		<tbody>
+			@php $i=1 @endphp
+			@foreach($offline as $of)
+			<tr>
+				<td>{{ $i++ }}</td>
+				<td>{{$of->nama}}</td>
+				<td>{{$of->nohp}}</td>
+				<td>{{$of->doa}}</td>
+				<td>Rp. {{$of->nominal}},00</td>
+			</tr>
+			@endforeach
+		</tbody>
+	</table>
     <br>
     <table class='table table-bordered'>
 		<thead>
 			<tr>
 				<th>TOTAL</th>
-				<th>Rp.{{ $total }},00</th>
+				<th>Rp. {{ $totalo }},00</th>
+			</tr>
+		</thead>
+	</table>
+
+    <br>
+    <hr>
+    <br>
+
+    <table class='table table-bordered'>
+		<thead>
+			<tr>
+				<th>TOTAL MASUK UANG DONASI</th>
+				<th>Rp. {{ $total_semua }},00</th>
 			</tr>
 		</thead>
 	</table>

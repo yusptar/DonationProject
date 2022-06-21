@@ -19,8 +19,11 @@ class LaporanController extends Controller
     {
         $online = Donation::all();
         $total = Donation::latest()->sum('nominal');
+        $offline = Offline::all();
+        $totalo = Offline::latest()->sum('nominal');
+        $total_semua = $total + $totalo;
  
-    	$pdf = PDF::loadview('rekap',['online'=>$online, 'total'=>$total]);
+    	$pdf = PDF::loadview('rekap',['online'=>$online, 'total'=>$total, 'offline'=>$offline, 'totalo'=>$totalo, 'total_semua'=>$total_semua]);
     	return $pdf->download('laporan-donasi');
         // return view('manage_admin.laporan_manage');
     }
