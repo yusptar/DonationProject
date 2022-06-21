@@ -7,6 +7,8 @@ use DataTables;
 use App\Models\User;
 use App\Models\Santri;
 use App\Models\Pengasuh;
+use App\Models\Offline;
+use App\Models\Donation;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
 
@@ -28,7 +30,10 @@ class AdminController extends Controller
         $jumlah_donatur = User::latest()->where('roles', 'Donatur')->count();
         $jumlah_santri = Santri::latest()->count();
         $jumlah_pengasuh = User::latest()->where('roles', 'Pengasuh')->count();
-        return view('manage_admin.dashboard', compact('jumlah_donatur', 'jumlah_santri', 'jumlah_pengasuh'));
+        $jumlah_offline = Offline::latest()->sum('nominal');
+        $jumlah_online = Donation::latest()->sum('nominal');
+        $total = $jumlah_offline + $jumlah_online;
+        return view('manage_admin.dashboard', compact('jumlah_donatur', 'jumlah_santri', 'jumlah_pengasuh', 'jumlah_offline', 'jumlah_online', 'total'));
     }
 
     public function index(Request $request)

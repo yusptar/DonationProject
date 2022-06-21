@@ -27,82 +27,6 @@
             <!-- ============================================================== -->
             <div class="container-fluid"> 
                 <!-- ============================================================== -->
-                <!-- Sales Cards  -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <!-- Column -->
-                    <div class="col-md-3">
-                        <div class="card mt-0">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="peity_line_neutral left text-center mt-2"><span><span
-                                                style="display: none;">10,15,8,14,13,10,10</span>
-                                            <canvas width="50" height="24"></canvas>
-                                        </span>
-                                        <h6>10%</h6>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 border-left text-center pt-2">
-                                    <h3 class="mb-0 fw-bold">150</h3>
-                                    <span class="text-muted">New Users</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card mt-0">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="peity_bar_bad left text-center mt-2"><span><span
-                                                style="display: none;">3,5,6,16,8,10,6</span>
-                                            <canvas width="50" height="24"></canvas>
-                                        </span>
-                                        <h6>-40%</h6>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 border-left text-center pt-2">
-                                    <h3 class="mb-0 fw-bold">4560</h3>
-                                    <span class="text-muted">Orders</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card mt-0">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="peity_line_good left text-center mt-2"><span><span
-                                                style="display: none;">12,6,9,23,14,10,17</span>
-                                            <canvas width="50" height="24"></canvas>
-                                        </span>
-                                        <h6>+60%</h6>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 border-left text-center pt-2">
-                                    <h3 class="mb-0 ">5672</h3>
-                                    <span class="text-muted">Active Users</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card mt-0">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="peity_bar_good left text-center mt-2" ><span>12,6,9,23,14,10,13</span>
-                                        <h6>+30%</h6>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 border-left text-center pt-2">
-                                    <h3 class="mb-0 fw-bold">2560</h3>
-                                    <span class="text-muted">Register</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                </div>
-                <!-- ============================================================== -->
                 <!-- Sales chart -->
                 <!-- ============================================================== -->
                 <div class="row">
@@ -147,25 +71,26 @@
                                             </div>
                                             <div class="col-6 mt-3">
                                                 <div class="bg-dark p-10 text-white text-center">
-                                                    <i class="mdi mdi-account-plus g mb-1 font-16"></i>
-                                                    <h5 class="mb-0 mt-1">x</h5>
-                                                    <small class="font-light">Akun Baru</small>
+                                                    <i class="mdi mdi-clipboard-flow mb-1 font-16"></i>
+                                                    <h5 class="mb-0 mt-1">Rp. {{$jumlah_online}}, 00</h5>
+                                                    <small class="font-light">Donasi Transfer</small>
                                                 </div>
                                             </div>
                                             <div class="col-6 mt-3">
                                                 <div class="bg-dark p-10 text-white text-center">
                                                     <i class="mdi mdi-receipt mb-1 font-16"></i>
-                                                    <h5 class="mb-0 mt-1">Rp. </h5>
+                                                    <h5 class="mb-0 mt-1">Rp. {{$jumlah_offline}}, 00</h5>
                                                     <small class="font-light">Donasi Offline</small>
                                                 </div>
                                             </div>
                                             <div class="col-6 mt-3">
                                                 <div class="bg-dark p-10 text-white text-center">
-                                                    <i class="mdi mdi-clipboard-flow mb-1 font-16"></i>
-                                                    <h5 class="mb-0 mt-1">Rp. </h5>
-                                                    <small class="font-light">Donasi Transfer</small>
+                                                    <i class="mdi mdi-account-plus g mb-1 font-16"></i>
+                                                    <h5 class="mb-0 mt-1">Rp. {{$total}}, 00</h5>
+                                                    <small class="font-light">Total Donasi</small>
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                     <!-- column -->
@@ -173,6 +98,64 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Riwayat Donasi</h4>
+                            </div>
+                            <div class="comment-widgets scrollable">
+                                <!-- Comment Row -->
+                                <div class="d-flex flex-row comment-row mt-0">
+                                    <div class="p-2"><img src="../../assets/images/users/1.jpg" alt="user" width="50"
+                                            class="rounded-circle"></div>
+                                    <div class="comment-text w-100">
+                                        <h6 class="font-medium">James Anderson</h6>
+                                        <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing
+                                            and type setting industry. </span>
+                                        <div class="comment-footer">
+                                            <span class="text-muted float-end">April 14, 2021</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Comment Row -->
+                                <div class="d-flex flex-row comment-row">
+                                    <div class="p-2"><img src="../../assets/images/users/4.jpg" alt="user" width="50"
+                                            class="rounded-circle"></div>
+                                    <div class="comment-text active w-100">
+                                        <h6 class="font-medium">Michael Jorden</h6>
+                                        <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing
+                                            and type setting industry. </span>
+                                        <div class="comment-footer">
+                                            <span class="text-muted float-end">May 10, 2021</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Comment Row -->
+                                <div class="d-flex flex-row comment-row">
+                                    <div class="p-2"><img src="../../assets/images/users/5.jpg" alt="user" width="50"
+                                            class="rounded-circle"></div>
+                                    <div class="comment-text w-100">
+                                        <h6 class="font-medium">Johnathan Doeting</h6>
+                                        <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing
+                                            and type setting industry. </span>
+                                        <div class="comment-footer">
+                                            <span class="text-muted float-end">August 1, 2021</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        
+                        
+                    </div>
+                    <!-- column -->
+
+                    
                 </div>
                 <!-- ============================================================== -->
                 <!-- Sales chart -->

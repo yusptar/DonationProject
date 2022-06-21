@@ -16,7 +16,7 @@
                 <h4 class="page-title">Data Pengasuh</h4> 
                   <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
-                        <!-- <ol class="breadcrumb">
+                        <ol class="breadcrumb">
                             <a class="btn btn-success" data-bs-toggle="modal" href="javascript:void(0)" data-bs-target="#addEmployeeModal">
                                 <span class="svg-icon svg-icon-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -25,8 +25,8 @@
                                     <rect x="6.01041" y="10.9247" width="12" height="2" rx="1" fill="black" />
                                     </svg>
                                 </span> 
-                            Tambah Data</a>
-                        </ol> -->
+                            Tambah Pengasuh</a>
+                        </ol>
                     </nav>
                   </div>           
             </div>
@@ -70,21 +70,21 @@
               <input type="text" name="email" class="form-control" placeholder="E-Mail" required>
             </div>
             <div class="my-2">
-              <label for="Alamat">Alamat</label>
-              <input type="text" name="alamat" class="form-control" placeholder="Alamat" required>
+              <label for="Password">Password</label>
+              <input type="password" name="password" class="form-control" placeholder="Password" required>
             </div>
-            <div class="my-2">
-              <label for="No. Hp">No. Hp</label>
-              <input type="text" name="nohp" class="form-control" placeholder="No. Hp" required>
-            </div>
-            <div class="my-2">
-              <label for="Instansi">Instansi</label>
-              <input type="text" name="instansi" class="form-control" placeholder="Instansi" required>
-            </div>
-            <div class="my-2">
-              <label for="image">Upload Image</label>
-              <input type="file" name="image" class="form-control">
-            </div>
+            <div class="form-group">
+                            <label for="roles" class="col-sm-2 control-label">Roles</label>
+                            <div class="col-sm-12">
+                                <select name="roles" id="roles" class="form-control">
+                                        <option value=""selected>Choose Roles</option>
+                                        <!-- <option value="Admin">Admin</option> -->
+                                        <!-- <option value="Donatur">Donatur</option> -->
+                                        <option value="Pengasuh" selected>Pengasuh</option> 
+                                </select>
+                                <!-- <input type="text" class="form-control" id="roles" name="roles" placeholder="Choose Roles" value="" maxlength="50" required=""> -->
+                            </div>
+                        </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -126,10 +126,6 @@
             <div class="my-2">
               <label for="nohp">No. Hp</label>
               <input type="text" name="nohp" id="nohp" class="form-control" placeholder="No. Hp" disabled>
-            </div>
-            <div class="my-2">
-              <label for="instansi">Instansi</label>
-              <input type="text" name="instansi" id="instansi" class="form-control" placeholder="Instansi" disabled>
             </div>
             <div class="my-2">
               <label for="image">Foto</label>

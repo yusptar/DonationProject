@@ -302,9 +302,7 @@ class DonaturController extends Controller
                 <th>Nomor Hp</th>
                 <th>Nominal</th>
                 <th>Pesan</th>
-                <th>Payment Code</th>
-                <th>Download Nota</th>
-                <th>Action</th>
+                <th>Cetak Nota</th>
               </tr>
             </thead>
             <tbody>';
@@ -317,12 +315,10 @@ class DonaturController extends Controller
                 <td>' . $donation->donatur_phone . '</td>
                 <td>' . $donation->nominal . '</td>
                 <td>' . $donation->message . '</td>
-                <td>' . $donation->payment_code . '</td>
                 <td>' . $donation->pdf_url . '</td>
-                <td>
-                <a href="#" id="' . $donation->id . '" class="edit btn btn-primary btn-sm viewIcon" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="bi-pencil-square h4"></i>View</a>
+                
 
-                </td>
+                
               </tr>';
 			}
 			$output .= '</tbody></table>';

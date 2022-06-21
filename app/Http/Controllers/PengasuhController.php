@@ -68,15 +68,24 @@ class PengasuhController extends Controller
 
     public function store(Request $request)
     {  
-        $file = $request->file('image');
-		$fileName = time() . '.' . $file->getClientOriginalExtension();
-		$file->storeAs('public/images', $fileName);
+    //     $file = $request->file('image');
+		// $fileName = time() . '.' . $file->getClientOriginalExtension();
+		// $file->storeAs('public/images', $fileName);
 
-		$empData = ['name' => $request->name, 'email' => $request->email, 'alamat' => $request->alamat, 'nohp' => $request->nohp, 'instansi' => $request->instansi, 'image' => $fileName];
-		User::create($empData);
-		return response()->json([
-			'status' => 200,
-		]);
+		// $empData = ['name' => $request->name, 'email' => $request->email, 'alamat' => $request->alamat, 'nohp' => $request->nohp, 'instansi' => $request->instansi, 'image' => $fileName];
+		// User::create($empData);
+		
+    User::updateOrCreate(['id' => $request->user_id],
+                [
+                    'name' => $request->name, 
+                    'email' => $request->email,
+                    'password' => Hash::make($request->password),
+                    'roles' => $request->roles
+                ]);        
+   
+                return response()->json([
+                  'status' => 200,
+                ]);
     }
 
     public function edit(Request $request)
