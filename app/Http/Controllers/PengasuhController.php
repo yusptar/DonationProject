@@ -40,7 +40,6 @@ class PengasuhController extends Controller
                 <th>Email</th>
                 <th>Alamat</th>
                 <th>No. Hp</th>
-                <th>Instansi</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -53,11 +52,9 @@ class PengasuhController extends Controller
                 <td>' . $emp->email . '</td>
                 <td>' . $emp->alamat . '</td>
                 <td>' . $emp->nohp . '</td>
-                <td>' . $emp->instansi . '</td>
                 <td>
-                  <a href="#" id="' . $emp->id . '" class="edit btn btn-primary btn-sm editIcon" data-bs-toggle="modal" data-bs-target="#editPengasuhModal"><i class="bi-pencil-square h4"></i>Edit</a>
+                  <a href="#" id="' . $emp->id . '" class="edit btn btn-primary btn-sm editIcon" data-bs-toggle="modal" data-bs-target="#editPengasuhModal"><i class="bi-pencil-square h4"></i>View</a>
 
-                  <a href="#" id="' . $emp->id . '" class="btn btn-danger btn-sm deleteIcon"><i class="bi-trash h4"></i>Delete</a>
 
                 </td>
               </tr>';
@@ -85,8 +82,9 @@ class PengasuhController extends Controller
     public function edit(Request $request)
     {   
         $id = $request->id;
-		$emp = User::find($id);
-		return response()->json($emp);
+        // $emp = User::find($id)->where('roles', 'Pengasuh');
+		    $emp = User::find($id);
+		    return response()->json($emp);
     }
 
     public function update(Request $request) {
@@ -97,7 +95,7 @@ class PengasuhController extends Controller
 			$fileName = time() . '.' . $file->getClientOriginalExtension();
 			$file->storeAs('public/images', $fileName);
 			if ($emp->image) {
-				Storage::delete('public/images/' . $emp->image);
+				Storage::delete('public/images/' . $emp->image); 
 			}
 		} else {
 			$fileName = $request->emp_image;
@@ -112,10 +110,6 @@ class PengasuhController extends Controller
 	}
 
     public function delete(Request $request) {
-		$id = $request->id;
-		$emp = User::find($id);
-		if (Storage::delete('public/images/' . $emp->image)) {
-			User::destroy($id);
-		}
+      User::find($id)->delete(); 
 	}
 }

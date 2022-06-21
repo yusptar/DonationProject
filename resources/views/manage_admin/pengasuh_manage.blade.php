@@ -113,27 +113,26 @@
             
             <div class="my-2">
               <label for="name">Nama</label>
-              <input type="text" name="name" id="name" class="form-control" placeholder="Nama" required>
+              <input type="text" name="name" id="name" class="form-control" placeholder="Nama" disabled>
             </div>
             <div class="my-2">
               <label for="email">E-Mail</label>
-              <input type="text" name="email" id="email" class="form-control" placeholder="E-Mail" required>
+              <input type="text" name="email" id="email" class="form-control" placeholder="E-Mail" disabled>
             </div>
             <div class="my-2">
               <label for="alamat">Alamat</label>
-              <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat" required>
+              <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat" disabled>
             </div>
             <div class="my-2">
               <label for="nohp">No. Hp</label>
-              <input type="text" name="nohp" id="nohp" class="form-control" placeholder="No. Hp" required>
+              <input type="text" name="nohp" id="nohp" class="form-control" placeholder="No. Hp" disabled>
             </div>
             <div class="my-2">
               <label for="instansi">Instansi</label>
-              <input type="text" name="instansi" id="instansi" class="form-control" placeholder="Instansi" required>
+              <input type="text" name="instansi" id="instansi" class="form-control" placeholder="Instansi" disabled>
             </div>
             <div class="my-2">
-              <label for="image">Upload Image</label>
-              <input type="file" name="image" class="form-control" required>
+              <label for="image">Foto</label>
             </div>
             <div class="mt-2" id="image">
 
@@ -141,7 +140,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" id="edit_employee_btn" class="btn btn-success">Update Berita</button>
+            <!-- <button type="submit" id="edit_employee_btn" class="btn btn-success">Update Berita</button> -->
           </div>
         </form>
       </div>
@@ -161,7 +160,7 @@
       // add new employee ajax request
       $("#add_employee_form").submit(function(e) {
         e.preventDefault();
-        const fd = new FormData(this);
+        const fd = new FormData(this); 
         $("#add_employee_btn").text('Adding...');
         $.ajax({
           url: '{{ route('pengasuh-store') }}',
