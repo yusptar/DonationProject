@@ -107,47 +107,23 @@
                             <div class="card-body">
                                 <h4 class="card-title">Riwayat Donasi</h4>
                             </div>
+                            @foreach($donasi as $d)
                             <div class="comment-widgets scrollable">
                                 <!-- Comment Row -->
                                 <div class="d-flex flex-row comment-row mt-0">
-                                    <div class="p-2"><img src="../../assets/images/users/1.jpg" alt="user" width="50"
+                                    <div class="p-2"><img src="{{ asset('user/assets/img/default.jpg')}}" alt="user" width="50"
                                             class="rounded-circle"></div>
                                     <div class="comment-text w-100">
-                                        <h6 class="font-medium">James Anderson</h6>
-                                        <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing
-                                            and type setting industry. </span>
+                                        <h6 class="font-medium">{{$d->donatur_name}}</h6>
+                                        <span class="mb-3 d-block">Telah berdonasi sebesar Rp. {{ number_format($d->nominal, 0) }}</span>
                                         <div class="comment-footer">
-                                            <span class="text-muted float-end">April 14, 2021</span>
+                                            <span class="text-muted float-end">{{ $d->created_at->format('d M Y') }}</span>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Comment Row -->
-                                <div class="d-flex flex-row comment-row">
-                                    <div class="p-2"><img src="../../assets/images/users/4.jpg" alt="user" width="50"
-                                            class="rounded-circle"></div>
-                                    <div class="comment-text active w-100">
-                                        <h6 class="font-medium">Michael Jorden</h6>
-                                        <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing
-                                            and type setting industry. </span>
-                                        <div class="comment-footer">
-                                            <span class="text-muted float-end">May 10, 2021</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Comment Row -->
-                                <div class="d-flex flex-row comment-row">
-                                    <div class="p-2"><img src="../../assets/images/users/5.jpg" alt="user" width="50"
-                                            class="rounded-circle"></div>
-                                    <div class="comment-text w-100">
-                                        <h6 class="font-medium">Johnathan Doeting</h6>
-                                        <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing
-                                            and type setting industry. </span>
-                                        <div class="comment-footer">
-                                            <span class="text-muted float-end">August 1, 2021</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
+                            @endforeach
                         </div>
                        
                         

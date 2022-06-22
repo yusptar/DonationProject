@@ -32,8 +32,9 @@ class AdminController extends Controller
         $jumlah_pengasuh = User::latest()->where('roles', 'Pengasuh')->count();
         $jumlah_offline = Offline::latest()->sum('nominal');
         $jumlah_online = Donation::latest()->sum('nominal');
+        $donasi = Donation::latest()->paginate(5);
         $total = $jumlah_offline + $jumlah_online;
-        return view('manage_admin.dashboard', compact('jumlah_donatur', 'jumlah_santri', 'jumlah_pengasuh', 'jumlah_offline', 'jumlah_online', 'total'));
+        return view('manage_admin.dashboard', compact('jumlah_donatur', 'jumlah_santri', 'jumlah_pengasuh', 'jumlah_offline', 'jumlah_online', 'total', 'donasi'));
     }
 
     public function index(Request $request)

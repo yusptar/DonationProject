@@ -50,7 +50,7 @@ class OfflineController extends Controller
                 <td>' . $emp->doa . '</td>
                 <td>
 					
-					<a href="#" id="' . $emp->id . '" class="edit btn btn-primary btn-sm viewIcon" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="bi-pencil-square h4"></i>View</a>
+					<a href="#" id="' . $emp->id . '" class="edit btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#"><i class="bi-pencil-square h4"></i>View</a>
                 </td>
               </tr>';
 			}
@@ -118,12 +118,11 @@ class OfflineController extends Controller
 		return response()->json($emp);
     }
 
-	public function cetak_nota($id)
+	public function cetak_nota(Request $request)
     {
-        $offline = Offline::find($id);
+        $offline = Offline::all();
  
     	$pdf = PDF::loadview('nota',['offline'=>$offline]);
-    	return $pdf->download('nota-donasi');
-        // return view('manage_admin.laporan_manage');
-    }
+    	return $pdf->download('laporan-donasi.pdf');
+	}
 }

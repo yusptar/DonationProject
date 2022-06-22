@@ -195,7 +195,7 @@
                                     <div class="clearfix"></div>
                                     <hr>
                                     <div class="text-end">
-                                      <p><a href="nota/{{$e->id}}" class="btn btn-danger text-white" target="">Cetak Nota</a></p>
+                                      <p><a href="nota" class="btn btn-danger text-white" target="">Cetak Nota</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -364,6 +364,8 @@
           }
         })
       });
+
+      
 
       // fetch all employees ajax request
       fetchAllEmployees();
