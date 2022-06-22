@@ -123,6 +123,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/offline-edit', [OfflineController::class, 'edit'])->name('offline-edit');
     Route::post('/offline-update', [OfflineController::class, 'update'])->name('offline-update');
     Route::get('/offline-view', [OfflineController::class, 'view'])->name('offline-view');
+    Route::get('/nota/{$id}', [OfflineController::class, 'cetak_nota']);
 
     //Manage Donasi Transfer
     Route::get('/online', [DonaturController::class, 'index_donations']);

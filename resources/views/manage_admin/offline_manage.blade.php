@@ -195,7 +195,7 @@
                                     <div class="clearfix"></div>
                                     <hr>
                                     <div class="text-end">
-                                        <button class="btn btn-danger text-white" type="submit"> Cetak Nota </button>
+                                      <p><a href="nota/{{$e->id}}" class="btn btn-danger text-white" target="">Cetak Nota</a></p>
                                     </div>
                                 </div>
                             </div>

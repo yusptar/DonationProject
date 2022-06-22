@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Offline;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
+use PDF;
 
 class OfflineController extends Controller
 {
@@ -115,5 +116,14 @@ class OfflineController extends Controller
         $id = $request->id;
 		$emp = Offline::find($id);
 		return response()->json($emp);
+    }
+
+	public function cetak_nota($id)
+    {
+        $offline = Offline::find($id);
+ 
+    	$pdf = PDF::loadview('nota',['offline'=>$offline]);
+    	return $pdf->download('nota-donasi');
+        // return view('manage_admin.laporan_manage');
     }
 }
