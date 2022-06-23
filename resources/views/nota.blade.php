@@ -32,20 +32,22 @@
     <hr>
     <br>
 
-	<table class='table table-bordered'>
-        if(is_array($offline)){
-            @foreach($offline as $of)
-                <tr>
+	<table class='table table-borderless'>
+        <tr>
+            <td style="padding-right:50px">Nama</td>
+            <!-- <td style="padding-right:50px">Qty</td> -->
+            <td style="padding-right:100px">: {{$nama}}</td>
+        </tr>
+        <tr>
             <td style="padding-right:50px">Total</td>
             <!-- <td style="padding-right:50px">Qty</td> -->
-            <td style="padding-right:100px">Rp. {{$offline->nominal}}</td>
+            <td style="padding-right:100px">: Rp. {{$nominal}}</td>
         </tr>
-            @endforeach
-            
-        }
-        
-        
 	</table>
+
+    <hr>
+    <br>
+    <h7>Terima kasih telah berdonasi di Yayasan At-Taufiq Kota Malang. Semoga uang yang didonasikan bisa bermanfaat bagi yayasan ini.</h6>
 
  
 </body>

@@ -123,7 +123,12 @@ class OfflineController extends Controller
     {
 		$id = $request->id;
         $offline = Offline::find($id);
-    	$pdf = PDF::loadview('nota',['offline'=>$offline]);
-    	return $pdf->download('laporan-donasi.pdf');
+    	$pdf = PDF::loadview('nota',[
+			'nama' => $request->input('nama'), 
+			'nominal' => $request->input('nominal'), 
+			'nohp' => $request->input('nohp'), 
+			'doa' => $request->input('doa')
+		]);
+    	return $pdf->download('nota.pdf');
 	}
 }
