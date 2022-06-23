@@ -33,13 +33,18 @@
     <br>
 
 	<table class='table table-bordered'>
-        @foreach($offline as $of)
-        <tr>
+        if(is_array($offline)){
+            @foreach($offline as $of)
+                <tr>
             <td style="padding-right:50px">Total</td>
             <!-- <td style="padding-right:50px">Qty</td> -->
-            <td style="padding-right:100px">Rp. {{$of->nominal}}</td>
+            <td style="padding-right:100px">Rp. {{$offline->nominal}}</td>
         </tr>
-        @endforeach
+            @endforeach
+            
+        }
+        
+        
 	</table>
 
  

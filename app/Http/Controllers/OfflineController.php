@@ -50,7 +50,8 @@ class OfflineController extends Controller
                 <td>' . $emp->doa . '</td>
                 <td>
 					
-					<a href="#" id="' . $emp->id . '" class="edit btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#"><i class="bi-pencil-square h4"></i>View</a>
+					<p><a href="nota" id="' . $emp->id . '" class="btn btn-danger text-white" data-bs-target="#"><i class="fa fa-print"></i></a></p>
+					
                 </td>
               </tr>';
 			}
@@ -120,8 +121,8 @@ class OfflineController extends Controller
 
 	public function cetak_nota(Request $request)
     {
-        $offline = Offline::all();
- 
+		$id = $request->id;
+        $offline = Offline::find($id);
     	$pdf = PDF::loadview('nota',['offline'=>$offline]);
     	return $pdf->download('laporan-donasi.pdf');
 	}

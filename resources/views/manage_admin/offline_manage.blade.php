@@ -86,7 +86,7 @@
   <!-- add new employee modal end -->
 
   <!-- edit employee modal start -->
-  <!-- <div class="modal fade" id="editPengasuhModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     data-bs-backdrop="static" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -121,103 +121,10 @@
         </form>
       </div>
     </div>
-  </div> -->
+  </div>
   <!-- edit employee modal end -->
 
-  <!-- view modal start -->
-  <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    data-bs-backdrop="static" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Nota</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                @foreach ($emps as $e)
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card card-body printableArea">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="pull-left">
-                                        <address>
-                                            <h3> &nbsp;<b class="text-danger">Yayasan At-Taufiq Malang</b></h3>
-                                            <p class="text-muted ms-1">Jl. Sanan No. 70, Purwantoro
-                                                <br /> Kecamatan Blimbing,
-                                                <br /> Kota Malang,
-                                                <br /> Jawa Timur - 651222</p>
-                                        </address>
-                                    </div>
-                                    <div class="pull-right text-end">
-                                        <address>
-                                            <h3>Donatur,</h3>
-                                            
-                                            <h4 class="font-bold">{{$e->nama}}</h4>
-                                            <p class="text-muted ms-4">{{$e->nohp}}
-                                            <p class="mt-4"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> {{$e->created_at}}</p>
-                                        </address>
-                                    </div>
-                                </div>
-                                <!-- <div class="col-md-12">
-                                    <div class="table-responsive mt-5" style="clear: both;">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th class="text-center">#</th>
-                                                    <th>Description</th>
-                                                    <th class="text-end">Quantity</th>
-                                                    <th class="text-end">Unit Cost</th>
-                                                    <th class="text-end">Total</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-center">1</td>
-                                                    <td>Milk Powder</td>
-                                                    <td class="text-end">2 </td>
-                                                    <td class="text-end"> $24 </td>
-                                                    <td class="text-end"> $48 </td>
-                                                </tr>
-                                                
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div> -->
-                                <div class="col-md-12">
-                                    <div class="pull-right mt-4 text-end">
-                                        <hr>
-                                        <h3><b>Total :</b> Rp. {{$e->nominal}} ,00</h3>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <hr>
-                                    <div class="text-end">
-                                      <p><a href="nota" class="btn btn-danger text-white" target="">Cetak Nota</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
-            </div>
-            @endforeach
-      </div>
-    </div>
-  </div>
+  
   <!-- edit employee modal end -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
@@ -258,26 +165,7 @@
         });
       });
 
-      // edit employee ajax request
-      // $(document).on('click', '.editIcon', function(e) {
-      //   e.preventDefault();
-      //   let id = $(this).attr('id');
-      //   $.ajax({
-      //     url: '{{ route('offline-edit') }}',
-      //     method: 'get',
-      //     data: {
-      //       id: id,
-      //       _token: '{{ csrf_token() }}'
-      //     },
-      //     success: function(response) {
-      //       $("#nama").val(response.nama);
-      //       $("#nominal").val(response.nominal);
-      //       $("#nohp").val(response.nohp);
-      //       $("#doa").val(response.doa);
-      //       $("#emp_id").val(response.id);
-      //     }
-      //   });
-      // });
+      
 
       // view ajax request
       $(document).on('click', '.viewIcon', function(e) {
