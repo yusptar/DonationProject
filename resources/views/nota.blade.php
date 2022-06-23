@@ -33,15 +33,16 @@
     <br>
 
 	<table class='table table-borderless'>
+
         <tr>
             <td style="padding-right:50px">Nama</td>
             <!-- <td style="padding-right:50px">Qty</td> -->
-            <td style="padding-right:100px">: {{$nama}}</td>
+            <td style="padding-right:100px">: {{$offline->nama}}</td>
         </tr>
         <tr>
             <td style="padding-right:50px">Total</td>
             <!-- <td style="padding-right:50px">Qty</td> -->
-            <td style="padding-right:100px">: Rp. {{$nominal}}</td>
+            <td style="padding-right:100px">: Rp. {{$offline->nominal}}</td>
         </tr>
 	</table>
 
