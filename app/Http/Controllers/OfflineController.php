@@ -45,7 +45,7 @@ class OfflineController extends Controller
 				$output .= '<tr>
                 <td width="5px">' . $numbering++ . '</td>
                 <td>' . $emp->nama . '</td>
-                <td>' . $emp->nominal . '</td>
+                <td>Rp. ' . $emp->nominal . '</td>
 				<td>' . $emp->nohp . '</td>
                 <td>' . $emp->doa . '</td>
                 <td>

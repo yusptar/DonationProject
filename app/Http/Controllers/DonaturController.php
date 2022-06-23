@@ -313,12 +313,11 @@ class DonaturController extends Controller
                 <td>' . $donation->donatur_name . '</td>
                 <td>' . $donation->donatur_email . '</td>
                 <td>' . $donation->donatur_phone . '</td>
-                <td>' . $donation->nominal . '</td>
+                <td>Rp. ' . $donation->nominal . '</td>
                 <td>' . $donation->message . '</td>
-                <td>' . $donation->pdf_url . '</td>
-                
-
-                
+                <td>
+                  <p><a href="'.$donation->pdf_url.'" id="' . $donation->id . '" class="btn btn-danger text-white" data-bs-target="#"><i class="fa fa-print"></i></a></p>
+                </td>
               </tr>';
 			}
 			$output .= '</tbody></table>';

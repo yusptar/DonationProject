@@ -72,21 +72,21 @@
                                             <div class="col-6 mt-3">
                                                 <div class="bg-dark p-10 text-white text-center">
                                                     <i class="mdi mdi-clipboard-flow mb-1 font-16"></i>
-                                                    <h5 class="mb-0 mt-1">Rp. {{$jumlah_online}}, 00</h5>
+                                                    <h5 class="mb-0 mt-1">Rp. {{ number_format($jumlah_online, 0) }},00</h5>
                                                     <small class="font-light">Donasi Transfer</small>
                                                 </div>
                                             </div>
                                             <div class="col-6 mt-3">
                                                 <div class="bg-dark p-10 text-white text-center">
                                                     <i class="mdi mdi-receipt mb-1 font-16"></i>
-                                                    <h5 class="mb-0 mt-1">Rp. {{$jumlah_offline}}, 00</h5>
+                                                    <h5 class="mb-0 mt-1">Rp. {{ number_format($jumlah_offline, 0) }},00</h5>
                                                     <small class="font-light">Donasi Offline</small>
                                                 </div>
                                             </div>
                                             <div class="col-6 mt-3">
                                                 <div class="bg-dark p-10 text-white text-center">
                                                     <i class="mdi mdi-account-plus g mb-1 font-16"></i>
-                                                    <h5 class="mb-0 mt-1">Rp. {{$total}}, 00</h5>
+                                                    <h5 class="mb-0 mt-1">Rp. {{ number_format($total, 0) }},00</h5>
                                                     <small class="font-light">Total Donasi</small>
                                                 </div>
                                             </div>

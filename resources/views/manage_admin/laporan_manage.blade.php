@@ -34,8 +34,12 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Silahkan Klik Tombol Berikut</h5>
-                                <p><a href="cetakpdf" class="btn btn-danger text-white" target=""><i class="fa fa-print"></i> Lihat Data Masuk Donasi</a></p>
+                                <h5 class="card-title">Silahkan klik tombol berikut</h5>
+                                
+                                <p><a href="cetakpdf" class="btn btn-danger text-white" target=""><i class="fa fa-print"></i> Lihat Data Masuk Donasi (.pdf)</a></p>
+                                <h5 class="card-title">Atau tombol berikut</h5>    
+                                <p><a href="#" class="btn btn-success text-white" target=""><i class="fa fa-print"></i> Lihat Data Masuk Donasi (.xlsx)</a></p>
+                               
                             </div>
                         </div>
                     </div>

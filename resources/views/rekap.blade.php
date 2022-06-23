@@ -57,7 +57,7 @@
 				<td>{{$o->donatur_email}}</td>
 				<td>{{$o->donatur_phone}}</td>
 				<td>{{$o->message}}</td>
-				<td>Rp. {{$o->nominal}},00</td>
+				<td> Rp. {{ number_format($o->nominal, 0) }}</td>
 			</tr>
 			@endforeach
 		</tbody>
@@ -69,7 +69,7 @@
 		<thead>
 			<tr>
 				<th>TOTAL</th>
-				<th>Rp. {{ $total }},00</th>
+				<th> Rp. {{ number_format($total, 0) }}</th>
 			</tr>
 		</thead>
 	</table>
@@ -102,7 +102,7 @@
 				<td>{{$of->nama}}</td>
 				<td>{{$of->nohp}}</td>
 				<td>{{$of->doa}}</td>
-				<td>Rp. {{$of->nominal}},00</td>
+				<td> Rp. {{ number_format($of->nominal, 0) }}</td>
 			</tr>
 			@endforeach
 		</tbody>
@@ -112,7 +112,7 @@
 		<thead>
 			<tr>
 				<th>TOTAL</th>
-				<th>Rp. {{ $totalo }},00</th>
+				<th> Rp. {{ number_format($totalo, 0) }}</th>
 			</tr>
 		</thead>
 	</table>
@@ -125,7 +125,7 @@
 		<thead>
 			<tr>
 				<th>TOTAL MASUK UANG DONASI</th>
-				<th>Rp. {{ $total_semua }},00</th>
+				<th> Rp. {{ number_format($total_semua, 0) }}</th>
 			</tr>
 		</thead>
 	</table>
