@@ -20,7 +20,7 @@ class PengasuhController extends Controller
     public function index()
     {
         $data_santri = Santri::all();
-        $data_donatur = User::paginate(5)->where('roles', 'Donatur');
+        $data_donatur = User::all()->where('roles', 'Donatur');
         $donasi_donatur = Donation::where('donatur_id', Auth::user()->id)->latest()->sum('gross_amount');
         return view('pengasuh.pengasuh', compact('data_santri', 'data_donatur', 'donasi_donatur'));
     }
