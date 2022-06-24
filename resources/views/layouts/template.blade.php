@@ -86,18 +86,13 @@
               <li><a class="nav-link scrollto" href="#contact">Hubungi Kami</a></li>
               @endcannot
               @endcannot
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-          </nav><!-- .navbar -->
-          @guest
-            @if (Route::has('login'))
-              <li class="nav-item">
+              @guest
+              @if (Route::has('login'))
+              <li class="nav-link scrollto">
                   <a class="get-started-btn scrollto" href="{{ route('login') }}">{{ __('Masuk/Daftar') }}</a>
               </li>
-            @endif
-            @else
-              <nav id="navbar" class="navbar order-last order-lg-0">
-                <ul>
+              @endif
+              @else
                   <li class="dropdown">
                       <a href="#" role="button" data-bs-toggle="dropdown">
                       @if(Auth::user()->image)
@@ -125,10 +120,10 @@
                           @endcan
                       </ul>
                   </li>
-          @endguest  
-                </ul>
-                    <i class="bi bi-list mobile-nav-toggle"></i>
-              </nav><!-- .navbar -->                       
+              @endguest     
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->                 
         </div>
       </div>
     </div>
