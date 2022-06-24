@@ -1065,7 +1065,7 @@ section {
   font-weight: 700;
 }
 .counts .counters span {
-  margin-left: 260px;
+  margin: auto ;
   font-size: 48px;
   display: block;
   font-weight: 700;
@@ -1074,7 +1074,7 @@ section {
 .counts .counters p {
   
   padding: 0;
-  margin-left: 250px;
+  margin-left: auto ;
   font-family: "Raleway", sans-serif;
   font-size: 14px;
   color: #fff;
@@ -1460,7 +1460,7 @@ section {
   font-size: 15px;
   font-style: italic;
   font-family: "Open Sans", sans-serif;
-  margin-left: 920px;
+  margin: auto auto;
 }
 
 .pricing .box h4 sup {

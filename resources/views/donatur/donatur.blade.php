@@ -43,10 +43,10 @@
 
       .form-donasi {
         background-color: #f2f2f2;
-        padding: 30px 30px 30px 30px;
+        padding: 20px 20px 20px 20px;
         border: 1px solid lightgrey;
         border-radius: 10px;
-        margin-left: 300px;
+        margin: auto auto;
       }
 
       .logo-form {
@@ -119,14 +119,11 @@
               <br>
               <label class="form-label">
                   <input  checked="checked" type="checkbox">
-                  <span class="text-anonymous">Saya menyatakan donasi yang dititipkan melalui Yayasan At-Taufiq Malang bukan bersumber dari dan bertujuan untuk pencucian uang, dana kegiatan terorisme, organisasi teroris atau teroris, maupun tindak kejahatan lainnya baik secara langsung maupun tidak langsung.</span>
+                  <span class="text-anonymous">Saya menyatakan donasi yang dititipkan melalui Yayasan At-Taufiq Malang bukan bersumber dari dan bertujuan untuk pencucian uang, dana kegiatan terorisme, organisasi teroris atau teroris, maupun tindak kejahatan lainnya baik secara langsung maupun tidak langsung ( Pembayaran donasi ditujukan ke rekening atas nama Yayasan At-Taufiq Malang )</span>
               </label>
               <br><br>
               <div class="text-center"><button class="button" style="vertical-align:middle" type="submit" class="btn btn-primary"><span>Konfirmasi Donasi</span></button></div>
             </form>
-          </div>
-          <div class="col-lg-5 mt-lg-5 form-donasi">
-            <span class="text-footer">Pembayaran donasi ditujukan ke rekening atas nama Yayasan At-Taufiq Malang.</span>
           </div>
         </div>
       </div>

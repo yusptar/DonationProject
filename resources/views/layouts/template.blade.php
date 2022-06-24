@@ -93,8 +93,7 @@
               </li>
               @endif
               @else
-              <nav id="navbar" class="navbar order-last order-lg-0">
-                <ul>
+             
                   <li class="dropdown">
                       <a href="#" role="button" data-bs-toggle="dropdown">
                       @if(Auth::user()->image)
@@ -122,8 +121,7 @@
                           @endcan
                       </ul>
                   </li>
-                  @endguest  
-            
+                  @endguest   
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav><!-- .navbar -->                 
