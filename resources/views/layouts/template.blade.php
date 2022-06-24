@@ -88,11 +88,13 @@
               @endcannot
               @guest
               @if (Route::has('login'))
-              <li class="nav-link scrollto">
+              <li class="nav-item">
                   <a class="get-started-btn scrollto" href="{{ route('login') }}">{{ __('Masuk/Daftar') }}</a>
               </li>
               @endif
               @else
+              <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
                   <li class="dropdown">
                       <a href="#" role="button" data-bs-toggle="dropdown">
                       @if(Auth::user()->image)
@@ -120,7 +122,8 @@
                           @endcan
                       </ul>
                   </li>
-              @endguest     
+                  @endguest  
+            
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav><!-- .navbar -->                 
