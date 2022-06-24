@@ -8,6 +8,7 @@ use App\Models\Santri;
 use App\Models\Donation;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class PengasuhController extends Controller
 {
@@ -19,8 +20,9 @@ class PengasuhController extends Controller
     public function index()
     {
         $data_santri = Santri::all();
-        $data_donatur = User::all()->where('roles', 'Donatur');
-        return view('pengasuh.pengasuh', compact('data_santri', 'data_donatur'));
+        $data_donatur = User::paginate(5)->where('roles', 'Donatur');
+        $donasi_donatur = Donation::where('donatur_id', Auth::user()->id)->latest()->sum('gross_amount');
+        return view('pengasuh.pengasuh', compact('data_santri', 'data_donatur', 'donasi_donatur'));
     }
     public function index_table()
     {

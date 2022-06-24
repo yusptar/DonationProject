@@ -15,7 +15,11 @@
           @foreach($data_santri as $ds)
           <div class="col-lg-3 col-md-4 col-xs-6 text-center">
             <div class="client-logo">
+              @if(!empty($ds->image))
               <img src="{{ url('storage/images/'.$ds->image) }}" class="rounded-circle" width="120" height="120">
+              @else
+              <img src="{{ asset('user/assets/img/default.jpg')}}" class="rounded-circle" width="120" height="120">
+              @endif 
             </div>
             <br>
             <p><strong>{{ $ds->nama }}</strong><br>
@@ -42,11 +46,15 @@
           @foreach($data_donatur as $dd)
           <div class="col-lg-3 col-md-4 col-xs-6 text-center">
             <div class="donatur-client-logo">
+              @if(!empty($dd->image))
               <img src="{{ url('storage/images/'.$dd->image) }}" class="rounded-circle" width="120" height="120">
+              @else
+              <img src="{{ asset('user/assets/img/default.jpg')}}" class="rounded-circle" width="120" height="120">
+              @endif
             </div>
             <br>
             <p><strong>{{ $dd->name }}</strong><br>
-                Jumlah Donasi, Rp. 120.000
+                Jumlah Donasi, Rp. {{ number_format($donasi_donatur, 0) }}
             </p>
           </div>
           @endforeach
