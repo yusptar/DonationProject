@@ -4,10 +4,10 @@
 <!-- Sign in Form -->
     <section class="sign-in">
             <div class="container">
-                <div class="signin-content">
+                <div class="signup-content">
                     
 
-                    <div class="signin-form">
+                    <div class="signup-form">
                         <h2 class="form-title">Sign in</h2>
                         <form method="POST" action="{{ route('login') }}">
                         @csrf
