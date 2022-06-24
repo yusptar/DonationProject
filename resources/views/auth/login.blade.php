@@ -5,10 +5,7 @@
     <section class="sign-in">
             <div class="container">
                 <div class="signin-content">
-                    <div class="signin-image">
-                        <a href="/"><img src="{{ asset('user/assets/img/logotext.png') }}" alt="sing in image"></a>
-                        <a href="{{ route('register') }}" class="signup-image-link">Belum mempunyai akun? Daftar segera<br>( Sign Up )</a>
-                    </div>
+                    
 
                     <div class="signin-form">
                         <h2 class="form-title">Sign in</h2>
@@ -46,8 +43,11 @@
                                     <input type="submit" name="signin" id="signin" class="form-submit" value="Masuk"></input>
                             </div>
                         </form>
-                        </div>
                     </div>
+                    <div class="signup-image">
+                        <a href="/"><img src="{{ asset('user/assets/img/logotext.png') }}" alt="sing up image"></a>
+                        <a href="{{ route('register') }}" class="signup-image-link">Belum mempunyai akun? Daftar segera<br>( Sign Up )</a>
+                    </div>   
                 </div>
             </section>
         </div>  
