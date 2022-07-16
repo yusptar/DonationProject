@@ -28,7 +28,9 @@ use App\Http\Controllers\LaporanController;
 
 // ------------------- AUTHENTICATION PAGE ------------------ //
 
-Auth::routes();
+Route::middleware(['middleware' => 'pvb'])->group(function () {
+    Auth::routes();
+});
 
 // ------------------- VIEW ALL USER PAGE ------------------ //
 
@@ -42,7 +44,7 @@ Route::post('payment', [HomeController::class, 'payment_post']);
 
 // ------------------- DONATUR PAGE ------------------ //
 
-Route::group(['prefix' => 'donatur','middleware' => 'auth'], function () {
+Route::group(['prefix' => 'donatur','middleware' => ['donatur' , 'auth', 'pvb']], function () {
     Route::get('home', [DonaturController::class, 'index'])->name('donatur');
     Route::get('profile', [ProfileController::class, 'index'])->name('profile-donatur');
     Route::post('profile', [ProfileController::class, 'update'])->name('update-donatur');
@@ -56,7 +58,7 @@ Route::post('/confirmDonasi', [DonaturController::class, 'confirmDonasi']);
 
 // ------------------- PENGASUH PAGE ------------------ //
 
-Route::group(['prefix' => 'pengasuh', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'pengasuh', 'middleware' => ['pengasuh', 'auth', 'pvb']], function () {
     Route::get('home', [PengasuhController::class, 'index'])->name('pengasuh');
     Route::get('profile', [ProfilePengasuhController::class, 'index'])->name('profile-pengasuh');
     Route::post('profile', [ProfilePengasuhController::class, 'update'])->name('update-pengasuh');
@@ -66,7 +68,7 @@ Route::group(['prefix' => 'pengasuh', 'middleware' => 'auth'], function () {
 
 // ------------------- ADMIN PAGE ------------------- //
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['admin', 'auth', 'pvb']], function () {
 
     Route::get('admin', [AdminController::class, 'user_view'])->name('admin');
     Route::get('dashboard', [AdminController::class, 'dashboard_view'])->name('dashboard');
