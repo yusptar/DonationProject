@@ -63,6 +63,13 @@
         
       }
       
+      .pricing .riwayat h7 {
+          font-size: 14px;
+          font-style: italic;
+          font-family: "Open Sans", sans-serif;
+          margin-left: auto auto;
+        }
+      
     </style>
  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -128,8 +135,8 @@
             <div class="icon-box">
               <img src="{{ url('storage/images/'.$b->image) }}" class="responsive" alt="">
               <br><br>
-              <h4><a href="{{ '/detail-berita/'.$b->slug }}">{{ $b->title }}</a></h4>
-              <p>{{ Str::limit($b->description, 220) }}<a href="{{ '/detail-berita/'.$b->slug }}" style="font-weight: bold;">Read More &rarr;</a></p>
+              <h4><a href="{{ 'detail-berita/'.$b->slug }}">{{ $b->title }}</a></h4>
+              <p>{{ Str::limit($b->description, 220) }}<a href="{{ 'detail-berita/'.$b->slug }}" style="font-weight: bold;">Read More &rarr;</a></p>
               <br>
               <p>Tanggal Publikasi, {!! date('d M Y', strtotime($b->created_at)) !!}</p>
             </div>
@@ -174,14 +181,33 @@
       <div class="container">
         <div class="section-title">
           <h2>Donasi</h2>
-          <p>Formulir donasi online untuk Yayasan At-Taufiq Malang</p>
+          <h5 style="font-weight: bold;">Formulir donasi online untuk Yayasan At-Taufiq Malang</h5>
         </div>
       </div>
 
       <div class="container">
+        <h7>Yuk bantu merajut masa depan anak yatim agar bisa hidup dengan layak, dengan cara?</h7>
+        <br><br>
+        <li>Isi form donasi berikut atau login, lalu konfirmasi pembayaran</li>
+        <li>Pilih metode pembayaran<br>
+          <img src="https://tumpi.id/wp-content/uploads/2017/06/Logo-Bank-BNI.png.webp" width="100px" height="35px"></img>&nbsp;&nbsp;
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/BANK_BRI_logo.svg" width="100px" height="35px"></img>&nbsp;&nbsp;
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" width="100px" height="35px"></img>&nbsp;&nbsp;&nbsp;&nbsp;
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg" width="100px" height="35px"></img>&nbsp;&nbsp;
+          <img src="https://1.bp.blogspot.com/-EmJLucvvYZw/X0Gm1J37spI/AAAAAAAAC0s/Dyq4-ko9Eecvg0ostmowa2RToXZITkbcQCLcBGAsYHQ/s400/Logo%2BShopeePay.png" width="100px" height="65px"></img>&nbsp;
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Logo_Indomaret.png" width="100px" height="35px"></img>&nbsp;&nbsp;
+        </li>
+        <li>Transfer sesuai <strong>virtual account bank</strong> atau <strong>kode pembayaran</strong> untuk memudahkan sistem 
+           dalam pembacaan transaksi sehingga tepat akad dan tepat sasaran dalam penyalurannya</li>
+        <br>
+        <p>Disclaimer:</p>
+        <p>Fundrising ini merupakan bagian dari program bantuan biaya hidup yang mana penghimpunannya akan di salurkan untuk pemenuhan kebutuhan hidup masyarakat dhuafa. 
+           Dana yang terhimpun akan di salurkan untuk Yayasan At-Taufiq Malang.</P>
+        <a href="https://api.whatsapp.com/send?phone=6285895634801" target="_blank"><i class="bx bxl-whatsapp"></i>WhatsApp&nbsp;:&nbsp;(Admin) 0858-9563-4801</a>
+        <br><br>
         <div class="row">
           <div class="col-lg-5 mt-lg-0 form-donasi">
-            <form method="GET" action="/payment" >
+            <form method="GET" action="{{ route('payment-home') }}" >
               <div class="row">
                 <img  src="{{ asset('user/assets/img/logotext.png') }}">
                 <a href="https://api.whatsapp.com/send?phone=6285895634801"class="logo-form" target="_blank">Jika ingin melakukan donasi hubungi nomer<br>
@@ -200,15 +226,18 @@
                 <div class="col-md-6 form-group mt-3 mt-md-0">
                   <label for="donatur_email" class="form-label"><i class="fa fa-envelope"></i> E-mail <strong>*</strong></label>
                   <input type="email" class="form-control" name="donatur_email" id="donatur_email" placeholder="Masukkan Email"  required>
+                  <span class="text-anonymous">Contoh Pengisian : contoh@mail.com</span>
                 </div>
               </div>
               <div class="form-group mt-3">
                 <label for="donatur_phone" class="form-label"><i class="fa fa-phone"></i> Nomer HP</label>
-                <input type="text" class="form-control" name="donatur_phone" placeholder="Masukkan Nomer HP">
+                <input type="tel" pattern="(?:\+62)?0?8\d{2}(\d{8})" class="form-control" name="donatur_phone" placeholder="Masukkan Nomer HP">
+                <span class="text-anonymous">Format Pengisian : 08xxxxxxxxxx / +62xxxxxxxxxxx (12 digit)</span>
               </div>
               <div class="form-group mt-3">
                 <label for="nominal" class="form-label"><i class="fa fa-money"></i> Nominal Donasi <strong>*</strong></label>
-                <input type="text" class="form-control" name="nominal" placeholder="Rp. " required>
+                <input type="number" min="1000" class="form-control" name="nominal" placeholder="Rp. " required>
+                <span class="text-anonymous">Min Nominal : Rp.1000,00</span>
               </div>
               <div class="form-group mt-3">
                 <label for="message" class="form-label"><i class="fa fa-commenting"></i> Pesan ( Opsional )</label>
@@ -246,7 +275,11 @@
             <div class="riwayat">  
                 <div class="comment mt-4 text-justify float-left">
                     <h4>
-                        <img src="{{ asset('user/assets/img/default.jpg')}}" alt="" class="rounded-circle" width="60" height="60"> 
+                        @if(!empty(Auth::user()->image))
+                          <img src="{{ url('storage/images/'.$d->image) }}" alt="" class="rounded-circle" width="60" height="60">
+                        @else
+                          <img src="{{ asset('user/assets/img/default.jpg')}}" alt="" class="rounded-circle" width="60" height="60">
+                        @endif
                         @if($d->isNameHidden) 
                           &nbsp;   Hamba Allah
                         @else
@@ -256,7 +289,7 @@
                     </h4>
                     <h5>Berdonasi sebesar <strong>Rp. {{ number_format($d->nominal, 0) }}</strong></h5>
                     <p>{{ $d->message }}</p>
-                    <h6>{{ $d->created_at->format('d M Y') }}<h6>
+                    <h7>{{ $d->created_at->format('d M Y') }}<h7>
                 </div>    
             </div>
           </div>
@@ -291,10 +324,9 @@
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
-              <!-- <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li> -->
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-card">2022</li>
+              <li data-filter=".filter-web">2000-2021</li>
             </ul>
           </div>
         </div>
@@ -307,7 +339,7 @@
               <h4>{{ $k->title}}</h4>
               <p>Tanggal Publikasi, {!! date('d M Y', strtotime($k->created_at)) !!}</p>
               <a href="{{ url('storage/images/'.$k->image) }}" data-gallery="portfolioGallery" class="responsive portfolio-lightbox preview-link" title="{{ $k->title }}"><i class="bx bx-plus"></i></a>
-              <a href="{{ '/detail-kegiatan/'.$k->slug }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="{{ 'detail-kegiatan/'.$k->slug }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
           @endforeach
@@ -339,11 +371,6 @@
             <span data-purecounter-start="0" data-purecounter-end="{{ $jumlah_pengasuh }}" data-purecounter-duration="1" class="purecounter"></span>
             <p>Pengasuh</p>
           </div>
-
-          <!-- <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-            <p>MAHASISWA</p>
-          </div> -->
 
         </div>
 

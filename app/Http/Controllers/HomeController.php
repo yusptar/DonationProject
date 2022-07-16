@@ -54,7 +54,7 @@ class HomeController extends Controller
 
         $params = array(
           'transaction_details' => array(
-              'order_id' => rand(),
+              'order_id' => 'OD-'.date('Ymd').rand(1111,9999),
               'gross_amount' => $request->get('nominal'),
           ),
           'customer_details' => array(
@@ -93,7 +93,12 @@ class HomeController extends Controller
 
         $donasi->save();
 
-        Alert::success('Transaksi Berhasil Dibuat<br>شُكْرًا');
-        return redirect()->back();
+        if ($donasi->status == 'settlement') {
+            Alert::success('Transaksi Berhasil', 'شُكْرًا');
+            return redirect()->back();
+          }elseif($donasi->status == 'pending') {
+            Alert::info('Transaksi Pending');
+            return redirect()->back();
+          }
     }
 }
