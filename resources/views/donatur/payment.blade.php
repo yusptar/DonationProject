@@ -62,7 +62,7 @@
                     <div class="signin-form">
                         <script type="text/javascript"
                             src="https://app.sandbox.midtrans.com/snap/snap.js"
-                            data-client-key="SB-Mid-client-lOU-nqejVx4PsFu2">
+                            data-client-key="SB-Mid-client-fSW1kufnC6UkZ0G6">
                         </script>
                         <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
                         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
