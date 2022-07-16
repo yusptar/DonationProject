@@ -3,12 +3,39 @@
 
 <head>
 
-  <style>
+<style>
   .responsive {
     width: 100%;
     max-width: 400px;
     height: auto;
   }
+  
+  .profile-auth{
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+    .get-started-btn1 {
+      margin-left: 25px;
+      background: #00b371;
+      color: #fff;
+      border-radius: 50px;
+      padding: 8px 25px 9px 25px;
+      white-space: nowrap;
+      transition: 0.3s;
+      font-size: 14px;
+      display: inline-block;
+    }
+    .get-started-btn1:hover {
+      background: #00b371;
+      color: #fff;
+    }
+    @media (max-width: 992px) {
+      .get-started-btn1 {
+        margin: 0 15px 0 0;
+        padding: 6px 18px;
+      }
+    }
   </style>
 
   <meta charset="utf-8">
@@ -52,67 +79,63 @@
 
           <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-              <!-- @can('admin')
-              <li><a class="nav-link scrollto" href="#">Data User</a></li>
-              <li><a class="nav-link scrollto" href="#">Riwayat Donasi</a></li>
-              <li><a class="nav-link scrollto" href="#">Cetak Laporan</a></li>
-              @endcan -->
-              @cannot('donatur')
-              @cannot('pengasuh')
-              <li><a class="nav-link scrollto active" href="#user">Home</a></li>
+            <li><a class="nav-link scrollto active" href="#user">Home</a></li>
               <li><a class="nav-link scrollto" href="#profile">Profil</a></li>
-              @endcannot
-              @endcannot
-
-              @can('donatur')   
-              <li><a class="nav-link scrollto" href="#contact">Donasi</a></li>
-              <li><a class="nav-link scrollto" href="#pricing">Riwayat Donasi</a></li>
-              @endcan
-
-              @can('pengasuh')
-              <li><a class="nav-link scrollto" href="#clients">Data Santri</a></li>   
-              <li><a class="nav-link scrollto" href="#donatur-clients">Data Donatur</a></li>
-              @endcan
-
-              @cannot('donatur')
-              @cannot('pengasuh')
               <li class="dropdown"><a href="#"><span>Informasi</span><i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a class="nav-link scrollto" href="#portfolio">Galeri Kegiatan</a></li>
                   <li><a class="nav-link scrollto" href="#services">Berita</a></li>
                   <li><a class="nav-link scrollto" href="#pricing">Donasi</a></li>
+                  @can('pengasuh')
+                  <li><a class="nav-link scrollto" href="#clients">Data Santri</a></li>   
+                  <li><a class="nav-link scrollto" href="#donatur-clients">Data Donatur</a></li>
+                  @endcan
                 </ul>
               </li>
               <li><a class="nav-link scrollto" href="#contact">Hubungi Kami</a></li>
-              @endcannot
-              @endcannot
-              @guest
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+           @guest
               @if (Route::has('login'))
               <li class="nav-item">
-                  <a class="get-started-btn scrollto" href="{{ route('login') }}">{{ __('Masuk/Daftar') }}</a>
+                  <a class="get-started-btn1 scrollto" href="{{ route('login') }}">{{ __('Masuk/Daftar') }}</a>
               </li>
               @endif
               @else
-             
+              <div class="profile-auth">
+                <nav id="navbar" class="navbar order-last order-lg-0">
                   <li class="dropdown">
                       <a href="#" role="button" data-bs-toggle="dropdown">
-                      @if(Auth::user()->image)
+                      @if(!empty(Auth::user()->image))
                           <img class="image rounded-circle" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="profile_image" style="width: 60px;height: 60px; padding: 10px; margin: 0px; ">
+                      @else
+                          <img class="image rounded-circle" src="{{ asset('user/assets/img/default.jpg')}}" alt="profile_image" style="width: 60px;height: 60px; padding: 10px; margin: 0px; ">
                       @endif
                           <span>{{ Auth::user()->name }}</span><i class="bi bi-chevron-down"></i>
                       </a>
                       <ul>
-                          @can('donatur')       
-                          <li><a class="nav-link scrollto" href="/home/profile">Profile Saya</a></li>
-                          <li><a class="nav-link scrollto" href="/home/donasi-saya">Donasi Saya</a></li>
+                          @can('admin')
+                          <li><a class="nav-link scrollto" href="{{ route('dashboard') }}">Dashboard</a></li>       
                           <li><a class="nav-link scrollto" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>
                               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                               </form>
                           </li>
                           @endcan
-                          @can('pengasuh')       
-                          <li><a class="nav-link scrollto" href="/dashboard-pengasuh/profile-pengasuh">Profile Saya</a></li>
+                          @can('donatur')
+                          <li><a class="nav-link scrollto" href="{{ route('donatur') }}">Dashboard</a></li>       
+                          <li><a class="nav-link scrollto" href="{{ route('profile-donatur') }}">Profile Saya</a></li>
+                          <li><a class="nav-link scrollto" href="{{ route('list-donasi') }}">Donasi Saya</a></li>
+                          <li><a class="nav-link scrollto" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                              </form>
+                          </li>
+                          @endcan
+                          @can('pengasuh')
+                          <li><a class="nav-link scrollto" href="{{ route('pengasuh') }}">Dashboard</a></li>       
+                          <li><a class="nav-link scrollto" href="{{ route('profile-pengasuh') }}">Profile Saya</a></li>
                           <li><a class="nav-link scrollto" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>
                               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
@@ -121,10 +144,9 @@
                           @endcan
                       </ul>
                   </li>
-                  @endguest   
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-          </nav><!-- .navbar -->                 
+                  @endguest
+              </nav>
+            </div>        
         </div>
       </div>
     </div>

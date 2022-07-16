@@ -29,45 +29,25 @@
                 <a href="{{ route('donatur') }}" class="previous"><strong>&laquo; Kembali</strong></a>
                 <div class="signin-content">
                     <div class="profile-image">
+                        @if(!empty($user->image))
                         <div class="mt-2" id="image">
-                            <img src="{{ url('storage/images/'.$user->image) }}" style="width: 250px; height: 250px; border-radius:50%; margin-left:50px;">
+                            <img src="{{ url('storage/images/'.$user->image) }}" class="img-fluid" alt="Responsive image" style="width:250px; height:250px; border-radius:50%;">
                         </div>
+                        @else
+                        <div class="mt-2" id="image">
+                            <img src="{{ asset('user/assets/img/default.jpg')}}" class="img-fluid" alt="Responsive image" style="width:250px; height:250px; border-radius:50%;">
+                        </div>
+                        @endif
                     </div>
   
                     <div class="signin-form">
-                    <!-- <h2 class="form-title">{{ $user->name }}'s Profile</h2>
-                        <form>
-                   
-                            <div class="form-group">
-                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input id="name" type="name" class="form-control" name="name" value="{{ $user->name }}" readonly>
-                                  
-                            </div>
-                            <div class="form-group">
-                                <label for="email"><i class="zmdi zmdi-email material-icons-name"></i></label>
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" readonly> 
-                            </div>
-                            <div class="form-group">
-                                <label for="alamat"><i class="zmdi zmdi-home material-icons-name"></i></label>
-                                    <input id="alamat" type="alamat" class="form-control" name="alamat" value="{{ $user->alamat }}" readonly> 
-                            </div>
-                            <div class="form-group">
-                                <label for="nohp"><i class="zmdi zmdi-phone material-icons-name"></i></label>
-                                    <input id="nohp" type="nohp" class="form-control" name="nohp" value="{{ $user->nohp }}" readonly> 
-                            </div>
-                            <div class="form-group">
-                                <label for="instansi"><i class="zmdi zmdi-pin-drop material-icons-name"></i></label>
-                                    <input id="instansi" type="instansi" class="form-control" name="instansi" value="{{ $user->instansi }}" readonly> 
-                            </div>                  
-                        </form>
-                        <br><br> -->
                         <h2 class="form-title">{{ $user->name }}'s Profile</h2>
-                        <form method="POST" action="{{ route('update') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('update-donatur') }}" enctype="multipart/form-data">
                             
                             @csrf
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" autocomplete="name" autofocus>
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" autocomplete="name" autofocus>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -85,7 +65,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="alamat"><i class="zmdi zmdi-home material-icons-name"></i></label>
-                                    <input id="alamat" type="alamat" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ $user->alamat }}" placeholder="Masukkan Alamat">
+                                    <input id="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ $user->alamat }}" placeholder="Masukkan Alamat">
                                     @error('alamat')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -94,7 +74,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="nohp"><i class="zmdi zmdi-phone material-icons-name"></i></label>
-                                    <input id="nohp" type="nohp" class="form-control @error('nohp') is-invalid @enderror" name="nohp" value="{{ $user->nohp }}" placeholder="Masukkan No Handphone">
+                                    <input id="nohp" type="tel" pattern="(?:\+62)?0?8\d{2}(\d{8})" class="form-control @error('nohp') is-invalid @enderror" name="nohp" value="{{ $user->nohp }}" placeholder="Masukkan No Handphone">
                                     @error('nohp')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -103,7 +83,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="instansi"><i class="zmdi zmdi-pin-drop material-icons-name"></i></label>
-                                    <input id="instansi" type="instansi" class="form-control @error('instansi') is-invalid @enderror" name="instansi" value="{{ $user->instansi }}" placeholder="Masukkan Instansi">
+                                    <input id="instansi" type="text" class="form-control @error('instansi') is-invalid @enderror" name="instansi" value="{{ $user->instansi }}" placeholder="Masukkan Instansi">
                                     @error('instansi')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

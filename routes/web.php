@@ -34,33 +34,32 @@ Auth::routes();
 
 // First Home Screen
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/detail-kegiatan/{slug}', [HomeController::class, 'index_detail_kegiatan']);
-Route::get('/detail-berita/{slug}', [HomeController::class, 'index_detail_berita']);
-Route::get('/payment', [HomeController::class, 'payment']);
-Route::post('/payment', [HomeController::class, 'payment_post']);
+Route::get('detail-kegiatan/{slug}', [HomeController::class, 'index_detail_kegiatan']);
+Route::get('detail-berita/{slug}', [HomeController::class, 'index_detail_berita']);
+Route::get('payment', [HomeController::class, 'payment'])->name('payment-home');
+Route::post('payment', [HomeController::class, 'payment_post']);
 
 
 // ------------------- DONATUR PAGE ------------------ //
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['prefix' => 'donatur','middleware' => 'auth'], function () {
     Route::get('home', [DonaturController::class, 'index'])->name('donatur');
-    Route::get('/home/profile', [ProfileController::class, 'index']);
-    Route::post('/home/profile', [ProfileController::class, 'update'])->name('update');
-    Route::get('/home/payment', [DonaturController::class, 'payment']);
-    Route::post('/home/payment', [DonaturController::class, 'payment_post']);
-    Route::get('/home/donasi-saya', [DonaturController::class, 'pending_payment']);
-    Route::post('/home/donasi-saya', [DonaturController::class, 'pending_payment_post']);
-    Route::get('/home/cancel-donasi/{id}', [DonaturController::class, 'cancel_payment']);
-    // Route::get('/home/confirm-donasi/{id}', [DonaturController::class, 'confirm_payment']);
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile-donatur');
+    Route::post('profile', [ProfileController::class, 'update'])->name('update-donatur');
+    Route::get('payment', [DonaturController::class, 'payment'])->name('payment');
+    Route::post('payment', [DonaturController::class, 'payment_post']);
+    Route::get('list-donasi', [DonaturController::class, 'list_donasi'])->name('list-donasi');
+    Route::get('cancel-donasi/{id}', [DonaturController::class, 'cancel_payment']);
 });
 
+Route::post('/confirmDonasi', [DonaturController::class, 'confirmDonasi']);
 
 // ------------------- PENGASUH PAGE ------------------ //
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('dashboard-pengasuh', [PengasuhController::class, 'index'])->name('pengasuh');
-    Route::get('/dashboard-pengasuh/profile-pengasuh', [ProfilePengasuhController::class, 'index']);
-    Route::post('/dashboard-pengasuh/profile-pengasuh', [ProfilePengasuhController::class, 'update'])->name('update');
+Route::group(['prefix' => 'pengasuh', 'middleware' => 'auth'], function () {
+    Route::get('home', [PengasuhController::class, 'index'])->name('pengasuh');
+    Route::get('profile', [ProfilePengasuhController::class, 'index'])->name('profile-pengasuh');
+    Route::post('profile', [ProfilePengasuhController::class, 'update'])->name('update-pengasuh');
 });
 
 
