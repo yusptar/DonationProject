@@ -1,28 +1,28 @@
 @extends('layouts.app')
-
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
-
-                <div class="card-body">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
-                    @endif
-
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
+    <section class="sign-in">
+        <div class="container">
+            <div class="signin-content">
+                <div class="signin-image">
+                    <a href="{{ route('login') }}"><img src="https://attaufiqmlg.com/wp-content/uploads/2016/06/logotext.png" alt="responsive"></a>
+                </div>
+                <div class="signin-form">
+                    <h2 class="form-title">Verify Your<br>E-Mail Address</h2>
+                    {{ __('Sebelum melakukan login, mohon cek email anda untuk melakukan verifikasi pada link.') }}<br>
+                    {{ __('Jika anda tidak menerima notifikasi verifikasi email') }},
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
+                        <br>
+                    <button type="submit"  class="signup-image-link">{{ __('Klik disini untuk mengirim ulang verifikasi email anda') }}</button>.
                     </form>
+
+                    @if (session('resent'))
+                    <div class="alert alert-success" role="alert">
+                    {{ __('Link verfikasi terbaru sudah dikirim ke email anda, mohon cek kembali.') }}
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 @endsection

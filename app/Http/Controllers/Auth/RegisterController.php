@@ -79,7 +79,7 @@ class RegisterController extends Controller
         $user->roles = "Donatur";
 
         if ($user->save()) {
-            Alert::success('اَلْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ', 'Registrasi Berhasil');
+            Alert::success('Registrasi berhasil', 'silahkan verifikasi email anda pada saat melakukan login');
             return redirect()->route('login');
         } else {
             Alert::error('Registrasi Gagal');

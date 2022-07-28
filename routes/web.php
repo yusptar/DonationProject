@@ -17,7 +17,7 @@ use App\Http\Controllers\LaporanController;
 // ------------------- AUTHENTICATION PAGE ------------------ //
 
 Route::middleware(['middleware' => 'pvb'])->group(function () {
-    Auth::routes();
+    Auth::routes(['verify' => true]);
 });
 
 // ------------------- VIEW ALL USER PAGE ------------------ //
@@ -32,7 +32,7 @@ Route::post('payment', [HomeController::class, 'payment_post']);
 
 // ------------------- DONATUR PAGE ------------------ //
 
-Route::group(['prefix' => 'donatur','middleware' => ['donatur' , 'auth', 'pvb']], function () {
+Route::group(['prefix' => 'donatur','middleware' => ['donatur' , 'auth', 'pvb', 'verified']], function () {
     Route::get('home', [DonaturController::class, 'index'])->name('donatur');
     Route::get('profile', [ProfileController::class, 'index'])->name('profile-donatur');
     Route::post('profile', [ProfileController::class, 'update'])->name('update-donatur');
