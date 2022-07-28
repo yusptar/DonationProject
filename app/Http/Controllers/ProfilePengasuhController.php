@@ -21,6 +21,7 @@ class ProfilePengasuhController extends Controller
     {
     	$this->validate($request, [
             'password'  => 'confirmed',
+			'image' => 'mimes:jpg,jpeg,png',
         ]);
 
 		$fileName = '';

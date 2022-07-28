@@ -379,17 +379,22 @@
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
+      
       <div class="container">
-
         <div class="section-title">
-          <h2>Hubungi Kami</h2>
+          <h2>Lokasi Asrama Putra</h2>
+          <iframe style="border:0; width: 100%; height: 350px; margin-left: auto;" src="https://maps.google.com/maps?q=Merchant%20logo%20Foundation%20Orphans%20At-Taufiq%20Malang&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
 
-      <div>
-        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.3675542063033!2d112.64325231435855!3d-7.960914681538687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6283559d241ff%3A0x5daecb91ec6fb974!2sFoundation%20Orphans%20At-Taufiq%20Malang!5e0!3m2!1sen!2sid!4v1649730274508!5m2!1sen!2sid" frameborder="0" allowfullscreen></iframe>
-      </div>
 
+      <div class="container">
+        <div class="section-title">
+          <h2>Lokasi Asrama Putri</h2>
+          <iframe style="border:0; width: 100%; height: 350px; margin-left: auto;" src="https://maps.google.com/maps?q=Ma'had%20Putri%20AT-TAUFIQ%202%20Yayasan%20Anak%20Yatim%20At-Taufiq&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      
       <div class="container">
 
         <div class="row mt-5">
